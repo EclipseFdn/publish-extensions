@@ -1157,6 +1157,10 @@
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
+  "oven.bun-vscode": {
+    "repository": "https://github.com/oven-sh/bun",
+    "location": "packages/bun-vscode"
+  },
   "paiqo.databricks-vscode": {
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
