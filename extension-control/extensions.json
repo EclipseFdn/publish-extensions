@@ -36,6 +36,13 @@
         }
     ],
     "deprecated": {
+        "decodetalkers.neocmake-lsp-vscode": {
+            "disallowInstall": false,
+            "extension": {
+              "id": "decodetalkers.neocmakelsp-vscode",
+              "displayName": "CMake Language"
+            }
+        },
         "msjsdiag.debugger-for-chrome": {
             "disallowInstall": true,
             "extension": {
