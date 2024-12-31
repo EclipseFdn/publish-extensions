@@ -1568,6 +1568,9 @@
   "yzhang.markdown-all-in-one": {
     "repository": "https://github.com/yzhang-gh/vscode-markdown"
   },
+  "zeromicro.goctl":{
+    "repository": "https://github.com/zeromicro/goctl-vscode"
+  },
   "zhuangtongfa.material-theme": {
     "repository": "https://github.com/Binaryify/OneDark-Pro"
   },
