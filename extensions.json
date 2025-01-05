@@ -1412,6 +1412,9 @@
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
   },
+  "uncenter.better-tera": {
+    "repository": "https://github.com/uncenter/vscode-tera",
+  },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
   },
