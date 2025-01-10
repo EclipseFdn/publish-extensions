@@ -597,6 +597,9 @@
   "lextudio.restructuredtext": {
     "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
   },
+  "Linhmtran168.mac-ca-vscode": {
+    "repository": "https://github.com/linhmtran168/mac-ca-vscode"
+  },  
   "lintangwisesa.arduino": {
     "repository": "https://github.com/LintangWisesa/VScode-Arduino-Theme"
   },
