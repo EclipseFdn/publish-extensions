@@ -1356,6 +1356,9 @@
   "svipas.control-snippets": {
     "repository": "https://github.com/svipas/vscode-control-snippets"
   },
+  "sweetpad.sweetpad": {
+    "repository": "https://github.com/sweetpad-dev/sweetpad"
+  },
   "swellaby.rust-pack": {
     "repository": "https://github.com/swellaby/vscode-rust-pack"
   },
