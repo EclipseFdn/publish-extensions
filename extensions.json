@@ -1341,6 +1341,9 @@
   "sswg.swift-lang": {
     "repository": "https://github.com/swift-server/vscode-swift"
   },
+  "starfederation.datastar-vscode": {
+    "repository": "https://github.com/starfederation/datastar"
+  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
