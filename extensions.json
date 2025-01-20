@@ -1342,7 +1342,8 @@
     "repository": "https://github.com/swift-server/vscode-swift"
   },
   "starfederation.datastar-vscode": {
-    "repository": "https://github.com/starfederation/datastar"
+    "repository": "https://github.com/starfederation/datastar",
+    "location": "tools/vscode-extension",
   },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
