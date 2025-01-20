@@ -281,9 +281,6 @@
   "eamodio.gitlens": {
     "repository": "https://github.com/eamodio/vscode-gitlens"
   },
-  "eclipse-cdt.cdt-gdb-vscode": {
-    "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode"
-  },
   "ecmel.vscode-html-css": {
     "repository": "https://github.com/ecmel/vscode-html-css"
   },
