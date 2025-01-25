@@ -141,7 +141,7 @@
     "location": "packages/vscode-tailwindcss",
     "custom": [
       "npx -y pnpm install",
-      "cd packages/vscode-tailwindcss && npx -y vsce package --no-dependencies -o extension.vsix"
+      "cd packages/vscode-tailwindcss && vsce package --no-dependencies -o extension.vsix"
     ]
   },
   "BriteSnow.vscode-toggle-quotes": {
