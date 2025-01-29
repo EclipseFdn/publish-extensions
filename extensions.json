@@ -175,6 +175,9 @@
   "ckolkman.vscode-postgres": {
     "repository": "https://github.com/Borvik/vscode-postgres"
   },
+  "codesync.codesync": {
+    "repository": "https://github.com/codesyncapp/codesync-vs"
+  },
   "codezombiech.gitignore": {
     "repository": "https://github.com/CodeZombieCH/vscode-gitignore"
   },
