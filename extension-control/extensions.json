@@ -383,6 +383,13 @@
                 "id": "redhat.apache-camel-extension-pack",
                 "displayName": "Extension Pack for Apache Camel by Red Hat"
             }
+        },
+        "kleinesfilmroellchen.serenity-dsl-syntaxhighlight": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "kleinesfilmroellchen.serenity-dsl-syntaxhighlight",
+                "displayName": "SerenityOS DSL Syntax Highlight"
+            }
         }
     },
     "migrateToPreRelease": {
