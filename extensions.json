@@ -137,7 +137,12 @@
     "repository": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight"
   },
   "bradlc.vscode-tailwindcss": {
-    "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense"
+    "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense",
+    "location": "packages/vscode-tailwindcss",
+    "custom": [
+      "npx -y pnpm install",
+      "cd packages/vscode-tailwindcss && vsce package --no-dependencies -o extension.vsix"
+    ]
   },
   "BriteSnow.vscode-toggle-quotes": {
     "repository": "https://github.com/BriteSnow/vscode-toggle-quotes"
