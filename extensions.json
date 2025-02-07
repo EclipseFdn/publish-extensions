@@ -224,6 +224,10 @@
   "dcasella.monokai-plusplus": {
     "repository": "https://github.com/dcasella/monokai-plusplus"
   },
+  "deducteam.lambdapi": {
+    "repository": "https://github.com/Deducteam/lambdapi",
+    "custom": ["make build-vscode-extension"]
+  },
   "deerawan.vscode-faker": {
     "repository": "https://github.com/deerawan/vscode-faker"
   },
