@@ -290,6 +290,9 @@
   "efoerster.texlab": {
     "repository": "https://github.com/latex-lsp/texlab-vscode"
   },
+  "ekoecho.mustang": {
+    "repository": "https://github.com/ekoecho/mustang-vscode"
+  },
   "emmanuelbeziat.vscode-great-icons": {
     "repository": "https://github.com/EmmanuelBeziat/vscode-great-icons",
     "prepublish": "sed -ri \"s_git\\+https://_https://_g\" package.json"
