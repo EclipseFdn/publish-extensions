@@ -383,6 +383,13 @@
                 "id": "redhat.apache-camel-extension-pack",
                 "displayName": "Extension Pack for Apache Camel by Red Hat"
             }
+        },
+        "Boundary.baml-extension-preview": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "Boundary.baml-extension",
+                "displayName": "BAML"
+            }
         }
     },
     "migrateToPreRelease": {
