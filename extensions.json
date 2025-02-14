@@ -1359,6 +1359,9 @@
   "Swellaby.vscode-rust-test-adapter": {
     "repository": "https://github.com/swellaby/vscode-rust-test-adapter"
   },
+  "sysdig.sysdig-vscode-ext": {
+    "repository": "https://github.com/sysdiglabs/vscode-extension"
+  },
   "tanhakabir.rest-book": {
     "repository": "https://github.com/tanhakabir/rest-book"
   },
