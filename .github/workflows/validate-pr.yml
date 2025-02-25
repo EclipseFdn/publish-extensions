@@ -21,9 +21,9 @@ jobs:
         with:
           bun-version: latest
       - run: npm install
-      - run: npm i -g @vscode/vsce
+      - run: npm i -g @vscode/vsce pnpm
       - name: Set up pyenv
-        uses: "gabrielfalcao/pyenv-action@2f49ca7587f9d0663d13f1147b78d3361417eaf7"
+        uses: "gabrielfalcao/pyenv-action@32ef4d2c861170ce17ded56d10329d83f4c8f797"
         with:
             command: python --version
       - name: Set default global version
