@@ -1392,6 +1392,9 @@
   "tonsky.theme-alabaster": {
     "repository": "https://github.com/tonsky/vscode-theme-alabaster"
   },
+  "tonybaloney.vscode-pets": {
+    "repository": "https://github.com/tonybaloney/vscode-pets"
+  },
   "torn4dom4n.latex-support": {
     "repository": "https://github.com/AREA44/vscode-LaTeX-support"
   },
