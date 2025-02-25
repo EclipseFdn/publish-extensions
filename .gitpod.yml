@@ -1,5 +1,5 @@
 tasks:
   - init: |
-      npm i -g @vscode/vsce
+      npm i -g @vscode/vsce pnpm
       curl -fsSL https://bun.sh/install | bash
       npm i
