@@ -137,7 +137,12 @@
     "repository": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight"
   },
   "bradlc.vscode-tailwindcss": {
-    "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense"
+    "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense",
+    "location": "packages/vscode-tailwindcss",
+    "custom": [
+      "npx -y pnpm install",
+      "cd packages/vscode-tailwindcss && vsce package --no-dependencies -o extension.vsix"
+    ]
   },
   "BriteSnow.vscode-toggle-quotes": {
     "repository": "https://github.com/BriteSnow/vscode-toggle-quotes"
@@ -1386,6 +1391,9 @@
   },
   "tonsky.theme-alabaster": {
     "repository": "https://github.com/tonsky/vscode-theme-alabaster"
+  },
+  "tonybaloney.vscode-pets": {
+    "repository": "https://github.com/tonybaloney/vscode-pets"
   },
   "torn4dom4n.latex-support": {
     "repository": "https://github.com/AREA44/vscode-LaTeX-support"
