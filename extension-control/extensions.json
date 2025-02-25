@@ -1,6 +1,7 @@
 {
     "malicious": [
-        "kyntrack.log-matrix"
+        "kyntrack.log-matrix",
+        "bipro.bipro-dev"
     ],
     "search": [
         {
@@ -39,8 +40,8 @@
         "decodetalkers.neocmake-lsp-vscode": {
             "disallowInstall": false,
             "extension": {
-              "id": "decodetalkers.neocmakelsp-vscode",
-              "displayName": "CMake Language"
+                "id": "decodetalkers.neocmakelsp-vscode",
+                "displayName": "CMake Language"
             }
         },
         "msjsdiag.debugger-for-chrome": {
@@ -390,6 +391,27 @@
                 "id": "Boundary.baml-extension",
                 "displayName": "BAML"
             }
+        },
+        "lifeart.vscode-ember-unstable": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "EmberTooling.vscode-ember",
+                "displayName": "Ember Language Server"
+            }
+        },
+        "ms-vscode.azure-account": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "ms-azuretools.vscode-azureresourcegroups",
+                "displayName": "Azure Resources"
+            }
+        },
+        "adamcowley.neo4j-vscode": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "neo4j-extensions.neo4j-for-vscode",
+                "displayName": "Neo4j for VS Code"
+            }
         }
     },
     "migrateToPreRelease": {
@@ -400,6 +422,10 @@
         "ms-vscode.PowerShell-Preview": {
             "id": "ms-vscode.PowerShell",
             "displayName": "PowerShell"
+        },
+        "hediet.vscode-drawio-insiders-build": {
+            "id": "hediet.vscode-drawio",
+            "displayName": "Draw.io Integration"
         }
     },
     "extensionsEnabledWithPreRelease": []
