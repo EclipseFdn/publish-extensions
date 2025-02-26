@@ -1,7 +1,9 @@
 {
     "malicious": [
         "kyntrack.log-matrix",
-        "bipro.bipro-dev"
+        "bipro.bipro-dev",
+        "Equinusocio.vsc-material-theme",
+        "Equinusocio.vsc-material-theme-icons"
     ],
     "search": [
         {
