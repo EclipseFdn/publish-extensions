@@ -302,17 +302,6 @@
   "enkia.tokyo-night": {
     "repository": "https://github.com/enkia/tokyo-night-vscode-theme"
   },
-  "Equinusocio.vsc-community-material-theme": {
-    "repository": "https://github.com/material-theme/vsc-community-material-theme"
-  },
-  "Equinusocio.vsc-material-theme": {
-    "repository": "https://github.com/material-theme/vsc-material-theme",
-    "prepublish": "yarn build"
-  },
-  "equinusocio.vsc-material-theme-icons": {
-    "repository": "https://github.com/material-theme/vsc-material-theme-icons",
-    "prepublish": "yarn build"
-  },
   "erlang-ls.erlang-ls": {
     "repository": "https://github.com/erlang-ls/vscode",
     "prepublish": "npm run compile"
