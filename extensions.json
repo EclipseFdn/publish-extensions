@@ -813,6 +813,11 @@
           "VSCETARGET": "linux-x64"
         }
       },
+      "linux-armhf": {
+        "env": {
+          "VSCETARGET": "linux-armhf"
+        }
+      },
       "linux-arm64": {
         "env": {
           "VSCETARGET": "linux-arm64"
