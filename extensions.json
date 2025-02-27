@@ -837,6 +837,11 @@
         "env": {
           "VSCETARGET": "win32-x64"
         }
+      },
+      "win32-arm64": {
+        "env": {
+          "VSCETARGET": "win32-arm64"
+        }
       }
     }
   },
