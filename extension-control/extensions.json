@@ -297,7 +297,7 @@
         },
         "iocave.customize-ui": true,
         "iocave.monkey-patch": true,
-        "pranaygp.vscode-css-peek": true,
+        "pranaygp.vscode-css-peek": false,
         "redhat.vscode-wsdl2rest": true,
         "ms-vscode.node-debug2": true,
         "ms-vscode.node-debug": true,
