@@ -420,6 +420,20 @@
                 "id": "neo4j-extensions.neo4j-for-vscode",
                 "displayName": "Neo4j for VS Code"
             }
+        },
+        "KylinIdeTeam.debug": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-debug",
+                "displayName": "Kylin Debug"
+            }
+        },
+        "KylinIdeTeam.vscode-clangd": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-clangd",
+                "displayName": "Kylin Clangd"
+            }
         }
     },
     "migrateToPreRelease": {
