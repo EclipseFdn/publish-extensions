@@ -646,6 +646,9 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
+  "meta.pyrefly": {
+    "repository": "https://github.com/facebook/pyrefly"
+  },
   "miguelsolorio.fluent-icons": {
     "repository": "https://github.com/misolori/vscode-fluent-icons"
   },
