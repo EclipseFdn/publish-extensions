@@ -1583,5 +1583,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "node-view-vscode-plugin": {
+    "repository": "https://github.com/312472644/node-view-vscode-plugin"
   }
 }
