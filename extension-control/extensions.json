@@ -434,6 +434,20 @@
                 "id": "KylinIdeTeam.kylin-clangd",
                 "displayName": "Kylin Clangd"
             }
+        },
+        "KylinIdeTeam.project-manager": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-project-manager",
+                "displayName": "Kylin Project Manager"
+            }
+        },
+        "KylinIdeTeam.python": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-python",
+                "displayName": "Kylin Python(with jedi language server)"
+            }
         }
     },
     "migrateToPreRelease": {
