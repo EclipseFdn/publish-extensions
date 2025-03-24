@@ -434,6 +434,13 @@
                 "id": "KylinIdeTeam.kylin-clangd",
                 "displayName": "Kylin Clangd"
             }
+        },
+        "ms-vsts.team": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "ms-vsts.team",
+                "displayName": "Azure Repos"
+            }
         }
     },
     "migrateToPreRelease": {
