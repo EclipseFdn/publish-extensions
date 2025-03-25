@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4.2.0
+      - uses: actions/setup-node@v4.3.0
         with:
           node-version: "20.x"
       - uses: oven-sh/setup-bun@v2
@@ -93,7 +93,7 @@ jobs:
     if: ${{ !github.event.inputs.extensions }} # only run on full runs
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4.2.0
+      - uses: actions/setup-node@v4.3.0
         with:
           node-version: "18.x"
       - run: npm install
