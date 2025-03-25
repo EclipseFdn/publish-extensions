@@ -448,6 +448,13 @@
                 "id": "KylinIdeTeam.kylin-python",
                 "displayName": "Kylin Python(with jedi language server)"
             }
+        },
+        "ms-vsts.team": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "ms-vsts.team",
+                "displayName": "Azure Repos"
+            }
         }
     },
     "migrateToPreRelease": {
