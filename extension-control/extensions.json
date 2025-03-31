@@ -441,6 +441,13 @@
                 "id": "ms-vsts.team",
                 "displayName": "Azure Repos"
             }
+        },
+        "redhat.project-initializer": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "redhat.vscode-openshift-connector",
+                "displayName": "OpenShift Toolkit"
+            }
         }
     },
     "migrateToPreRelease": {
