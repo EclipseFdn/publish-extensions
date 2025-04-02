@@ -137,7 +137,12 @@
     "repository": "https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight"
   },
   "bradlc.vscode-tailwindcss": {
-    "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense"
+    "repository": "https://github.com/tailwindlabs/tailwindcss-intellisense",
+    "location": "packages/vscode-tailwindcss",
+    "custom": [
+      "npx -y pnpm install",
+      "cd packages/vscode-tailwindcss && vsce package --no-dependencies -o extension.vsix"
+    ]
   },
   "BriteSnow.vscode-toggle-quotes": {
     "repository": "https://github.com/BriteSnow/vscode-toggle-quotes"
@@ -281,9 +286,6 @@
   "eamodio.gitlens": {
     "repository": "https://github.com/eamodio/vscode-gitlens"
   },
-  "eclipse-cdt.cdt-gdb-vscode": {
-    "repository": "https://github.com/eclipse-cdt/cdt-gdb-vscode"
-  },
   "ecmel.vscode-html-css": {
     "repository": "https://github.com/ecmel/vscode-html-css"
   },
@@ -299,17 +301,6 @@
   },
   "enkia.tokyo-night": {
     "repository": "https://github.com/enkia/tokyo-night-vscode-theme"
-  },
-  "Equinusocio.vsc-community-material-theme": {
-    "repository": "https://github.com/material-theme/vsc-community-material-theme"
-  },
-  "Equinusocio.vsc-material-theme": {
-    "repository": "https://github.com/material-theme/vsc-material-theme",
-    "prepublish": "yarn build"
-  },
-  "equinusocio.vsc-material-theme-icons": {
-    "repository": "https://github.com/material-theme/vsc-material-theme-icons",
-    "prepublish": "yarn build"
   },
   "erlang-ls.erlang-ls": {
     "repository": "https://github.com/erlang-ls/vscode",
@@ -619,7 +610,7 @@
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
     "location": "vscode-client",
-    "prepublish": "yarn"
+    "prepublish": "pnpm clean && pnpm install"
   },
   "magicstack.MagicPython": {
     "repository": "https://github.com/MagicStack/MagicPython"
@@ -822,6 +813,11 @@
           "VSCETARGET": "linux-x64"
         }
       },
+      "linux-armhf": {
+        "env": {
+          "VSCETARGET": "linux-armhf"
+        }
+      },
       "linux-arm64": {
         "env": {
           "VSCETARGET": "linux-arm64"
@@ -840,6 +836,11 @@
       "win32-x64": {
         "env": {
           "VSCETARGET": "win32-x64"
+        }
+      },
+      "win32-arm64": {
+        "env": {
+          "VSCETARGET": "win32-arm64"
         }
       }
     }
@@ -1393,6 +1394,9 @@
   },
   "tonsky.theme-alabaster": {
     "repository": "https://github.com/tonsky/vscode-theme-alabaster"
+  },
+  "tonybaloney.vscode-pets": {
+    "repository": "https://github.com/tonybaloney/vscode-pets"
   },
   "torn4dom4n.latex-support": {
     "repository": "https://github.com/AREA44/vscode-LaTeX-support"

@@ -137,6 +137,7 @@ const totalNumberAfter = Object.keys(updatedData)
 
 console.log(`Total number of entries before: ${totalNumberBefore}`);
 console.log(`Total number of entries after: ${totalNumberAfter}`);
+console.log("Missing dependencies:", missingDependency);
 
 console.log(diff(updatedData, localData));
 

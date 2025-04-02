@@ -1,41 +1,40 @@
 {
     "malicious": [
-        "kyntrack.log-matrix"
+        "kyntrack.log-matrix",
+        "bipro.bipro-dev",
+        "Equinusocio.vsc-material-theme",
+        "Equinusocio.vsc-material-theme-icons"
     ],
     "search": [
         {
             "query": "github",
-            "preferredResults": [
-                "github.vscode-pull-request-github",
-                "github.github-vscode-theme"
-            ]
+            "preferredResults": ["github.vscode-pull-request-github", "github.github-vscode-theme"]
         },
         {
             "query": "java",
-            "preferredResults": [
-                "vscjava.vscode-java-pack"
-            ]
+            "preferredResults": ["vscjava.vscode-java-pack"]
         },
         {
             "query": "java extension pack",
-            "preferredResults": [
-                "vscjava.vscode-java-pack"
-            ]
+            "preferredResults": ["vscjava.vscode-java-pack"]
         },
         {
             "query": "azure",
-            "preferredResults": [
-                "ms-azuretools.vscode-azureappservice"
-            ]
+            "preferredResults": ["ms-azuretools.vscode-azureappservice"]
         },
         {
             "query": "codegpt",
-            "preferredResults": [
-                "DanielSanMedium.dscodegpt"
-            ]
+            "preferredResults": ["DanielSanMedium.dscodegpt"]
         }
     ],
     "deprecated": {
+        "decodetalkers.neocmake-lsp-vscode": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "decodetalkers.neocmakelsp-vscode",
+                "displayName": "CMake Language"
+            }
+        },
         "msjsdiag.debugger-for-chrome": {
             "disallowInstall": true,
             "extension": {
@@ -141,16 +140,10 @@
             }
         },
         "CoenraadS.bracket-pair-colorizer-2": {
-            "settings": [
-                "editor.bracketPairColorization.enabled",
-                "editor.guides.bracketPairs"
-            ]
+            "settings": ["editor.bracketPairColorization.enabled", "editor.guides.bracketPairs"]
         },
         "CoenraadS.bracket-pair-colorizer": {
-            "settings": [
-                "editor.bracketPairColorization.enabled",
-                "editor.guides.bracketPairs"
-            ]
+            "settings": ["editor.bracketPairColorization.enabled", "editor.guides.bracketPairs"]
         },
         "idleberg.innosetup": {
             "disallowInstall": true,
@@ -287,7 +280,6 @@
         },
         "iocave.customize-ui": true,
         "iocave.monkey-patch": true,
-        "pranaygp.vscode-css-peek": true,
         "redhat.vscode-wsdl2rest": true,
         "ms-vscode.node-debug2": true,
         "ms-vscode.node-debug": true,
@@ -376,6 +368,83 @@
                 "id": "redhat.apache-camel-extension-pack",
                 "displayName": "Extension Pack for Apache Camel by Red Hat"
             }
+        },
+        "kleinesfilmroellchen.serenity-dsl-syntaxhighlight": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "kleinesfilmroellchen.serenity-dsl-syntaxhighlight",
+                "displayName": "SerenityOS DSL Syntax Highlight"
+            }
+        },
+        "Boundary.baml-extension-preview": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "Boundary.baml-extension",
+                "displayName": "BAML"
+            }
+        },
+        "lifeart.vscode-ember-unstable": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "EmberTooling.vscode-ember",
+                "displayName": "Ember Language Server"
+            }
+        },
+        "ms-vscode.azure-account": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "ms-azuretools.vscode-azureresourcegroups",
+                "displayName": "Azure Resources"
+            }
+        },
+        "adamcowley.neo4j-vscode": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "neo4j-extensions.neo4j-for-vscode",
+                "displayName": "Neo4j for VS Code"
+            }
+        },
+        "KylinIdeTeam.debug": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-debug",
+                "displayName": "Kylin Debug"
+            }
+        },
+        "KylinIdeTeam.vscode-clangd": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-clangd",
+                "displayName": "Kylin Clangd"
+            }
+        },
+        "KylinIdeTeam.project-manager": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-project-manager",
+                "displayName": "Kylin Project Manager"
+            }
+        },
+        "KylinIdeTeam.python": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "KylinIdeTeam.kylin-python",
+                "displayName": "Kylin Python(with jedi language server)"
+            }
+        },
+        "ms-vsts.team": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "ms-vsts.team",
+                "displayName": "Azure Repos"
+            }
+        },
+        "redhat.project-initializer": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "redhat.vscode-openshift-connector",
+                "displayName": "OpenShift Toolkit"
+            }
         }
     },
     "migrateToPreRelease": {
@@ -386,6 +455,10 @@
         "ms-vscode.PowerShell-Preview": {
             "id": "ms-vscode.PowerShell",
             "displayName": "PowerShell"
+        },
+        "hediet.vscode-drawio-insiders-build": {
+            "id": "hediet.vscode-drawio",
+            "displayName": "Draw.io Integration"
         }
     },
     "extensionsEnabledWithPreRelease": []
