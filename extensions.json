@@ -1354,6 +1354,9 @@
   "stylelint.vscode-stylelint": {
     "repository": "https://github.com/stylelint/vscode-stylelint"
   },
+  "Supabase.postgrestools": {
+    "repository": "https://github.com/supabase-community/postgrestools-vscode"
+  },
   "svipas.control-snippets": {
     "repository": "https://github.com/svipas/vscode-control-snippets"
   },
