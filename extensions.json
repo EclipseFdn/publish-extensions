@@ -1375,6 +1375,53 @@
   "tecosaur.latex-utilities": {
     "repository": "https://github.com/tecosaur/LaTeX-Utilities"
   },
+  "theqtcompany.qt": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "extension_packs/qt/"
+  },
+  "theqtcompany.qt-cpp": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "qt-cpp/",
+    "prepublish": "npm run ci:qt-lib && npm run compile:qt-lib && npm run compile:qt-cpp"
+  },
+  "theqtcompany.qt-cpp-pack": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "extension_packs/cpp/"
+  },
+  "theqtcompany.qt-core": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "qt-core/",
+    "custom": [
+      "npm ci",
+      "npm run ci:qt-lib",
+      "npm run ci:qt-core",
+
+      "npm run compile:qt-lib",
+
+      "go install github.com/goreleaser/goreleaser/v2@latest",
+      "cd qt-cli && GORELEASER_CURRENT_TAG=${VERSION} goreleaser release --snapshot --clean",
+      "mkdir -p qt-core/res/qtcli",
+      "if [ -e qt-cli/dist/bin ]; then cp -r qt-cli/dist/bin/* qt-core/res/qtcli; else cp qt-cli/dist/qtcli_{linux,windows,darwin_fat}* qt-core/res/qtcli; fi",
+
+      "npm run package:qt-core",
+      "mv qt-core/out/qt-core-*.vsix qt-core/out/qt-core.vsix"
+    ],
+    "extensionFile": "out/qt-core.vsix"
+  },
+  "theqtcompany.qt-qml": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "qt-qml/",
+    "prepublish": "npm run ci:qt-lib && npm run compile:qt-lib && npm run compile:qt-qml"
+  },
+  "theqtcompany.qt-ui": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "qt-ui/",
+    "prepublish": "npm run ci:qt-lib && npm run compile:qt-lib && npm run compile:qt-ui"
+  },
+  "theqtcompany.qt-wasm-pack": {
+    "repository": "https://github.com/qt-labs/vscodeext",
+    "location": "extension_packs/wasm/"
+  },
   "Tobiah.unity-tools": {
     "repository": "https://github.com/TobiahZ/unity-tools"
   },

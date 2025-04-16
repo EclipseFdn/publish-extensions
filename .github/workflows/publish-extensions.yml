@@ -49,6 +49,9 @@ jobs:
         with:
           distribution: "microsoft"
           java-version: "17"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
       - name: Install dependencies for native modules
         run: |
           sudo apt-get update

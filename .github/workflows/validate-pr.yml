@@ -30,6 +30,9 @@ jobs:
         run: |
           pyenv install 3.8
           pyenv global 3.8
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
       - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
