@@ -28,6 +28,7 @@
         }
     ],
     "deprecated": {
+        "andrewhertog.codex-editor-extension": true,
         "decodetalkers.neocmake-lsp-vscode": {
             "disallowInstall": false,
             "extension": {
