@@ -615,6 +615,9 @@
   "magicstack.MagicPython": {
     "repository": "https://github.com/MagicStack/MagicPython"
   },
+  "maracko.json-to-go": {
+    "repository": "https://github.com/maracko/json-to-go-vsc"
+  },
   "marcostazi.VS-code-vagrantfile": {
     "repository": "https://github.com/mastazi/VS-code-vagrantfile"
   },
