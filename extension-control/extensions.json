@@ -446,6 +446,12 @@
                 "id": "redhat.vscode-openshift-connector",
                 "displayName": "OpenShift Toolkit"
             }
+        },
+        "GabrielBB.vscode-lombok": {
+            "extension": {
+                "id": "vscjava.vscode-lombok",
+                "displayName": "Lombok Annotations Support for VS Code"
+            }
         }
     },
     "migrateToPreRelease": {
