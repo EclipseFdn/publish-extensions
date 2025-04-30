@@ -1203,6 +1203,28 @@
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
+  "TheQtCompany.qt-core": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+  "TheQtCompany.qt-cpp": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+  "TheQtCompany.qt-qml": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+  "TheQtCompany.qt-ui": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+  "TheQtCompany.qt-cpp-pack": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+  "theqtcompany.qt-wasm-pack": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+  "TheQtCompany.qt": {
+    "repository": "https://github.com/qt-labs/vscodeext"
+  },
+
   "rafaelmaiolla.diff": {
     "repository": "https://github.com/rafaelmaiolla/diff-vscode"
   },
