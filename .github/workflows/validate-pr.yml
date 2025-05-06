@@ -30,9 +30,15 @@ jobs:
         run: |
           pyenv install 3.8
           pyenv global 3.8
-      - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
+      - run: echo "EXTENSIONS=$(node diff-extensions)" >> $GITHUB_ENV
+      - uses: actions/github-script@v7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        with:
+          script: |
+            const script = require('./scripts/publish-extensions.js');
+            await script({github});
       - name: Report results
         run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v4
