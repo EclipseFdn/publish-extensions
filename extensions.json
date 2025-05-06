@@ -1583,5 +1583,14 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "AndrewButson.vscode-openai": {
+    "repository": "https://github.com/arbs-io/vscode-openai"
+  },
+  "AndrewButson.vscode-openapi-viewer": {
+    "repository": "https://github.com/arbs-io/vscode-openapi-viewer"
+  },
+  "AndrewButson.vscode-jwt-decoder": {
+    "repository": "https://github.com/arbs-io/vscode-jwt-decoder"
   }
 }
