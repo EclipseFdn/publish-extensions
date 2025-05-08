@@ -28,6 +28,36 @@
         }
     ],
     "deprecated": {
+        "Gydunhn.angular-essentials-barracks": {
+            "disallowInstall": true,
+            "additionalInfo": "Please use the Angular-Essentials (https://open-vsx.org/extension/Gydunhn/angular-essentials) extension instead.",
+            "extension": {
+                "id": "Gydunhn.angular-essentials-barracks",
+                "displayName": "Angular-Essentials-Barracks-Edition",
+                "deprecated": true,
+                "replacement": "Gydunhn.angular-essentials"
+            }
+        },
+        "Gydunhn.angular-essentials-tbk": {
+            "disallowInstall": true,
+            "additionalInfo": "Please use the Angular-Essentials (https://open-vsx.org/extension/Gydunhn/angular-essentials) extension instead.",
+            "extension": {
+                "id": "Gydunhn.angular-essentials-tbk",
+                "displayName": "Angular-Essentials-TBK-Edition",
+                "deprecated": true,
+                "replacement": "Gydunhn.angular-essentials"
+            }
+        },
+        "Gydunhn.angular-essentials-plv": {
+            "disallowInstall": true,
+            "additionalInfo": "Please use the Angular-Essentials (https://open-vsx.org/extension/Gydunhn/angular-essentials) extension instead.",
+            "extension": {
+                "id": "Gydunhn.angular-essentials-plv",
+                "displayName": "Angular-Essentials-PLV-Edition",
+                "deprecated": true,
+                "replacement": "Gydunhn.angular-essentials"
+            }
+        },
         "andrewhertog.codex-editor-extension": true,
         "decodetalkers.neocmake-lsp-vscode": {
             "disallowInstall": false,
