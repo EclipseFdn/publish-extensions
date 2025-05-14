@@ -1072,7 +1072,9 @@
   "ms-vscode.webshell": {
     "repository": "https://github.com/microsoft/vscode-wasm.git",
     "location": "webshell",
-    "custom": ["npm i && cd webshell && vsce package -o extension.vsix"]
+    "custom": [
+      "npm i && cd webshell && vsce package -o extension.vsix"
+    ]
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"
@@ -1583,5 +1585,11 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "AlexDauenhauer.catppuccin-noctis": {
+    "repository": "https://github.com/alexdauenhauer/catppuccin-noctis"
+  },
+  "AlexDauenhauer.catppuccin-noctis-icons": {
+    "repository": "https://github.com/alexdauenhauer/catppuccin-noctis-icons"
   }
 }
