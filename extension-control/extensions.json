@@ -3,7 +3,10 @@
         "kyntrack.log-matrix",
         "bipro.bipro-dev",
         "Equinusocio.vsc-material-theme",
-        "Equinusocio.vsc-material-theme-icons"
+        "Equinusocio.vsc-material-theme-icons",
+        "prada555.Theme-Acai-ported-1.0.0",
+        "prada555.Theme-Active4D-ported-1.0.0",
+        "AllenBarry.Solid"
     ],
     "search": [
         {
@@ -446,7 +449,15 @@
                 "id": "redhat.vscode-openshift-connector",
                 "displayName": "OpenShift Toolkit"
             }
-        }
+        },
+        "jroesch.lean": true,
+        "moalamri.inline-fold": true,
+        "MS-CEINTL.vscode-language-pack-bg": true,
+        "MS-CEINTL.vscode-language-pack-en-GB": true,
+        "MS-CEINTL.vscode-language-pack-hu": true,
+        "MS-CEINTL.vscode-language-pack-id": true,
+        "MS-CEINTL.vscode-language-pack-nl": true,
+        "MS-CEINTL.vscode-language-pack-uk": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
