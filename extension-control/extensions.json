@@ -29,6 +29,13 @@
     ],
     "deprecated": {
         "andrewhertog.codex-editor-extension": true,
+        "dieghernan.oveflow-theme": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "dieghernan.overflow-theme",
+                "displayName": "Overflow Theme"
+            }
+        },
         "decodetalkers.neocmake-lsp-vscode": {
             "disallowInstall": false,
             "extension": {
