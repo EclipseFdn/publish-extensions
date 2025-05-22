@@ -4,6 +4,7 @@
         "bipro.bipro-dev",
         "Equinusocio.vsc-material-theme",
         "Equinusocio.vsc-material-theme-icons",
+        "498.pythonformat",
         "prada555.Theme-Acai-ported-1.0.0",
         "prada555.Theme-Active4D-ported-1.0.0",
         "AllenBarry.Solid"
@@ -11,23 +12,34 @@
     "search": [
         {
             "query": "github",
-            "preferredResults": ["github.vscode-pull-request-github", "github.github-vscode-theme"]
+            "preferredResults": [
+                "github.vscode-pull-request-github",
+                "github.github-vscode-theme"
+            ]
         },
         {
             "query": "java",
-            "preferredResults": ["vscjava.vscode-java-pack"]
+            "preferredResults": [
+                "vscjava.vscode-java-pack"
+            ]
         },
         {
             "query": "java extension pack",
-            "preferredResults": ["vscjava.vscode-java-pack"]
+            "preferredResults": [
+                "vscjava.vscode-java-pack"
+            ]
         },
         {
             "query": "azure",
-            "preferredResults": ["ms-azuretools.vscode-azureappservice"]
+            "preferredResults": [
+                "ms-azuretools.vscode-azureappservice"
+            ]
         },
         {
             "query": "codegpt",
-            "preferredResults": ["DanielSanMedium.dscodegpt"]
+            "preferredResults": [
+                "DanielSanMedium.dscodegpt"
+            ]
         }
     ],
     "deprecated": {
@@ -144,10 +156,16 @@
             }
         },
         "CoenraadS.bracket-pair-colorizer-2": {
-            "settings": ["editor.bracketPairColorization.enabled", "editor.guides.bracketPairs"]
+            "settings": [
+                "editor.bracketPairColorization.enabled",
+                "editor.guides.bracketPairs"
+            ]
         },
         "CoenraadS.bracket-pair-colorizer": {
-            "settings": ["editor.bracketPairColorization.enabled", "editor.guides.bracketPairs"]
+            "settings": [
+                "editor.bracketPairColorization.enabled",
+                "editor.guides.bracketPairs"
+            ]
         },
         "idleberg.innosetup": {
             "disallowInstall": true,
@@ -450,6 +468,14 @@
                 "displayName": "OpenShift Toolkit"
             }
         },
+        "SridharMocherla.bazel-kotlin-vscode-extension": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "Brex.bazel-kotlin",
+                "displayName": "Bazel Kotlin"
+            }
+        },
+        "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
         "MS-CEINTL.vscode-language-pack-bg": true,
