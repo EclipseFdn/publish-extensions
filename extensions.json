@@ -697,6 +697,10 @@
   "ms-azuretools.vscode-azureresourcegroups": {
     "repository": "https://github.com/Microsoft/vscode-azureresourcegroups"
   },
+  "ms-azuretools.vscode-containers": {
+    "repository": "https://github.com/microsoft/vscode-containers",
+    "prepublish": "npm run build"
+  },
   "ms-azuretools.vscode-docker": {
     "repository": "https://github.com/microsoft/vscode-docker",
     "prepublish": "npm run build"
