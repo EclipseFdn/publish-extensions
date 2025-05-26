@@ -482,6 +482,13 @@
                 "displayName": "Bazel Kotlin"
             }
         },
+        "sswg.swift-lang": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "swiftlang.swift-vscode",
+                "displayName": "Swift"
+            }
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
