@@ -18,7 +18,7 @@ const findUp = require("find-up");
 const fg = require("fast-glob");
 
 const { createVSIX } = require("@vscode/vsce");
-const {DefaultArtifactClient} = require('@actions/artifact')
+const { DefaultArtifactClient } = require("@actions/artifact");
 const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
@@ -59,7 +59,7 @@ const ensureBuildPrerequisites = async () => {
  * @param {import('../types').PublishContext} publishContext
  */
 async function buildVersion(extension, publishContext) {
-    console.debug(`Building ${extension.id} for ${publishContext.target || "universal"}...`);  
+    console.debug(`Building ${extension.id} for ${publishContext.target || "universal"}...`);
     console.log(`\nProcessing extension: ${JSON.stringify({ extension, publishContext }, undefined, 2)}`);
     try {
         await ensureBuildPrerequisites();
@@ -93,7 +93,9 @@ async function buildVersion(extension, publishContext) {
             await exec(`git checkout ${publishContext.ref}`, { cwd: publishContext.repo });
 
             try {
-                const nvmFile = await findUp(".nvmrc", { cwd: path.join(publishContext.repo, extension.location ?? ".") });
+                const nvmFile = await findUp(".nvmrc", {
+                    cwd: path.join(publishContext.repo, extension.location ?? "."),
+                });
                 if (nvmFile) {
                     // If the project has a preferred Node version, use it
                     await exec("source ~/.nvm/nvm.sh && nvm install", {
@@ -126,7 +128,9 @@ async function buildVersion(extension, publishContext) {
                     };
 
                     if (publishContext.target) {
-                        console.info(`Looking for a ${publishContext.target} vsix package in ${publishContext.repo}...`);
+                        console.info(
+                            `Looking for a ${publishContext.target} vsix package in ${publishContext.repo}...`,
+                        );
                         const vsixFiles = await fg(path.join(`*-${publishContext.target}-*.vsix`), {
                             cwd: publishContext.repo,
                             onlyFiles: true,
@@ -204,7 +208,8 @@ async function buildVersion(extension, publishContext) {
 
         // Check if the requested version is greater than the one on Open VSX.
         const { xmlManifest, manifest } = options.extensionFile && (await readVSIXPackage(options.extensionFile));
-        publishContext.version = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Version || manifest?.version;
+        publishContext.version =
+            xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Version || manifest?.version;
         if (!publishContext.version) {
             throw new Error(`${extension.id}: version is not resolved`);
         }
@@ -264,7 +269,10 @@ async function buildVersion(extension, publishContext) {
 
         if (options.extensionFile) {
             console.info(`Copying file to ${artifactDirectory}`);
-            const outputPath =  path.join(artifactDirectory, `${extension.id}${publishContext.target ? `@${publishContext.target}` : ""}.vsix`);
+            const outputPath = path.join(
+                artifactDirectory,
+                `${extension.id}${publishContext.target ? `@${publishContext.target}` : ""}.vsix`,
+            );
             fs.copyFileSync(options.extensionFile, outputPath);
             options.extensionFile = outputPath;
         }
@@ -275,7 +283,9 @@ async function buildVersion(extension, publishContext) {
             console.log(`Could not process extension -- assuming that it already exists`);
             console.log(error);
         } else {
-            console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, publishContext }, null, 2)}`);
+            console.error(
+                `[FAIL] Could not process extension: ${JSON.stringify({ extension, publishContext }, null, 2)}`,
+            );
             console.error(error);
             process.exitCode = 1;
         }
@@ -289,7 +299,7 @@ async function buildVersion(extension, publishContext) {
 
 // @ts-check
 /** @param {import('@actions/github-script').AsyncFunctionArguments} AsyncFunctionArguments */
-module.exports = async({core}) => {
+module.exports = async ({ core }) => {
     const extension = JSON.parse(process.env.EXTENSION);
     const publishContext = JSON.parse(process.env.PUBLISH_CONTEXT);
     publishContext.msLastUpdated = new Date(publishContext.msLastUpdated);
@@ -303,7 +313,7 @@ module.exports = async({core}) => {
                 publishContext.file = file;
                 publishContext.target = target;
                 const options = await buildVersion(extension, publishContext);
-                if(options) {
+                if (options) {
                     allOptions.push(options);
                 }
             } else {
@@ -318,34 +328,29 @@ module.exports = async({core}) => {
                 publishContext.environmentVariables = targetData.env;
             }
             const options = await buildVersion(extension, publishContext);
-            if(options) {
+            if (options) {
                 allOptions.push(options);
             }
         }
     } else {
         // Build only the universal target of extension from sources
         const options = await buildVersion(extension, publishContext);
-        if(options) {
+        if (options) {
             allOptions.push(options);
         }
     }
 
     const extensionFiles = [];
-    for(const options of allOptions) {
+    for (const options of allOptions) {
         if (options.extensionFile) {
             extensionFiles.push(options.extensionFile);
         }
     }
 
     const artifact = new DefaultArtifactClient();
-    await artifact.uploadArtifact(
-        'artifacts', 
-        extensionFiles,
-        artifactDirectory,
-        {
-            retentionDays: 7
-        }
-    ); 
+    await artifact.uploadArtifact("artifacts", extensionFiles, artifactDirectory, {
+        retentionDays: 7,
+    });
 
-    core.setOutput('extensionFiles', JSON.stringify(extensionFiles));
+    core.setOutput("extensionFiles", JSON.stringify(extensionFiles));
 };
