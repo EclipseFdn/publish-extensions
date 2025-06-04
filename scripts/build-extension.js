@@ -74,6 +74,7 @@ async function buildVersion(extension, publishContext) {
             options = { extensionFile: publishContext.file, targets: [publishContext.target] };
         } else if (publishContext.repo && publishContext.ref) {
             console.log(`${id}: preparing from ${publishContext.repo}...`);
+            await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
             await resolveExtension(
                 extension,
                 publishContext.msVersion && {

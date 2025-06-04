@@ -10,6 +10,7 @@
 
 // @ts-check
 const fs = require("fs");
+const { RateLimiter } = require('limiter');
 const { getPublicGalleryAPI } = require("@vscode/vsce/out/util");
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { ExtensionQueryFlags, PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
@@ -90,6 +91,7 @@ module.exports = async (doPublish) => {
     };
     const monthAgo = new Date();
     monthAgo.setMonth(monthAgo.getMonth() - 1);
+    const limiter = new RateLimiter({ tokensPerInterval: 50, interval: 'second' });
     for (const id in extensions) {
         if (id === "$schema") {
             continue;
@@ -269,6 +271,7 @@ module.exports = async (doPublish) => {
                 continue;
             }
 
+            await limiter.removeTokens(1);
             await doPublish(extension, context);
         } catch (error) {
             stat.failed.push(extension.id);
