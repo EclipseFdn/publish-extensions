@@ -98,7 +98,7 @@ jobs:
             const buildScript = require('./scripts/build-extension.js');
             const extensionFiles = await buildScript(extension, publishContext);
             const uploadScript = require('./scripts/upload-artifacts.js');
-            const extensionFiles = await uploadScript(extensionFiles);
+            await uploadScript(extensionFiles);
             core.setOutput("extensionFiles", JSON.stringify(extensionFiles));
     outputs:
       extensionFiles: ${{ steps.build_extension.outputs.extensionFiles }}
