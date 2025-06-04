@@ -30,8 +30,8 @@ function isPreReleaseVersion(version) {
 }
 
 // @ts-check
-/** @param {import('@actions/github-script').AsyncFunctionArguments} AsyncFunctionArguments */
-module.exports = async ({github}) => {
+/** @param {(extension, publishContext) => void} doPublish */
+module.exports = async (doPublish) => {
     const msGalleryApi = getPublicGalleryAPI();
     msGalleryApi.client["_allowRetries"] = true;
     msGalleryApi.client["_maxRetries"] = 5;
@@ -269,25 +269,12 @@ module.exports = async ({github}) => {
                 continue;
             }
 
-            const [owner,repo] = process.env.REPOSITORY.split("/");
-            await github.request('POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches', {
-                owner,
-                repo,
-                workflow_id: 'publish-extension.yml',
-                ref: 'master',
-                inputs: {
-                  extension: JSON.stringify(extension),
-                  publishContext: JSON.stringify(context),
-                  force: process.env.FORCE,
-                  skipPublish: process.env.SKIP_PUBLISH
-                },
-                headers: {
-                  'X-GitHub-Api-Version': '2022-11-28'
-                }
-            });
+            await doPublish(extension, context);
         } catch (error) {
             stat.failed.push(extension.id);
-            console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, publishContext: context }, null, 2)}`);
+            console.error(
+                `[FAIL] Could not process extension: ${JSON.stringify({ extension, publishContext: context }, null, 2)}`,
+            );
             console.error(error);
         }
     }
@@ -295,4 +282,4 @@ module.exports = async ({github}) => {
     // TODO how to collect stats with multi stage workflow?
     await fs.promises.writeFile("/tmp/stat.json", JSON.stringify(stat), { encoding: "utf8" });
     process.exit();
-}
+};

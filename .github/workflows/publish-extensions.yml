@@ -46,7 +46,24 @@ jobs:
         with:
           script: |
             const script = require('./scripts/publish-extensions.js');
-            await script({github});
+            await script(async (extension, context) => {
+              const [owner, repo] = process.env.REPOSITORY.split("/");
+              await github.request("POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches", {
+                  owner,
+                  repo,
+                  workflow_id: "publish-extension.yml",
+                  ref: "build-extension",
+                  inputs: {
+                      extension: JSON.stringify(extension),
+                      publishContext: JSON.stringify(context),
+                      force: process.env.FORCE,
+                      skipPublish: process.env.SKIP_PUBLISH,
+                  },
+                  headers: {
+                      "X-GitHub-Api-Version": "2022-11-28",
+                  },
+              });
+            });
       # TODO fix reporting
       # - name: Report results
       #   run: bun run ./report-extensions.ts

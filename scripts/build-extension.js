@@ -18,7 +18,6 @@ const findUp = require("find-up");
 const fg = require("fast-glob");
 
 const { createVSIX } = require("@vscode/vsce");
-const { DefaultArtifactClient } = require("@actions/artifact");
 const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
@@ -298,10 +297,11 @@ async function buildVersion(extension, publishContext) {
 }
 
 // @ts-check
-/** @param {import('@actions/github-script').AsyncFunctionArguments} AsyncFunctionArguments */
-module.exports = async ({ core }) => {
-    const extension = JSON.parse(process.env.EXTENSION);
-    const publishContext = JSON.parse(process.env.PUBLISH_CONTEXT);
+/**
+ * @param {import('../types').Extension} extension
+ * @param {import('../types').PublishContext} publishContext
+ */
+module.exports = async (extension, publishContext) => {
     publishContext.msLastUpdated = new Date(publishContext.msLastUpdated);
     publishContext.ovsxLastUpdated = new Date(publishContext.ovsxLastUpdated);
 
@@ -347,10 +347,5 @@ module.exports = async ({ core }) => {
         }
     }
 
-    const artifact = new DefaultArtifactClient();
-    await artifact.uploadArtifact("artifacts", extensionFiles, artifactDirectory, {
-        retentionDays: 7,
-    });
-
-    core.setOutput("extensionFiles", JSON.stringify(extensionFiles));
+    return extensionFiles;
 };

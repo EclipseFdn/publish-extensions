@@ -93,8 +93,13 @@ jobs:
           PUBLISH_CONTEXT: ${{inputs.publishContext}}
         with:
           script: |
-            const script = require('./scripts/build-extension.js');
-            await script({core});
+            const extension = JSON.parse(process.env.EXTENSION);
+            const publishContext = JSON.parse(process.env.PUBLISH_CONTEXT);
+            const buildScript = require('./scripts/build-extension.js');
+            const extensionFiles = await buildScript(extension, publishContext);
+            const uploadScript = require('./scripts/upload-artifacts.js');
+            const extensionFiles = await uploadScript(extensionFiles);
+            core.setOutput("extensionFiles", JSON.stringify(extensionFiles));
     outputs:
       extensionFiles: ${{ steps.build_extension.outputs.extensionFiles }}
   publish_extension:
@@ -121,5 +126,7 @@ jobs:
           EXTENSION_FILES: ${{needs.build_extension.outputs.extensionFiles}}
         with:
           script: |
+            const extensionId = process.env.EXTENSION_ID;
+            const extensionFiles = JSON.parse(process.env.EXTENSION_FILES);
             const script = require('./scripts/publish-extension.js');
-            await script();
+            await script(extensionId, extensionFiles);
