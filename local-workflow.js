@@ -14,9 +14,9 @@ const buildExtensionScript = require("./scripts/build-extension");
 const publishExtensionScript = require("./scripts/publish-extension");
 
 (async () => {
-    process.env.EXTENSIONS = "dfinity-foundation.vscode-motoko";
-    process.env.SKIP_PUBLISH = "false";
-    process.env.FORCE = "true";
+    process.env.SKIP_PUBLISH ??= "true";
+    process.env.FORCE ??= "true";
+
     await publishExtensionsScript(async (extension, publishContext) => {
         const extensionFiles = await buildExtensionScript(extension, publishContext);
         await publishExtensionScript(extension.id, extensionFiles);
