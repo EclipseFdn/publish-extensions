@@ -1420,6 +1420,9 @@
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
   },
+  "vaadin.vaadin-vscode": {
+    "repository": "https://github.com/vaadin/vscode-plugin"
+  },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
   },
