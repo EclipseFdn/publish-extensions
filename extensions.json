@@ -1298,6 +1298,9 @@
   "shardulm94.trailing-spaces": {
     "repository": "https://github.com/shardulm94/vscode-trailingspaces"
   },
+  "shuuul.bioviewer": {
+    "repository": "https://github.com/shuuul/bioviewer"
+  },
   "shd101wyy.markdown-preview-enhanced": {
     "repository": "https://github.com/shd101wyy/vscode-markdown-preview-enhanced"
   },
