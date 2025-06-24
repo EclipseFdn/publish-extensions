@@ -52,7 +52,7 @@ jobs:
                   owner,
                   repo,
                   workflow_id: "publish-extension.yml",
-                  ref: "build-extension",
+                  ref: "master",
                   inputs: {
                       extension: JSON.stringify(extension),
                       publishContext: JSON.stringify(context),
