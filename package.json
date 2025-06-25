@@ -40,7 +40,7 @@
     "jest-diff": "^29.7.0",
     "limiter": "^3.0.0",
     "minimist": "^1.2.5",
-    "octokit": "^3.1.2",
+    "octokit": "^5.0.3",
     "ovsx": "latest",
     "prettier": "^3.2.5",
     "semver": "^7.1.3",
