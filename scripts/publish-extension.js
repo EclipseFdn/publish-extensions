@@ -86,22 +86,19 @@ module.exports = async (extensionId, extensionFiles) => {
         );
     }
 
+    const errors = [];
     const registryUrl = `https://${registryHost}`;
     for (const extensionFile of extensionFiles) {
         const xmlManifest = await readXmlManifest(extensionFile);
-        if (
-            xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Publisher.toLowerCase() !=
-            namespace.toLowerCase()
+        const publisher = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Publisher;
+        if (publisher.toLowerCase() != namespace.toLowerCase()
         ) {
-            console.error(
-                `Namespace name mismatch. Expected ${namespace}, but found ${xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Publisher}`,
-            );
+            errors.push(`Namespace name mismatch. Expected ${namespace}, but found ${publisher}`);
             continue;
         }
-        if (xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Id.toLowerCase() != extension.toLowerCase()) {
-            console.error(
-                `Extension name mismatch. Expected ${extension}, but found ${xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Id}`,
-            );
+        const extensionName = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Id;
+        if (extensionName.toLowerCase() != extension.toLowerCase()) {
+            errors.push(`Extension name mismatch. Expected ${extension}, but found ${extensionName}`);
             continue;
         }
 
@@ -117,5 +114,9 @@ module.exports = async (extensionId, extensionFiles) => {
         const options = { extensionFile, registryUrl };
         await ovsx.publish(options);
         console.log(`Published ${options.extensionFile} to ${options.registryUrl}/extension/${namespace}/${extension}`);
+    }
+
+    if(errors.length > 0) {
+        throw new Error(errors.join('\n'))
     }
 };
