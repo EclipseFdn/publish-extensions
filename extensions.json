@@ -585,6 +585,9 @@
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
+  "LesGrieve.paste-indent": {
+    "repository": "https://github.com/lesgrieve/paste-indent"
+  },
   "lextudio.restructuredtext": {
     "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
   },
