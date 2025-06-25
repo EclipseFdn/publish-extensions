@@ -1413,6 +1413,9 @@
   "twxs.cmake": {
     "repository": "https://github.com/twxs/vs.language.cmake"
   },
+  "TypeScriptTeam.native-preview": {
+    "repository": "https://github.com/microsoft/typescript-go"
+  },
   "Tyriar.sort-lines": {
     "repository": "https://github.com/Tyriar/vscode-sort-lines",
     "prepublish": "yarn compile"
