@@ -1279,6 +1279,9 @@
   "samuelcolvin.jinjahtml": {
     "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
   },
+  "SanderRonde.phpstan-vscode": {
+    "repository": "https://github.com/SanderRonde/phpstan-vscode"
+  },
   "scala-lang.scala": {
     "repository": "https://github.com/scala/vscode-scala-syntax"
   },
@@ -1587,5 +1590,5 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
-  }
+  },
 }
