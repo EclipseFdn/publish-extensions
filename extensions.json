@@ -1162,6 +1162,10 @@
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
+  "optify-config.optify": {
+    "repository": "https://github.com/juharris/optify",
+    "location": "vscode/extension"
+  },
   "paiqo.databricks-vscode": {
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
