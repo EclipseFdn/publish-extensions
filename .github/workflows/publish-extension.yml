@@ -12,12 +12,14 @@ on:
         type: string
       skipPublish:
         description: Skip publishing to Open VSX, only build extensions
-        required: true
         type: boolean
+        required: false
+        default: false
       force:
         description: Force publish to Open VSX, even if version is already published
-        required: true
         type: boolean
+        required: false
+        default: false
 jobs:
   download_release:
     name: Download latest release
