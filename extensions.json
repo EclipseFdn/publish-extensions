@@ -1162,6 +1162,10 @@
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
+  "quicktype.quicktype": {
+    "repository": "https://github.com/glideapps/quicktype",
+    "location": "packages/quicktype-vscode"
+  },
   "paiqo.databricks-vscode": {
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
