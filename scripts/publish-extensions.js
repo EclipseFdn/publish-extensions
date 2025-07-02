@@ -10,35 +10,19 @@
 
 // @ts-check
 const fs = require("fs");
-const cp = require("child_process");
+const { RateLimiter } = require('limiter');
 const { getPublicGalleryAPI } = require("@vscode/vsce/out/util");
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { ExtensionQueryFlags, PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
 const semver = require("semver");
 const Ajv = require("ajv/dist/2020").default;
-const resolveExtension = require("./lib/resolveExtension").resolveExtension;
-const exec = require("./lib/exec");
-const { artifactDirectory, registryHost } = require("./lib/constants");
-
-const msGalleryApi = getPublicGalleryAPI();
-msGalleryApi.client["_allowRetries"] = true;
-msGalleryApi.client["_maxRetries"] = 5;
-
-const openGalleryApi = new PublicGalleryAPI(`https://${registryHost}/vscode`, "3.0-preview.1");
-openGalleryApi.client["_allowRetries"] = true;
-openGalleryApi.client["_maxRetries"] = 5;
-openGalleryApi.post = (url, data, additionalHeaders) =>
-    openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
-
-const flags = [
-    ExtensionQueryFlags.IncludeStatistics,
-    ExtensionQueryFlags.IncludeVersions,
-    ExtensionQueryFlags.IncludeVersionProperties,
-];
+const resolveExtension = require("../lib/resolveExtension").resolveExtension;
+const exec = require("../lib/exec");
+const { registryHost } = require("../lib/constants");
 
 /**
  * Checks whether the provided `version` is a prerelease or not
- * @param {Readonly<import('./types').IRawGalleryExtensionProperty[]>} version
+ * @param {Readonly<import('../types').IRawGalleryExtensionProperty[]>} version
  * @returns
  */
 function isPreReleaseVersion(version) {
@@ -46,26 +30,24 @@ function isPreReleaseVersion(version) {
     return values.length > 0 && values[0].value === "true";
 }
 
-const ensureBuildPrerequisites = async () => {
-    // Make yarn use bash
-    await exec("yarn config set script-shell /bin/bash");
+// @ts-check
+/** @param {(extension, publishContext) => void} doPublish */
+module.exports = async (doPublish) => {
+    const msGalleryApi = getPublicGalleryAPI();
+    msGalleryApi.client["_allowRetries"] = true;
+    msGalleryApi.client["_maxRetries"] = 5;
 
-    // Don't show large git advice blocks
-    await exec("git config --global advice.detachedHead false");
+    const openGalleryApi = new PublicGalleryAPI(`https://${registryHost}/vscode`, "3.0-preview.1");
+    openGalleryApi.client["_allowRetries"] = true;
+    openGalleryApi.client["_maxRetries"] = 5;
+    openGalleryApi.post = (url, data, additionalHeaders) =>
+        openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
-    // Create directory for storing built extensions
-    if (fs.existsSync(artifactDirectory)) {
-        // If the folder has any files, delete them
-        try {
-            fs.rmSync(`${artifactDirectory}*`);
-        } catch {}
-    } else {
-        fs.mkdirSync(artifactDirectory);
-    }
-};
-
-(async () => {
-    await ensureBuildPrerequisites();
+    const flags = [
+        ExtensionQueryFlags.IncludeStatistics,
+        ExtensionQueryFlags.IncludeVersions,
+        ExtensionQueryFlags.IncludeVersionProperties,
+    ];
 
     /**
      * @type {string[] | undefined}
@@ -75,7 +57,7 @@ const ensureBuildPrerequisites = async () => {
         toVerify = process.env.EXTENSIONS === "," ? [] : process.env.EXTENSIONS.split(",").map((s) => s.trim());
     }
     /**
-     * @type {Readonly<import('./types').Extensions>}
+     * @type {Readonly<import('../types').Extensions>}
      */
     const extensions = JSON.parse(await fs.promises.readFile("./extensions.json", "utf-8"));
 
@@ -94,7 +76,7 @@ const ensureBuildPrerequisites = async () => {
     // Also install extensions' devDependencies when using `npm install` or `yarn install`.
     process.env.NODE_ENV = "development";
 
-    /** @type{import('./types').PublishStat}*/
+    /** @type{import('../types').PublishStat}*/
     const stat = {
         upToDate: {},
         outdated: {},
@@ -109,6 +91,7 @@ const ensureBuildPrerequisites = async () => {
     };
     const monthAgo = new Date();
     monthAgo.setMonth(monthAgo.getMonth() - 1);
+    const limiter = new RateLimiter({ tokensPerInterval: 50, interval: 'second' });
     for (const id in extensions) {
         if (id === "$schema") {
             continue;
@@ -117,7 +100,7 @@ const ensureBuildPrerequisites = async () => {
             continue;
         }
         const extension = Object.freeze({ id, ...extensions[id] });
-        /** @type {import('./types').PublishContext} */
+        /** @type {import('../types').PublishContext} */
         const context = {};
         let timeoutDelay = Number(extension.timeout);
         if (!Number.isInteger(timeoutDelay)) {
@@ -288,81 +271,18 @@ const ensureBuildPrerequisites = async () => {
                 continue;
             }
 
-            let timeout;
-
-            const publishVersion = async (extension, context) => {
-                const env = {
-                    ...process.env,
-                    ...context.environmentVariables,
-                };
-
-                console.debug(`Publishing ${extension.id} for ${context.target || "universal"}...`);
-
-                await new Promise((resolve, reject) => {
-                    const p = cp.spawn(
-                        process.execPath,
-                        ["publish-extension.js", JSON.stringify({ extension, context, extensions })],
-                        {
-                            stdio: ["ignore", "inherit", "inherit"],
-                            cwd: process.cwd(),
-                            env,
-                        },
-                    );
-                    p.on("error", reject);
-                    p.on("exit", (code) => {
-                        if (code) {
-                            return reject(new Error("failed with exit status: " + code));
-                        }
-                        resolve("done");
-                    });
-                    timeout = setTimeout(
-                        () => {
-                            try {
-                                p.kill("SIGKILL");
-                            } catch {}
-                            reject(new Error(`timeout after ${timeoutDelay} mins`));
-                        },
-                        timeoutDelay * 60 * 1000,
-                    );
-                });
-                if (timeout !== undefined) {
-                    clearTimeout(timeout);
-                }
-            };
-
-            if (context.files) {
-                // Publish all targets of extension from GitHub Release assets
-                for (const [target, file] of Object.entries(context.files)) {
-                    if (!extension.target || Object.keys(extension.target).includes(target)) {
-                        context.file = file;
-                        context.target = target;
-                        await publishVersion(extension, context);
-                    } else {
-                        console.log(`${extension.id}: skipping, since target ${target} is not included`);
-                    }
-                }
-            } else if (extension.target) {
-                // Publish all specified targets of extension from sources
-                for (const [target, targetData] of Object.entries(extension.target)) {
-                    context.target = target;
-                    if (targetData !== true) {
-                        context.environmentVariables = targetData.env;
-                    }
-                    await publishVersion(extension, context);
-                }
-            } else {
-                // Publish only the universal target of extension from sources
-                await publishVersion(extension, context);
-            }
-
-            await updateStat();
+            await limiter.removeTokens(1);
+            await doPublish(extension, context);
         } catch (error) {
             stat.failed.push(extension.id);
-            console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, context }, null, 2)}`);
+            console.error(
+                `[FAIL] Could not process extension: ${JSON.stringify({ extension, publishContext: context }, null, 2)}`,
+            );
             console.error(error);
         }
     }
 
+    // TODO how to collect stats with multi stage workflow?
     await fs.promises.writeFile("/tmp/stat.json", JSON.stringify(stat), { encoding: "utf8" });
     process.exit();
-})();
+};

@@ -48,7 +48,7 @@ const existsOnOpenVSX = async (id: string) => {
     return false;
 };
 
-const latestData = await fetch("https://az764295.vo.msecnd.net/extensions/marketplace.json");
+const latestData = await fetch("https://main.vscode-cdn.net/extensions/marketplace.json");
 const latestJson = (await latestData.json()) as IStringDictionary<IRawExtensionsControlManifest>;
 
 const localFile = Bun.file(path.resolve(__dirname, "./extensions.json"));
