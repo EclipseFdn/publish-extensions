@@ -1207,6 +1207,9 @@
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
+  "pustelto.bracketeer": {
+    "repository": "https://github.com/Pustelto/Bracketeer"
+  },
   "rafaelmaiolla.diff": {
     "repository": "https://github.com/rafaelmaiolla/diff-vscode"
   },
