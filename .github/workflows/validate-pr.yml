@@ -38,7 +38,9 @@ jobs:
         with:
           script: |
             const script = require('./scripts/publish-extensions.js');
-            await script({github});
+            await script(async (extension, context) => {
+              console.log(`Would publish ${extension.id} with context:`, JSON.stringify(context, null, 2));
+            });
       - name: Report results
         run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v4
