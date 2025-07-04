@@ -1279,6 +1279,36 @@
   "samuelcolvin.jinjahtml": {
     "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
   },
+  "sapegin.emoji-console-log": {
+    "repository": "https://github.com/sapegin/emoji-console-log"
+  },
+  "sapegin.just-blame": {
+    "repository": "https://github.com/sapegin/vscode-just-blame"
+  },
+  "sapegin.mini-markdown": {
+    "repository": "https://github.com/sapegin/vscode-mini-markdown"
+  },
+  "sapegin.new-file-now": {
+    "repository": "https://github.com/sapegin/vscode-new-file-now"
+  },
+  "sapegin.notebox": {
+    "repository": "https://github.com/sapegin/vscode-notebox"
+  },
+  "sapegin.reveal-in-ghostty": {
+    "repository": "https://github.com/sapegin/vscode-reveal-in-ghostty"
+  },
+  "sapegin.reveal-in-nimble-commander": {
+    "repository": "https://github.com/sapegin/vscode-reveal-in-nimble-commander"
+  },
+  "sapegin.theme-squirrelsongdark": {
+    "repository": "https://github.com/sapegin/squirrelsong"
+  },
+  "sapegin.theme-squirrelsonglight": {
+    "repository": "https://github.com/sapegin/squirrelsong"
+  },
+  "sapegin.todo-tomorrow": {
+    "repository": "https://github.com/sapegin/vscode-todo-tomorrow"
+  },
   "scala-lang.scala": {
     "repository": "https://github.com/scala/vscode-scala-syntax"
   },
