@@ -1414,7 +1414,8 @@
     "repository": "https://github.com/twxs/vs.language.cmake"
   },
   "TypeScriptTeam.native-preview": {
-    "repository": "https://github.com/microsoft/typescript-go"
+    "repository": "https://github.com/microsoft/typescript-go",
+    "location": "_extension"
   },
   "Tyriar.sort-lines": {
     "repository": "https://github.com/Tyriar/vscode-sort-lines",
