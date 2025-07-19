@@ -1279,6 +1279,9 @@
   "samuelcolvin.jinjahtml": {
     "repository": "https://github.com/samuelcolvin/jinjahtml-vscode"
   },
+  "sator-imaging.intelli-sidebar": {
+    "repository": "https://github.com/sator-imaging/VSCode-IntelliSidebar"
+  },
   "scala-lang.scala": {
     "repository": "https://github.com/scala/vscode-scala-syntax"
   },
