@@ -47,10 +47,9 @@
         "Daimler.sechub": {
             "disallowInstall": true,
             "extension": {
-                "id": "Daimler.sechub",
-                "displayName": "SecHub (Daimler)"
-            },
-            "additionalInfo": "Please use [SecHub](https://open-vsx.org/extension/mercedes-benz/sechub) from Mercedes-Benz instead."
+                "id": "Mercedes-Benz.sechub",
+                "displayName": "SecHub"
+            }
         },
         "dieghernan.oveflow-theme": {
             "disallowInstall": true,
