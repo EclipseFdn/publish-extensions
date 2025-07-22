@@ -388,6 +388,15 @@
   "geequlim.godot-tools": {
     "repository": "https://github.com/godotengine/godot-vscode-plugin"
   },
+  "gerane.Theme-Sunburst": {
+    "repository": "https://github.com/gerane/VSCodeThemes",
+    "location": "gerane.Theme-Sunburst",
+    "custom": [
+      "cd gerane.Theme-Sunburst",
+      "vsce package -o Theme-Sunburst-0.0.1.vsix"
+    ],
+    "extensionFile": "Theme-Sunburst-0.0.1.vsix"
+  },
   "gharveymn.nightswitch-lite": {
     "repository": "https://github.com/gharveymn/nightswitch-lite"
   },
