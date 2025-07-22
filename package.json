@@ -37,7 +37,7 @@
     "fast-glob": "^3.2.12",
     "find-up": "^5.0.0",
     "human-number": "^2.0.0",
-    "jest-diff": "^29.7.0",
+    "jest-diff": "^30.0.5",
     "limiter": "^3.0.0",
     "minimist": "^1.2.5",
     "octokit": "^3.1.2",
