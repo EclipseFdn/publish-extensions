@@ -564,6 +564,9 @@
   "karunamurti.rspec-snippets": {
     "repository": "https://github.com/karuna/vscode-rspec-snippets"
   },
+  "kattouf.package-swift-lsp": {
+    "repository": "https://github.com/kattouf/package-swift-lsp-vscode"
+  },
   "Kelvin.vscode-sshfs": {
     "repository": "https://github.com/SchoofsKelvin/vscode-sshfs"
   },
