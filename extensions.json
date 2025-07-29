@@ -1273,6 +1273,9 @@
   "ryu1kn.edit-with-shell": {
     "repository": "https://github.com/ryu1kn/vscode-edit-with-shell"
   },
+  "ryu1kn.partial-diff": {
+    "repository": "https://github.com/ryu1kn/vscode-partial-diff"
+  },
   "saltud.type4py": {
     "repository": "https://github.com/saltudelft/type4py-vscode-ext"
   },
