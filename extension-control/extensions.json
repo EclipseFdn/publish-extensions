@@ -490,7 +490,8 @@
         "MS-CEINTL.vscode-language-pack-hu": true,
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
-        "MS-CEINTL.vscode-language-pack-uk": true
+        "MS-CEINTL.vscode-language-pack-uk": true,
+        "interactive-mcp.interactive-mcp": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
