@@ -7,7 +7,10 @@
         "498.pythonformat",
         "prada555.Theme-Acai-ported-1.0.0",
         "prada555.Theme-Active4D-ported-1.0.0",
-        "AllenBarry.Solid"
+        "AllenBarry.Solid",
+        "nomiFoundation.hardhat-solidity-pack",
+        "vuejs.node-snippets",
+        "vuejs.volar"
     ],
     "search": [
         {
