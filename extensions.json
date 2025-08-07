@@ -1587,5 +1587,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "coredevices.pebble-vscode": {
+    "repository": "https://github.com/coredevices/pebble-vscode"
   }
 }
