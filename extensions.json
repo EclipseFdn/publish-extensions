@@ -147,6 +147,9 @@
   "BriteSnow.vscode-toggle-quotes": {
     "repository": "https://github.com/BriteSnow/vscode-toggle-quotes"
   },
+  "bryancondor.javatostring-to-json": {
+    "repository": "https://github.com/bryancondor/vscode-java-tostring-to-json"
+  },
   "buianhthang.gitflow": {
     "repository": "https://github.com/anhthang/vscode-gitflow"
   },
