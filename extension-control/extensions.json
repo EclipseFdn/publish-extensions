@@ -11,6 +11,7 @@
         "nomiFoundation.hardhat-solidity-pack",
         "vuejs.node-snippets",
         "Anthropic.claude-code",
+        "NomicFdn.hardhat-solidity",
         "vuejs.volar"
     ],
     "search": [
