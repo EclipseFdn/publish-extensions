@@ -10,7 +10,8 @@
         "AllenBarry.Solid",
         "nomiFoundation.hardhat-solidity-pack",
         "vuejs.node-snippets",
-        "vuejs.volar"
+        "vuejs.volar",
+        "juan-blanco.solidity"
     ],
     "search": [
         {
