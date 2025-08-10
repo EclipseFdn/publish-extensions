@@ -10,6 +10,7 @@
         "AllenBarry.Solid",
         "nomiFoundation.hardhat-solidity-pack",
         "vuejs.node-snippets",
+        "Anthropic.claude-code",
         "vuejs.volar"
     ],
     "search": [
