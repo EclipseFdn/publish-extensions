@@ -13,6 +13,7 @@
         "Anthropic.claude-code",
         "NomicFdn.hardhat-solidity",
         "Jack-plugin.ui-test-visualizer",
+        "Ethereum.solidity-ethereum",
         "vuejs.volar"
     ],
     "search": [
