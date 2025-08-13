@@ -12,6 +12,7 @@
         "vuejs.node-snippets",
         "Anthropic.claude-code",
         "NomicFdn.hardhat-solidity",
+        "Jack-plugin.ui-test-visualizer",
         "vuejs.volar"
     ],
     "search": [
