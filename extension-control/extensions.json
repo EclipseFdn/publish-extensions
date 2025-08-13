@@ -14,6 +14,7 @@
         "NomicFdn.hardhat-solidity",
         "Jack-plugin.ui-test-visualizer",
         "Ethereum.solidity-ethereum",
+        "ETHFoundry.solidityethereum",
         "vuejs.volar"
     ],
     "search": [
