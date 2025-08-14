@@ -10,6 +10,11 @@
         "AllenBarry.Solid",
         "nomiFoundation.hardhat-solidity-pack",
         "vuejs.node-snippets",
+        "Anthropic.claude-code",
+        "NomicFdn.hardhat-solidity",
+        "Jack-plugin.ui-test-visualizer",
+        "Ethereum.solidity-ethereum",
+        "ETHFoundry.solidityethereum",
         "vuejs.volar",
         "juan-blanco.solidity"
     ],
