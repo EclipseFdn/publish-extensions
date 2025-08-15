@@ -14,7 +14,8 @@
         "Jack-plugin.ui-test-visualizer",
         "Ethereum.solidity-ethereum",
         "ETHFoundry.solidityethereum",
-        "vuejs.volar"
+        "vuejs.volar",
+        "juan-blanco.solidity"
     ],
     "search": [
         {
