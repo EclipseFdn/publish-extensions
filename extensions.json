@@ -1340,6 +1340,9 @@
   "snyk-security.snyk-vulnerability-scanner": {
     "repository": "https://github.com/snyk/vscode-extension"
   },
+  "snyk-security.snyk-vulnerability-scanner-preview": {
+    "repository": "https://github.com/snyk/vscode-extension"
+  },  
   "sorbet.sorbet-vscode-extension": {
     "repository": "https://github.com/sorbet/sorbet"
   },
