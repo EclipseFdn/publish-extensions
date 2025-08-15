@@ -14,7 +14,9 @@
         "Jack-plugin.ui-test-visualizer",
         "Ethereum.solidity-ethereum",
         "ETHFoundry.solidityethereum",
-        "vuejs.volar"
+        "vuejs.volar",
+        "Snipcola.roblox-execute",
+        "Snipcola.macsploit-execute"
     ],
     "search": [
         {
