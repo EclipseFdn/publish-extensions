@@ -1587,5 +1587,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "imandra.imandrax": {
+    "repository": "https://github.com/imandra-ai/imandrax-vscode"
   }
 }
