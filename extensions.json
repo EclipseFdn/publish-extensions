@@ -775,6 +775,9 @@
   "ms-kubernetes-tools.vscode-kubernetes-tools": {
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
+  "ms-mssql.mssql": {
+    "repository": "https://github.com/microsoft/vscode-mssql"
+  },
   "ms-playwright.playwright": {
     "repository": "https://github.com/microsoft/playwright-vscode"
   },
