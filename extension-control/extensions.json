@@ -51,6 +51,13 @@
     ],
     "deprecated": {
         "andrewhertog.codex-editor-extension": true,
+        "DavidGomes.platformio-ide-cursor": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "DavidGomes.platformio-ide-cursor",
+                "displayName": "PlatformIO IDE for Cursor"
+            }
+        },
         "Daimler.sechub": {
             "disallowInstall": true,
             "extension": {
