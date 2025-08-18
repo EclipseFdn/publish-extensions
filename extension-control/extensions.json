@@ -16,7 +16,9 @@
         "ETHFoundry.solidityethereum",
         "vuejs.volar",
         "Snipcola.roblox-execute",
-        "Snipcola.macsploit-execute"
+        "Snipcola.macsploit-execute",
+        "Rojo.rojo-roblox-vscode",
+        "ChainDevTools.solidity-pro"
     ],
     "search": [
         {
