@@ -496,6 +496,18 @@
                 "displayName": "Bazel Kotlin"
             }
         },
+        "dorzey.vscode-sqlfluff": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sqlfluff.vscode-sqlfluff",
+                "displayName": "sqlfluff"
+        },
+        "RobertOstermann.vscode-sqlfluff": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sqlfluff.vscode-sqlfluff",
+                "displayName": "sqlfluff"
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
