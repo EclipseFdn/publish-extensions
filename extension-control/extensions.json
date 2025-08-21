@@ -19,7 +19,8 @@
         "Snipcola.roblox-execute",
         "Snipcola.macsploit-execute",
         "Rojo.rojo-roblox-vscode",
-        "ChainDevTools.solidity-pro"
+        "ChainDevTools.solidity-pro",
+        "nomic-foundation.hardhat-solidity"
     ],
     "search": [
         {
