@@ -10,13 +10,16 @@
         "AllenBarry.Solid",
         "nomiFoundation.hardhat-solidity-pack",
         "vuejs.node-snippets",
-        "Anthropic.claude-code",
         "NomicFdn.hardhat-solidity",
         "Jack-plugin.ui-test-visualizer",
         "Ethereum.solidity-ethereum",
         "ETHFoundry.solidityethereum",
         "vuejs.volar",
         "juan-blanco.solidity"
+        "Snipcola.roblox-execute",
+        "Snipcola.macsploit-execute",
+        "Rojo.rojo-roblox-vscode",
+        "ChainDevTools.solidity-pro"
     ],
     "search": [
         {
@@ -52,6 +55,13 @@
         }
     ],
     "deprecated": {
+         "HerrInformatiker.ai-rules-sync" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "HerrInformatiker.ai-rules-syncer",
+                "displayName": "AI Rules Syncer"
+            }
+        },
         "andrewhertog.codex-editor-extension": true,
         "Daimler.sechub": {
             "disallowInstall": true,
