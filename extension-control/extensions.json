@@ -50,6 +50,13 @@
         }
     ],
     "deprecated": {
+         "HerrInformatiker.ai-rules-sync" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "HerrInformatiker.ai-rules-syncer",
+                "displayName": "AI Rules Syncer"
+            }
+        },
         "andrewhertog.codex-editor-extension": true,
         "Daimler.sechub": {
             "disallowInstall": true,
