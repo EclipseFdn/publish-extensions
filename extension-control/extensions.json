@@ -20,7 +20,11 @@
         "Snipcola.macsploit-execute",
         "Rojo.rojo-roblox-vscode",
         "ChainDevTools.solidity-pro",
-        "nomic-foundation.hardhat-solidity"
+        "nomic-foundation.hardhat-solidity",
+        "nomic-fdn.hardhat-solidity",
+        "juanblanco.solidity",
+        "juan-blanco.solidity",
+        "magic-stack.MagicPython"
     ],
     "search": [
         {
