@@ -54,7 +54,7 @@
         "DavidGomes.platformio-ide-cursor": {
             "disallowInstall": true,
             "extension": {
-                "id": "DavidGomes.platformio-ide-cursor",
+                "id": "DavidGomes.platformio-ide",
                 "displayName": "PlatformIO IDE for Cursor"
             }
         },
