@@ -514,7 +514,7 @@
                 "id": "sqlfluff.vscode-sqlfluff",
                 "displayName": "sqlfluff"
             }
-        },    
+        },
         "RobertOstermann.vscode-sqlfluff": {
             "disallowInstall": true,
             "extension": {
