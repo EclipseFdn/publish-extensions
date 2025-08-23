@@ -522,6 +522,13 @@
                 "displayName": "sqlfluff"
             }
         },
+        "ForceConfigControl.lightningflowscanner": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "ForceConfigControl.lightningflowscanner",
+                "displayName": "Lightning Flow Scanner"
+            }
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
