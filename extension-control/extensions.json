@@ -15,7 +15,7 @@
         "Ethereum.solidity-ethereum",
         "ETHFoundry.solidityethereum",
         "vuejs.volar",
-        "juan-blanco.solidity"
+        "juan-blanco.solidity",
         "Snipcola.roblox-execute",
         "Snipcola.macsploit-execute",
         "Rojo.rojo-roblox-vscode",
@@ -513,12 +513,14 @@
             "extension": {
                 "id": "sqlfluff.vscode-sqlfluff",
                 "displayName": "sqlfluff"
-        },
+            }
+        },    
         "RobertOstermann.vscode-sqlfluff": {
             "disallowInstall": true,
             "extension": {
                 "id": "sqlfluff.vscode-sqlfluff",
                 "displayName": "sqlfluff"
+            }
         },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
