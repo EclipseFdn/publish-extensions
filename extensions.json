@@ -399,6 +399,7 @@
   },
   "GitHub.copilot-chat": {
     "repository": "https://github.com/microsoft/vscode-copilot-chat"
+    "prepublish": "npm run build"
   },
   "GitHub.github-vscode-theme": {
     "repository": "https://github.com/primer/github-vscode-theme",
