@@ -31,7 +31,7 @@
     "@actions/artifact": "^2.3.2",
     "@vscode/vsce": "^3.0.0",
     "ajv": "^8.8.1",
-    "chai": "^5.1.0",
+    "chai": "^6.0.1",
     "deep-equal-in-any-order": "^2.0.6",
     "download": "^8.0.0",
     "fast-glob": "^3.2.12",
