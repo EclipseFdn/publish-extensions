@@ -22,9 +22,9 @@
         "ChainDevTools.solidity-pro",
         "nomic-foundation.hardhat-solidity",
         "nomic-fdn.hardhat-solidity",
-        "juanblanco.solidity",
         "juan-blanco.solidity",
-        "magic-stack.MagicPython"
+        "magic-stack.MagicPython",
+        "EchelonStudios.solidity-language-support"
     ],
     "search": [
         {
