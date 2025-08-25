@@ -14,6 +14,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: Validate JSON files
+        run: |
+          echo "Validating JSON files..."
+
+          # Validate extensions.json
+          echo "Validating extensions.json..."
+          if ! jq empty extensions.json >/dev/null 2>&1; then
+            echo "❌ extensions.json is not valid JSON"
+            exit 1
+          fi
+          echo "✓ extensions.json is valid JSON"
+
+          # Validate extension-control/extensions.json
+          echo "Validating extension-control/extensions.json..."
+          if ! jq empty extension-control/extensions.json >/dev/null 2>&1; then
+            echo "❌ extension-control/extensions.json is not valid JSON"
+            exit 1
+          fi
+          echo "✓ extension-control/extensions.json is valid JSON"
+
+          # Validate extensions-schema.json
+          echo "Validating extensions-schema.json..."
+          if ! jq empty extensions-schema.json >/dev/null 2>&1; then
+            echo "❌ extensions-schema.json is not valid JSON"
+            exit 1
+          fi
+          echo "✓ extensions-schema.json is valid JSON"
+
+          # Validate extension-control/schema.json
+          echo "Validating extension-control/schema.json..."
+          if ! jq empty extension-control/schema.json >/dev/null 2>&1; then
+            echo "❌ extension-control/schema.json is not valid JSON"
+            exit 1
+          fi
+          echo "✓ extension-control/schema.json is valid JSON"
+
+          echo "✅ All JSON files are valid!"
       - uses: actions/setup-node@v4.3.0
         with:
           node-version: "18.x"
