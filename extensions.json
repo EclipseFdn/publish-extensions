@@ -536,6 +536,9 @@
     "repository": "https://github.com/jolaleye/horizon-theme-vscode",
     "prepublish": "npm run build"
   },
+  "jonnyasmar.markdown-docs": {
+    "repository": "https://github.com/jonnyasmar/markdown-docs"
+  },
   "junstyle.php-cs-fixer": {
     "repository": "https://github.com/junstyle/vscode-php-cs-fixer",
     "prepublish": "npm i -g esbuild"
