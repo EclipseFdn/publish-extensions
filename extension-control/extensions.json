@@ -60,7 +60,7 @@
         }
     ],
     "deprecated": {
-         "HerrInformatiker.ai-rules-sync" : {
+        "HerrInformatiker.ai-rules-sync": {
             "disallowInstall": true,
             "extension": {
                 "id": "HerrInformatiker.ai-rules-syncer",
@@ -532,6 +532,13 @@
             "extension": {
                 "id": "sqlfluff.vscode-sqlfluff",
                 "displayName": "sqlfluff"
+            }
+        },
+        "scottbauer.cpputest-test-adapter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "bneumann.cpputest-test-adapter",
+                "displayName": "CppUTest Test Adapter"
             }
         },
         "DrMerfy.overtype": true,
