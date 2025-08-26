@@ -79,6 +79,13 @@
         }
     ],
     "deprecated": {
+        "codescene.codescene-vscode-noace" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "codescene.codescene-vscode",
+                "displayName": "CodeScene"
+            }
+        },
         "iFlow.iflow-cli-vscode-ide-companion": {
             "disallowInstall": true,
             "extension": {
