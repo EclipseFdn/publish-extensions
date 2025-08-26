@@ -60,6 +60,13 @@
         }
     ],
     "deprecated": {
+        "codescene.codescene-vscode-noace" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "codescene.codescene-vscode",
+                "displayName": "CodeScene"
+            }
+        },
          "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
