@@ -102,6 +102,9 @@
   "bbenoist.Doxygen": {
     "repository": "https://github.com/bbenoist/vscode-doxygen"
   },
+  "BCNelson.vscode-tap-harness": {
+    "repository": "https://github.com/BCNelson/vscode-tap-harness"
+  },
   "belfz.search-crates-io": {
     "repository": "https://github.com/belfz/search-crates-io"
   },
