@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4.3.0
         with:
-          node-version: "20.x"
+          node-version: "22.x"
       - name: Download extension file
         run: wget -O extension.vsix "${{ github.event.inputs.extensions }}"
       - name: Create Open VSX namespace

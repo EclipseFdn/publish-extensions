@@ -397,6 +397,10 @@
   "giscafer.leek-fund": {
     "repository": "https://github.com/giscafer/leek-fund"
   },
+  "GitHub.copilot-chat": {
+    "repository": "https://github.com/microsoft/vscode-copilot-chat",
+    "prepublish": "npm run build"
+  },
   "GitHub.github-vscode-theme": {
     "repository": "https://github.com/primer/github-vscode-theme",
     "prepublish": "npm run build"
@@ -877,10 +881,9 @@
   "ms-python.mypy-type-checker": {
     "repository": "https://github.com/microsoft/vscode-mypy",
     "custom": [
-      "python -m venv .venv",
-      "source .venv/bin/activate",
-      "python -m pip install nox",
-      "python -m pip install -t ./bundled/libs --no-cache-dir --no-user --implementation py --no-deps --upgrade -r ./requirements.txt",
+      "/usr/bin/python3 -m venv .venv",
+      "source .venv/bin/activate && python -m pip install nox",
+      "source .venv/bin/activate && python -m pip install -t ./bundled/libs --no-cache-dir --no-user --implementation py --no-deps --upgrade -r ./requirements.txt",
       "npm ci --prefer-offline",
       "npm run vsce-package"
     ],
@@ -1094,7 +1097,12 @@
     "repository": "https://github.com/vshaxe/vshaxe.git"
   },
   "NativeScript.nativescript": {
-    "repository": "https://github.com/NativeScript/nativescript-vscode-extension"
+    "repository": "https://github.com/NativeScript/nativescript-vscode-extension",
+    "custom": [
+      "npm install --include=dev",
+      "./node_modules/.bin/tsc -p ./src && npx cpx src/common/*.sh out/common",
+      "npx vsce package -o extension.vsix"
+    ]
   },
   "naumovs.color-highlight": {
     "repository": "https://github.com/egonyans/vscode-ext-color-highlight"

@@ -29,12 +29,12 @@ jobs:
     env:
       DO_DOWNLOAD: ${{ fromJSON(inputs.publishContext).files != null }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: ${{ env.DO_DOWNLOAD == 'true' }}
       - uses: actions/setup-node@v4.3.0
         if: ${{ env.DO_DOWNLOAD == 'true' }}
         with:
-          node-version: "20.x"
+          node-version: "22.x"
       - run: npm install
         if: ${{ env.DO_DOWNLOAD == 'true' }}
       - run: npm i -g @vscode/vsce pnpm
@@ -57,10 +57,10 @@ jobs:
     permissions:
       actions: none
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4.3.0
         with:
-          node-version: "20.x"
+          node-version: "22.x"
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
@@ -112,10 +112,10 @@ jobs:
     permissions:
       actions: none
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4.3.0
         with:
-          node-version: "20.x"
+          node-version: "22.x"
       - run: npm install
       - run: npm i -g @vscode/vsce pnpm
       - uses: actions/download-artifact@v4

@@ -14,7 +14,17 @@
         "Jack-plugin.ui-test-visualizer",
         "Ethereum.solidity-ethereum",
         "ETHFoundry.solidityethereum",
-        "vuejs.volar"
+        "vuejs.volar",
+        "juan-blanco.solidity",
+        "Snipcola.roblox-execute",
+        "Snipcola.macsploit-execute",
+        "Rojo.rojo-roblox-vscode",
+        "ChainDevTools.solidity-pro",
+        "nomic-foundation.hardhat-solidity",
+        "nomic-fdn.hardhat-solidity",
+        "juan-blanco.solidity",
+        "magic-stack.MagicPython",
+        "EchelonStudios.solidity-language-support"
     ],
     "search": [
         {
@@ -55,9 +65,23 @@
             "extension": {
                 "id": "dennisgrzyb.sf-org-list",
                 "displayName": "SF Org List"
+            }    
+        },
+         "HerrInformatiker.ai-rules-sync" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "HerrInformatiker.ai-rules-syncer",
+                "displayName": "AI Rules Syncer"
             }
         },
         "andrewhertog.codex-editor-extension": true,
+        "DavidGomes.platformio-ide-cursor": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "DavidGomes.platformio-ide",
+                "displayName": "PlatformIO IDE for Cursor"
+            }
+        },
         "Daimler.sechub": {
             "disallowInstall": true,
             "extension": {
@@ -503,6 +527,20 @@
                 "displayName": "Bazel Kotlin"
             }
         },
+        "dorzey.vscode-sqlfluff": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sqlfluff.vscode-sqlfluff",
+                "displayName": "sqlfluff"
+            }
+        },
+        "RobertOstermann.vscode-sqlfluff": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sqlfluff.vscode-sqlfluff",
+                "displayName": "sqlfluff"
+            }
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
@@ -511,7 +549,8 @@
         "MS-CEINTL.vscode-language-pack-hu": true,
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
-        "MS-CEINTL.vscode-language-pack-uk": true
+        "MS-CEINTL.vscode-language-pack-uk": true,
+        "interactive-mcp.interactive-mcp": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
