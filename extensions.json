@@ -1447,7 +1447,10 @@
     "repository": "https://github.com/microsoft/vscode-gradle",
     "location": "extension",
     "custom": [
-      "cd extension && git clone https://github.com/microsoft/build-server-for-gradle.git && ../gradlew buildJars && cd .. && ./gradlew build && cd extension && vsce package -o extension.vsix"
+      "cd extension && git clone https://github.com/microsoft/build-server-for-gradle.git",
+      "cd extension && ../gradlew buildJars",
+      "./gradlew build",
+      "cd extension && vsce package -o extension.vsix"
     ]
   },
   "vscjava.vscode-java-debug": {
