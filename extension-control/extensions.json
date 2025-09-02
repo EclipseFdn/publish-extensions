@@ -523,11 +523,7 @@
             }
         },
         "ForceConfigControl.lightningflowscanner": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "ForceConfigControl.lightningflowscanner",
-                "displayName": "Lightning Flow Scanner"
-            }
+            "disallowInstall": true
         },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
