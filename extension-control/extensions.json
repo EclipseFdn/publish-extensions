@@ -538,6 +538,9 @@
         "ForceConfigControl.lightningflowscanner": {
             "disallowInstall": true
         },
+        "sforgsummary.sf-org-summary": {
+            "disallowInstall": true
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
