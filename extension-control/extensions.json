@@ -24,7 +24,8 @@
         "nomic-fdn.hardhat-solidity",
         "juan-blanco.solidity",
         "magic-stack.MagicPython",
-        "EchelonStudios.solidity-language-support"
+        "EchelonStudios.solidity-language-support",
+        "JuanFBlanco.solidity-ai-ethereum"
     ],
     "search": [
         {
