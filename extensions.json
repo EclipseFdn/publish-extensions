@@ -334,6 +334,9 @@
   "fabiospampinato.vscode-todo-plus": {
     "repository": "https://github.com/fabiospampinato/vscode-todo-plus"
   },
+  "faubulous.mentor": {
+    "repository": "https://github.com/faubulous/mentor-vscode"
+  },
   "fbaligand.vscode-logstash-editor": {
     "repository": "https://github.com/fbaligand/vscode-logstash-editor"
   },
