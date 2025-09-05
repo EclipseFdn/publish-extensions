@@ -1218,6 +1218,9 @@
   "rafaelmaiolla.diff": {
     "repository": "https://github.com/rafaelmaiolla/diff-vscode"
   },
+  "rajankur.code-muse-light-theme": {
+    "repository": "https://github.com/rajankur/code-muse-theme"
+  },
   "RandomChance.logstash": {
     "repository": "https://github.com/randomchance/vscode-logstash-configuration-syntax"
   },
