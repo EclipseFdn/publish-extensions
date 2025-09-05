@@ -1444,7 +1444,9 @@
     "repository": "https://github.com/vortizhe/vscode-ruby-erb"
   },
   "vscjava.vscode-gradle": {
-    "repository": "https://github.com/microsoft/vscode-gradle"
+    "repository": "https://github.com/microsoft/vscode-gradle",
+    "location": "extension",
+    "prepublish": "cd extension && git clone https://github.com/microsoft/build-server-for-gradle.git && ../gradlew buildJars && cd .. && ./gradlew build"
   },
   "vscjava.vscode-java-debug": {
     "repository": "https://github.com/microsoft/vscode-java-debug",
