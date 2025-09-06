@@ -201,6 +201,9 @@
   "damc.textpad-color-theme": {
     "repository": "https://github.com/damc-code/themes"
   },
+  "damolinx.damolinx-macros": {
+    "repository": "https://github.com/damolinx/vscode-macros"
+  },
   "damonsk.vscode-wardley-maps": {
     "repository": "https://github.com/damonsk/vscode-wardley-maps"
   },
