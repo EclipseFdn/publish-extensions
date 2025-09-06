@@ -25,7 +25,8 @@
         "juan-blanco.solidity",
         "magic-stack.MagicPython",
         "EchelonStudios.solidity-language-support",
-        "JuanFBlanco.solidity-ai-ethereum"
+        "JuanFBlanco.solidity-ai-ethereum",
+        "JuanFBlanc.solidity-ethereum-vsc"
     ],
     "search": [
         {
