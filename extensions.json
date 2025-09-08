@@ -87,6 +87,9 @@
   "attilabuti.brainfuck-syntax": {
     "repository": "https://github.com/attilabuti/brainfuck-syntax"
   },
+  "at-ishikawa.vscode-dired-mode": {
+    "repository": "https://github.com/at-ishikawa/vscode-dired-mode"
+  },
   "aurorabiz.blade-ui-kit": {
     "repository": "https://github.com/Y-open/blade-ui-kit-vscode"
   },
