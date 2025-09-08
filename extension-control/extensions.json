@@ -27,12 +27,12 @@
         "EchelonStudios.solidity-language-support",
         "JuanFBlanco.solidity-ai-ethereum",
         "JuanFBlanc.solidity-ethereum-vsc",
-        "juan-blanco/vscode-solidity", 
-        "nomic-fdn/solidity-hardhat", 
-        "aptos/move-on-aptos",
-        "googlecloud-vscode/firebase-dataconnect", 
-        "kilocode-ai/kilo-code", 
-        "oxc-vscode/oxc"
+        "juan-blanco.vscode-solidity", 
+        "nomic-fdn.solidity-hardhat", 
+        "aptos.move-on-aptos",
+        "googlecloud-vscode.firebase-dataconnect", 
+        "kilocode-ai.kilo-code", 
+        "oxc-vscode.oxc"
     ],
     "search": [
         {
