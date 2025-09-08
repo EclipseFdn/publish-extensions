@@ -62,6 +62,13 @@
         }
     ],
     "deprecated": {
+        "AnuragKochar.that-typescript-extension" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "AnuragKochar.that-typescript-extension",
+                "displayName": "that-typescript-extension"
+            }
+        },
          "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
