@@ -1397,6 +1397,9 @@
   "tombonnike.vscode-status-bar-format-toggle": {
     "repository": "https://github.com/Tom-Bonnike/vscode-formatting-toggle"
   },
+  "TomsMartinez.localhost-browser": {
+    "repository": "https://github.com/Shadow1363/LocalHost"
+  },
   "tomoki1207.pdf": {
     "repository": "https://github.com/tomoki1207/vscode-pdfviewer"
   },
