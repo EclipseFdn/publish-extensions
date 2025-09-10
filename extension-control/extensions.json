@@ -62,6 +62,13 @@
         }
     ],
     "deprecated": {
+        "iFlow.iflow-cli-vscode-ide-companion": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "iflow-cli.iflow-cli-vscode-ide-companion",
+                "displayName": "iFlow CLI"
+            }
+        }
          "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
@@ -565,10 +572,6 @@
         "hediet.vscode-drawio-insiders-build": {
             "id": "hediet.vscode-drawio",
             "displayName": "Draw.io Integration"
-        },
-        "iFlow.iflow-cli-vscode-ide-companion": {
-            "id": "iflow-cli.iflow-cli-vscode-ide-companion",
-            "displayName": "iFlow CLI"
         }
     },
     "extensionsEnabledWithPreRelease": []
