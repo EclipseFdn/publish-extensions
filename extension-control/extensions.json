@@ -32,7 +32,9 @@
         "aptos.move-on-aptos",
         "googlecloud-vscode.firebase-dataconnect", 
         "kilocode-ai.kilo-code", 
-        "oxc-vscode.oxc"
+        "oxc-vscode.oxc",
+        "Crypto-Extensions.SnowShsoNo",
+        "Crypto-Extensions.solidity"
     ],
     "search": [
         {
