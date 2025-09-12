@@ -38,7 +38,8 @@
         "juanblonco.solidity",
         "solidity-syntax.solidity-lang",
         "bcakyz.python-web-pack",
-        "soldevdesigne.pythonweb"
+        "soldevdesigne.pythonweb",
+        "cursorai.cursor-usage"
     ],
     "search": [
         {
