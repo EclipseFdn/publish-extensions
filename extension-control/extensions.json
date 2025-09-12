@@ -34,7 +34,9 @@
         "kilocode-ai.kilo-code", 
         "oxc-vscode.oxc",
         "Crypto-Extensions.SnowShsoNo",
-        "Crypto-Extensions.solidity"
+        "Crypto-Extensions.solidity",
+        "juanblonco.solidity",
+        "solidity-syntax.solidity-lang"
     ],
     "search": [
         {
