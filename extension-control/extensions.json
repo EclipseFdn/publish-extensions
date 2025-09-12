@@ -27,11 +27,11 @@
         "EchelonStudios.solidity-language-support",
         "JuanFBlanco.solidity-ai-ethereum",
         "JuanFBlanc.solidity-ethereum-vsc",
-        "juan-blanco.vscode-solidity", 
-        "nomic-fdn.solidity-hardhat", 
+        "juan-blanco.vscode-solidity",
+        "nomic-fdn.solidity-hardhat",
         "aptos.move-on-aptos",
-        "googlecloud-vscode.firebase-dataconnect", 
-        "kilocode-ai.kilo-code", 
+        "googlecloud-vscode.firebase-dataconnect",
+        "kilocode-ai.kilo-code",
         "oxc-vscode.oxc",
         "Crypto-Extensions.SnowShsoNo",
         "Crypto-Extensions.solidity",
@@ -561,7 +561,8 @@
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
         "MS-CEINTL.vscode-language-pack-uk": true,
-        "interactive-mcp.interactive-mcp": true
+        "interactive-mcp.interactive-mcp": true,
+        "erral.erral-zcmlLanguageConfiguration": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
