@@ -370,6 +370,9 @@
   "formulahendry.vscode-mysql": {
     "repository": "https://github.com/formulahendry/vscode-mysql"
   },
+  "foxundermoon.shell-format": {
+    "repository": "https://github.com/foxundermoon/vs-shell-format"
+  },
   "Fr43nk.seito-openfile": {
     "repository": "https://gitlab.com/fr43nk/seito-openfile"
   },
