@@ -1597,5 +1597,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "Anjali.clipboard-history": {
+    "repository": "https://github.com/aefernandes/vscode-clipboard-history-extension"
   }
 }
