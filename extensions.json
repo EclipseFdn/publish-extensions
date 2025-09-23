@@ -1170,6 +1170,9 @@
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
+  "OwenRumney.tf-nav": {
+    "repository": "https://github.com/owenrumney/tf-nav"
+  },
   "paiqo.databricks-vscode": {
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
