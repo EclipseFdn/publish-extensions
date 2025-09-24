@@ -27,11 +27,11 @@
         "EchelonStudios.solidity-language-support",
         "JuanFBlanco.solidity-ai-ethereum",
         "JuanFBlanc.solidity-ethereum-vsc",
-        "juan-blanco.vscode-solidity", 
-        "nomic-fdn.solidity-hardhat", 
+        "juan-blanco.vscode-solidity",
+        "nomic-fdn.solidity-hardhat",
         "aptos.move-on-aptos",
-        "googlecloud-vscode.firebase-dataconnect", 
-        "kilocode-ai.kilo-code", 
+        "googlecloud-vscode.firebase-dataconnect",
+        "kilocode-ai.kilo-code",
         "oxc-vscode.oxc",
         "Crypto-Extensions.SnowShsoNo",
         "Crypto-Extensions.solidity",
@@ -75,7 +75,7 @@
         }
     ],
     "deprecated": {
-         "HerrInformatiker.ai-rules-sync" : {
+        "HerrInformatiker.ai-rules-sync": {
             "disallowInstall": true,
             "extension": {
                 "id": "HerrInformatiker.ai-rules-syncer",
@@ -554,6 +554,13 @@
         },
         "sforgsummary.sf-org-summary": {
             "disallowInstall": true
+        },
+        "scottbauer.cpputest-test-adapter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "bneumann.cpputest-test-adapter",
+                "displayName": "CppUTest Test Adapter"
+            }
         },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
