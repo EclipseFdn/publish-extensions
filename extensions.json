@@ -511,6 +511,9 @@
   "janisdd.vscode-edit-csv": {
     "repository": "https://github.com/janisdd/vscode-edit-csv"
   },
+  "jasonnutter.vscode-codeowners": {
+    "repository": "https://github.com/jasonnutter/vscode-codeowners"
+  },
   "jebbs.markdown-extended": {
     "repository": "https://github.com/qjebbs/vscode-markdown-extended"
   },
