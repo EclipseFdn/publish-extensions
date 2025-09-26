@@ -1357,6 +1357,9 @@
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
+  "stjude-rust-labs.sprocket-vscode": {
+    "repository": "https://github.com/stjude-rust-labs/sprocket-vscode"
+  },
   "stripe.vscode-stripe": {
     "repository": "https://github.com/stripe/vscode-stripe"
   },
