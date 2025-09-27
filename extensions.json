@@ -245,6 +245,9 @@
   "DigitalBrainstem.javascript-ejs-support": {
     "repository": "https://github.com/Digitalbrainstem/ejs-grammar"
   },
+  "dlech.chmod": {
+    "repository": "https://github.com/dlech/vscode-chmod"
+  },
   "donjayamanne.git-extension-pack": {
     "repository": "https://github.com/DonJayamanne/git-extension-pack"
   },
