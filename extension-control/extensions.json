@@ -573,7 +573,14 @@
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
         "MS-CEINTL.vscode-language-pack-uk": true,
-        "interactive-mcp.interactive-mcp": true
+        "interactive-mcp.interactive-mcp": true,
+        "modular-mojotools.vscode-mojo-nightly": {
+                "disallowInstall": true,
+                "extension": {
+                        "id": "modular-mojotools.vscode-mojo",
+                        "displayName": "Mojo 🔥"
+                }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
