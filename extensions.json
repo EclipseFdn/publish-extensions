@@ -495,6 +495,9 @@
   "ivangabriele.vscode-git-add-and-commit": {
     "repository": "https://github.com/ivangabriele/vscode-git-automator-legacy"
   },
+  "JabX.topmodel": {
+    "repository": "https://github.com/klee-contrib/topmodel"
+  },
   "jacobdufault.fuzzy-search": {
     "repository": "https://github.com/jacobdufault/vscode-fuzzy-search",
     "custom": [
