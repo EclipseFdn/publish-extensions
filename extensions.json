@@ -64,6 +64,9 @@
   "anseki.vscode-color": {
     "repository": "https://github.com/anseki/vscode-color"
   },
+  "anybody.anyscript": {
+    "repository": "https://github.com/AnyBody/vscode-anyscript"
+  },
   "apollographql.apollo-midnight-color-theme": {
     "repository": "https://github.com/apollographql/apollo-midnight"
   },
