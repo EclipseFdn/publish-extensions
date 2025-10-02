@@ -575,7 +575,14 @@
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
         "MS-CEINTL.vscode-language-pack-uk": true,
-        "interactive-mcp.interactive-mcp": true
+        "interactive-mcp.interactive-mcp": true,
+        "sensmetry.sysml-2ls": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "sensmetry.syside-editor",
+                "displayName": "Syside Editor"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
