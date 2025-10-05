@@ -79,6 +79,14 @@
         }
     ],
     "deprecated": {
+        
+        "errata-ai.vale-server": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "errata-ai.vale-server",
+                "displayName": "Vale"
+            }
+        },
         "HerrInformatiker.ai-rules-sync": {
             "disallowInstall": true,
             "extension": {
