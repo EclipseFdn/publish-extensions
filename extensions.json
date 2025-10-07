@@ -397,6 +397,9 @@
   "giscafer.leek-fund": {
     "repository": "https://github.com/giscafer/leek-fund"
   },
+  "gitguardian-secret-security.gitguardian": {
+    "repository": "https://github.com/GitGuardian/gitguardian-vscode"
+  },
   "GitHub.copilot-chat": {
     "repository": "https://github.com/microsoft/vscode-copilot-chat",
     "prepublish": "npm run build"
