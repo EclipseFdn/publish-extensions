@@ -51,6 +51,9 @@
   "almenon.arepl": {
     "repository": "https://github.com/almenon/arepl-vscode"
   },
+  "alonsodomin.blueforest-vscode-theme": {
+    "repository": "https://github.com/alonsodomin/blueforest-vscode-theme"
+  },
   "amiralizadeh9480.laravel-extra-intellisense": {
     "repository": "https://github.com/amir9480/vscode-laravel-extra-intellisense"
   },
