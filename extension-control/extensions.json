@@ -26,7 +26,24 @@
         "magic-stack.MagicPython",
         "EchelonStudios.solidity-language-support",
         "JuanFBlanco.solidity-ai-ethereum",
-        "JuanFBlanc.solidity-ethereum-vsc"
+        "JuanFBlanc.solidity-ethereum-vsc",
+        "juan-blanco.vscode-solidity",
+        "nomic-fdn.solidity-hardhat",
+        "aptos.move-on-aptos",
+        "googlecloud-vscode.firebase-dataconnect",
+        "kilocode-ai.kilo-code",
+        "oxc-vscode.oxc",
+        "Crypto-Extensions.SnowShsoNo",
+        "Crypto-Extensions.solidity",
+        "juanblonco.solidity",
+        "solidity-syntax.solidity-lang",
+        "bcakyz.python-web-pack",
+        "soldevdesigne.pythonweb",
+        "cursorai.cursor-usage",
+        "rust-analyzerr.rust-analyzer",
+        "rust-anlyzer.rust-anlyzer",
+        "ethereum.solidity",
+        "nethereum.solidity"
     ],
     "search": [
         {
@@ -68,7 +85,7 @@
                 "id": "iflow-cli.iflow-cli-vscode-ide-companion",
                 "displayName": "iFlow CLI"
             }
-        }
+        },
          "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
@@ -548,6 +565,13 @@
         },
         "sforgsummary.sf-org-summary": {
             "disallowInstall": true
+        },
+        "scottbauer.cpputest-test-adapter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "bneumann.cpputest-test-adapter",
+                "displayName": "CppUTest Test Adapter"
+            }
         },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
