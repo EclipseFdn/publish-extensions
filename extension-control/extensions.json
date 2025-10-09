@@ -287,13 +287,6 @@
                 "displayName": "KIE Serverless Workflow Editor"
             }
         },
-        "errata-ai.vale-server": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "chrischinchilla.vale-vscode",
-                "displayName": "Vale VSCode"
-            }
-        },
         "bungcip.better-toml": {
             "disallowInstall": true,
             "extension": {
