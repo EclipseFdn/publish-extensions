@@ -280,7 +280,7 @@
   "dunstontc.viml": {
     "repository": "https://github.com/dunstontc/viml"
   },
-  "Durandal14.vscode-extension-dbml-viewer": {
+  "nicolas-liger.dbml-viewer": {
     "repository": "https://github.com/Durandal14/vscode-extension-dbml-viewer"
   },
   "dylan-foundry.vscode-dylan": {
