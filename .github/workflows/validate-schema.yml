@@ -1,0 +1,30 @@
+name: Validate Extension Control Schema
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'extension-control/extensions.json'
+      - 'extension-control/schema.json'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'extension-control/extensions.json'
+      - 'extension-control/schema.json'
+
+jobs:
+  validate:
+    name: Validate extensions.json against schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      
+      - uses: actions/setup-node@v4.3.0
+        with:
+          node-version: "24.x"
+      
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli
+      
+      - name: Validate JSON schema
+        run: ajv validate -s extension-control/schema.json -d extension-control/extensions.json --strict=false

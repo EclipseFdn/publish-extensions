@@ -87,6 +87,21 @@
             }
         },
         "HerrInformatiker.ai-rules-sync": {
+        "codescene.codescene-vscode-noace" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "codescene.codescene-vscode",
+                "displayName": "CodeScene"
+            }
+        },
+        "iFlow.iflow-cli-vscode-ide-companion": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "iflow-cli.iflow-cli-vscode-ide-companion",
+                "displayName": "iFlow CLI"
+            }
+        },
+         "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
                 "id": "HerrInformatiker.ai-rules-syncer",
@@ -575,7 +590,14 @@
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
         "MS-CEINTL.vscode-language-pack-uk": true,
-        "interactive-mcp.interactive-mcp": true
+        "interactive-mcp.interactive-mcp": true,
+        "sensmetry.sysml-2ls": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "sensmetry.syside-editor",
+                "displayName": "Syside Editor"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
