@@ -79,11 +79,10 @@
         }
     ],
     "deprecated": {
-        
         "errata-ai.vale-server": {
             "disallowInstall": true,
             "extension": {
-                "id": "errata-ai.vale-server",
+                "id": "chrischinchilla.vale-vscode",
                 "displayName": "Vale"
             }
         },
