@@ -596,6 +596,13 @@
                 "id": "sensmetry.syside-editor",
                 "displayName": "Syside Editor"
             }
+        },
+        "acunniffe.cursor-git-ai": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "cursorGitAi",
+                "displayName": "git-ai for Cursor"
+            }
         }
     },
     "migrateToPreRelease": {
