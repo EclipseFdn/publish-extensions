@@ -918,6 +918,9 @@
     "pythonVersion": "3.9",
     "timeout": 30
   },
+  "ms-python.vscode-python-envs": {
+    "repository": "https://github.com/microsoft/vscode-python-environments"
+  },
   "MS-SarifVSCode.sarif-viewer": {
     "repository": "https://github.com/Microsoft/sarif-vscode-extension"
   },
@@ -1079,7 +1082,9 @@
   "ms-vscode.webshell": {
     "repository": "https://github.com/microsoft/vscode-wasm.git",
     "location": "webshell",
-    "custom": ["npm i && cd webshell && vsce package -o extension.vsix"]
+    "custom": [
+      "npm i && cd webshell && vsce package -o extension.vsix"
+    ]
   },
   "msjsdiag.debugger-for-edge": {
     "repository": "https://github.com/Microsoft/vscode-edge-debug2"

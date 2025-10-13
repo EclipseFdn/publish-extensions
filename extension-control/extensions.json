@@ -27,11 +27,11 @@
         "EchelonStudios.solidity-language-support",
         "JuanFBlanco.solidity-ai-ethereum",
         "JuanFBlanc.solidity-ethereum-vsc",
-        "juan-blanco.vscode-solidity", 
-        "nomic-fdn.solidity-hardhat", 
+        "juan-blanco.vscode-solidity",
+        "nomic-fdn.solidity-hardhat",
         "aptos.move-on-aptos",
-        "googlecloud-vscode.firebase-dataconnect", 
-        "kilocode-ai.kilo-code", 
+        "googlecloud-vscode.firebase-dataconnect",
+        "kilocode-ai.kilo-code",
         "oxc-vscode.oxc",
         "Crypto-Extensions.SnowShsoNo",
         "Crypto-Extensions.solidity",
@@ -39,7 +39,11 @@
         "solidity-syntax.solidity-lang",
         "bcakyz.python-web-pack",
         "soldevdesigne.pythonweb",
-        "cursorai.cursor-usage"
+        "cursorai.cursor-usage",
+        "rust-analyzerr.rust-analyzer",
+        "rust-anlyzer.rust-anlyzer",
+        "ethereum.solidity",
+        "nethereum.solidity"
     ],
     "search": [
         {
@@ -75,6 +79,20 @@
         }
     ],
     "deprecated": {
+        "codescene.codescene-vscode-noace" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "codescene.codescene-vscode",
+                "displayName": "CodeScene"
+            }
+        },
+        "iFlow.iflow-cli-vscode-ide-companion": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "iflow-cli.iflow-cli-vscode-ide-companion",
+                "displayName": "iFlow CLI"
+            }
+        },
          "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
@@ -555,6 +573,13 @@
         "sforgsummary.sf-org-summary": {
             "disallowInstall": true
         },
+        "scottbauer.cpputest-test-adapter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "bneumann.cpputest-test-adapter",
+                "displayName": "CppUTest Test Adapter"
+            }
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
@@ -564,7 +589,14 @@
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
         "MS-CEINTL.vscode-language-pack-uk": true,
-        "interactive-mcp.interactive-mcp": true
+        "interactive-mcp.interactive-mcp": true,
+        "sensmetry.sysml-2ls": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "sensmetry.syside-editor",
+                "displayName": "Syside Editor"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
