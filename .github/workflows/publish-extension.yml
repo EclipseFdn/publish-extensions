@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         if: ${{ env.DO_DOWNLOAD == 'true' }}
-      - uses: actions/setup-node@v4.3.0
+      - uses: actions/setup-node@v6.0.0
         if: ${{ env.DO_DOWNLOAD == 'true' }}
         with:
           node-version: "22.x"
@@ -58,7 +58,7 @@ jobs:
       actions: none
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4.3.0
+      - uses: actions/setup-node@v6.0.0
         with:
           node-version: "22.x"
       - uses: oven-sh/setup-bun@v2
@@ -113,7 +113,7 @@ jobs:
       actions: none
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4.3.0
+      - uses: actions/setup-node@v6.0.0
         with:
           node-version: "22.x"
       - run: npm install
