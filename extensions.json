@@ -1602,5 +1602,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "nipunaperera.vscode-kafka-client": {
+    "repository": "https://github.com/nipunap/vscode-kafka-client"
   }
 }
