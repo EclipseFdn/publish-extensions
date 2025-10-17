@@ -606,7 +606,8 @@
                 "id": "cursorGitAi",
                 "displayName": "git-ai for Cursor"
             }
-        }
+        },
+        "erral.erral-zcmlLanguageConfiguration": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
