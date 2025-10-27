@@ -1429,6 +1429,9 @@
   "Tyriar.windows-terminal": {
     "repository": "https://github.com/Tyriar/vscode-windows-terminal"
   },
+  "upstash.context7":{
+    "repository": "https://github.com/upstash/context7-vscode-extension"
+  },
   "vhdlwhiz.vhdl-by-vhdlwhiz": {
     "repository": "https://github.com/jonasjj/awesome-vhdl"
   },
