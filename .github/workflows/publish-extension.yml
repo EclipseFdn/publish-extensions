@@ -82,7 +82,7 @@ jobs:
           sudo apt-get install libpango1.0-dev libgif-dev
       - run: npm install
       - run: npm i -g @vscode/vsce pnpm
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           path: /tmp
       - id: build_extension
@@ -118,7 +118,7 @@ jobs:
           node-version: "22.x"
       - run: npm install
       - run: npm i -g @vscode/vsce pnpm
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           path: /tmp
       - uses: actions/github-script@v7
