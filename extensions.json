@@ -397,10 +397,6 @@
   "giscafer.leek-fund": {
     "repository": "https://github.com/giscafer/leek-fund"
   },
-  "GitHub.copilot-chat": {
-    "repository": "https://github.com/microsoft/vscode-copilot-chat",
-    "prepublish": "npm run build"
-  },
   "GitHub.github-vscode-theme": {
     "repository": "https://github.com/primer/github-vscode-theme",
     "prepublish": "npm run build"

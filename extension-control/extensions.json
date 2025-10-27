@@ -43,7 +43,10 @@
         "rust-analyzerr.rust-analyzer",
         "rust-anlyzer.rust-anlyzer",
         "ethereum.solidity",
-        "nethereum.solidity"
+        "nethereum.solidity",
+        "tailwindcss-main.tailwindcss-cursor",
+        "ab-498.cppplayground",
+        "ab-498.httpformat"
     ],
     "search": [
         {
@@ -596,7 +599,15 @@
                 "id": "sensmetry.syside-editor",
                 "displayName": "Syside Editor"
             }
-        }
+        },
+        "acunniffe.cursor-git-ai": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "cursorGitAi",
+                "displayName": "git-ai for Cursor"
+            }
+        },
+        "erral.erral-zcmlLanguageConfiguration": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
