@@ -349,6 +349,9 @@
   "folke.vscode-monorepo-workspace": {
     "repository": "https://github.com/folke/vscode-monorepo-workspace"
   },
+  "ForceConfigControl.lightning-flow-scanner-vsx": {
+    "repository": "https://github.com/Flow-Scanner/lightning-flow-scanner-vsx"
+  },
   "formulahendry.auto-close-tag": {
     "repository": "https://github.com/formulahendry/vscode-auto-close-tag"
   },
