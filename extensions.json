@@ -189,6 +189,9 @@
   "CoenraadS.bracket-pair-colorizer": {
     "repository": "https://github.com/CoenraadS/BracketPair"
   },
+  "connor4312.esbuild-problem-matchers": {
+    "repository": "https://github.com/connor4312/esbuild-problem-matchers"
+  },
   "connorshea.vscode-ruby-test-adapter": {
     "repository": "https://github.com/connorshea/vscode-ruby-test-adapter"
   },
