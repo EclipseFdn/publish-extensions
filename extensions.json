@@ -1216,6 +1216,9 @@
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
+  "pwrs.cem-language-server-vscode": {
+    "repository": "https://github.com/bennypowers/cem"
+  },
   "rafaelmaiolla.diff": {
     "repository": "https://github.com/rafaelmaiolla/diff-vscode"
   },
