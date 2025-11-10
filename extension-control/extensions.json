@@ -50,7 +50,9 @@
         "m878649.piiithon-linter",
         "juanbIanco.solidity-lang",
         "JuanrBlanco.solidity-lang",
-        "juan-bIanco.solidity-vlang"
+        "juan-bIanco.solidity-vlang",
+        "juanbIanco/solidity-vsc",
+        "https://open-vsx.org/extension/Nomic-Foundation/hardhat-vscode"
     ],
     "search": [
         {
