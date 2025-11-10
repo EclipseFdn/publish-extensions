@@ -51,8 +51,12 @@
         "juanbIanco.solidity-lang",
         "JuanrBlanco.solidity-lang",
         "juan-bIanco.solidity-vlang",
-        "juanbIanco/solidity-vsc",
-        "https://open-vsx.org/extension/Nomic-Foundation/hardhat-vscode"
+        "juanbIanco.solidity-vsc",
+        "Nomic-Foundation.hardhat-vscode",
+        "fangliu.spx-template-market",
+        "yutingpeng.spx-template-market",
+        "yutingpeng-spec.intelli-build-studio",
+        "yutingpeng-spec.spx-template-market"
     ],
     "search": [
         {
