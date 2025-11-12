@@ -56,7 +56,8 @@
         "fangliu.spx-template-market",
         "yutingpeng.spx-template-market",
         "yutingpeng-spec.intelli-build-studio",
-        "yutingpeng-spec.spx-template-market"
+        "yutingpeng-spec.spx-template-market",
+        "Nomic.hardhat"
     ],
     "search": [
         {
