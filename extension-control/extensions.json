@@ -57,7 +57,8 @@
         "yutingpeng.spx-template-market",
         "yutingpeng-spec.intelli-build-studio",
         "yutingpeng-spec.spx-template-market",
-        "Nomic.hardhat"
+        "Nomic.hardhat",
+        "eth.solidity"
     ],
     "search": [
         {
