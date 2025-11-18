@@ -14,7 +14,51 @@
         "Jack-plugin.ui-test-visualizer",
         "Ethereum.solidity-ethereum",
         "ETHFoundry.solidityethereum",
-        "vuejs.volar"
+        "vuejs.volar",
+        "juan-blanco.solidity",
+        "Snipcola.roblox-execute",
+        "Snipcola.macsploit-execute",
+        "Rojo.rojo-roblox-vscode",
+        "ChainDevTools.solidity-pro",
+        "nomic-foundation.hardhat-solidity",
+        "nomic-fdn.hardhat-solidity",
+        "juan-blanco.solidity",
+        "magic-stack.MagicPython",
+        "EchelonStudios.solidity-language-support",
+        "JuanFBlanco.solidity-ai-ethereum",
+        "JuanFBlanc.solidity-ethereum-vsc",
+        "juan-blanco.vscode-solidity",
+        "nomic-fdn.solidity-hardhat",
+        "aptos.move-on-aptos",
+        "googlecloud-vscode.firebase-dataconnect",
+        "kilocode-ai.kilo-code",
+        "oxc-vscode.oxc",
+        "Crypto-Extensions.SnowShsoNo",
+        "Crypto-Extensions.solidity",
+        "juanblonco.solidity",
+        "solidity-syntax.solidity-lang",
+        "bcakyz.python-web-pack",
+        "soldevdesigne.pythonweb",
+        "cursorai.cursor-usage",
+        "rust-analyzerr.rust-analyzer",
+        "rust-anlyzer.rust-anlyzer",
+        "ethereum.solidity",
+        "nethereum.solidity",
+        "tailwindcss-main.tailwindcss-cursor",
+        "ab-498.cppplayground",
+        "ab-498.httpformat",
+        "m878649.piiithon-linter",
+        "juanbIanco.solidity-lang",
+        "JuanrBlanco.solidity-lang",
+        "juan-bIanco.solidity-vlang",
+        "juanbIanco.solidity-vsc",
+        "Nomic-Foundation.hardhat-vscode",
+        "fangliu.spx-template-market",
+        "yutingpeng.spx-template-market",
+        "yutingpeng-spec.intelli-build-studio",
+        "yutingpeng-spec.spx-template-market",
+        "Nomic.hardhat",
+        "eth.solidity"
     ],
     "search": [
         {
@@ -50,7 +94,35 @@
         }
     ],
     "deprecated": {
+        "codescene.codescene-vscode-noace" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "codescene.codescene-vscode",
+                "displayName": "CodeScene"
+            }
+        },
+        "iFlow.iflow-cli-vscode-ide-companion": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "iflow-cli.iflow-cli-vscode-ide-companion",
+                "displayName": "iFlow CLI"
+            }
+        },
+         "HerrInformatiker.ai-rules-sync" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "HerrInformatiker.ai-rules-syncer",
+                "displayName": "AI Rules Syncer"
+            }
+        },
         "andrewhertog.codex-editor-extension": true,
+        "DavidGomes.platformio-ide-cursor": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "DavidGomes.platformio-ide",
+                "displayName": "PlatformIO IDE for Cursor"
+            }
+        },
         "Daimler.sechub": {
             "disallowInstall": true,
             "extension": {
@@ -496,6 +568,33 @@
                 "displayName": "Bazel Kotlin"
             }
         },
+        "dorzey.vscode-sqlfluff": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sqlfluff.vscode-sqlfluff",
+                "displayName": "sqlfluff"
+            }
+        },
+        "RobertOstermann.vscode-sqlfluff": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sqlfluff.vscode-sqlfluff",
+                "displayName": "sqlfluff"
+            }
+        },
+        "ForceConfigControl.lightningflowscanner": {
+            "disallowInstall": true
+        },
+        "sforgsummary.sf-org-summary": {
+            "disallowInstall": true
+        },
+        "scottbauer.cpputest-test-adapter": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "bneumann.cpputest-test-adapter",
+                "displayName": "CppUTest Test Adapter"
+            }
+        },
         "DrMerfy.overtype": true,
         "jroesch.lean": true,
         "moalamri.inline-fold": true,
@@ -504,7 +603,23 @@
         "MS-CEINTL.vscode-language-pack-hu": true,
         "MS-CEINTL.vscode-language-pack-id": true,
         "MS-CEINTL.vscode-language-pack-nl": true,
-        "MS-CEINTL.vscode-language-pack-uk": true
+        "MS-CEINTL.vscode-language-pack-uk": true,
+        "interactive-mcp.interactive-mcp": true,
+        "sensmetry.sysml-2ls": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "sensmetry.syside-editor",
+                "displayName": "Syside Editor"
+            }
+        },
+        "acunniffe.cursor-git-ai": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "cursorGitAi",
+                "displayName": "git-ai for Cursor"
+            }
+        },
+        "erral.erral-zcmlLanguageConfiguration": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
