@@ -94,6 +94,14 @@
         }
     ],
     "deprecated": {
+        "errata-ai.vale-server": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "chrischinchilla.vale-vscode",
+                "displayName": "Vale"
+            }
+        },
+        "HerrInformatiker.ai-rules-sync": {
         "codescene.codescene-vscode-noace" : {
             "disallowInstall": true,
             "extension": {
@@ -307,13 +315,6 @@
             "extension": {
                 "id": "kie-group.swf-vscode-extension",
                 "displayName": "KIE Serverless Workflow Editor"
-            }
-        },
-        "errata-ai.vale-server": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "chrischinchilla.vale-vscode",
-                "displayName": "Vale VSCode"
             }
         },
         "bungcip.better-toml": {
