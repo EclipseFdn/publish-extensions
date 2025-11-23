@@ -619,6 +619,34 @@
                 "displayName": "git-ai for Cursor"
             }
         },
+        "robole.markdown-shortcuts": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "markdown-shortcuts",
+                "displayName": "Markdown Shortcuts"
+            }
+        },
+        "robole.marky-dynamic": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "marky-dynamic",
+                "displayName": "Markdown Dynamic"
+            }
+        },
+        "robole.javascript-snippets": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "javascript-snippets",
+                "displayName": "Humane JS Snippets"
+            }
+        },
+        "robole.markdown-snippets": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "markdown-snippets",
+                "displayName": "Markdown Snippets"
+            }
+        },
         "erral.erral-zcmlLanguageConfiguration": true
     },
     "migrateToPreRelease": {
