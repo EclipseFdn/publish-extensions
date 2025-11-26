@@ -58,7 +58,12 @@
         "yutingpeng-spec.intelli-build-studio",
         "yutingpeng-spec.spx-template-market",
         "Nomic.hardhat",
-        "eth.solidity"
+        "eth.solidity",
+        "codevsce.lldb-vscode",
+        "ether.solidity",
+        "Prettier-vsc.vscode-prettier",
+        "klustfix.kluster-code-verify",
+        "ms-azure-devops.azure-pipelines"
     ],
     "search": [
         {
