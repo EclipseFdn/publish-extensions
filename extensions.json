@@ -1581,6 +1581,9 @@
   "ybaumes.highlight-trailing-white-spaces": {
     "repository": "https://github.com/yifu/highlight-trailing-whitespaces"
   },
+  "yezige.vscode-theme-green-eyecare": {
+    "repository": "https://github.com/yezige/vscode-theme-green-eyecare"
+  },
   "yzane.markdown-pdf": {
     "repository": "https://github.com/yzane/vscode-markdown-pdf"
   },
