@@ -100,6 +100,20 @@
         }
     ],
     "deprecated": {
+        "kv9898.vscode-pyright" : {
+            "disallowInstall": false,
+            "extension": {
+                "id": "kv9898.vscode-pyright",
+                "displayName": "BasedPyright for Positron"
+            }
+        },
+        "kv9898.open-remote-wsl" : {
+            "disallowInstall": false,
+            "extension": {
+                "id": "kv9898.open-remote-wsl",
+                "displayName": "Open Remote - WSL for Positron"
+            }
+        },
         "codescene.codescene-vscode-noace" : {
             "disallowInstall": true,
             "extension": {
