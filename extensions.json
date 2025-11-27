@@ -585,6 +585,9 @@
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
+  "les-profs-d-info.algorithme-tn": {
+    "repository": "https://github.com/romoez/algo-tn-vscode"
+  },
   "lextudio.restructuredtext": {
     "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
   },
