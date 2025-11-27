@@ -567,6 +567,9 @@
   "Kelvin.vscode-sshfs": {
     "repository": "https://github.com/SchoofsKelvin/vscode-sshfs"
   },
+  "kherring.ablunit-test-runner": {
+    "repository": "https://github.com/kenherring/ablunit-test-runner"
+  },
   "KevinRose.vsc-python-indent": {
     "repository": "https://github.com/kbrose/vsc-python-indent"
   },
