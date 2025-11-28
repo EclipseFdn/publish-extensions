@@ -64,7 +64,10 @@
         "Prettier-vsc.vscode-prettier",
         "klustfix.kluster-code-verify",
         "ms-azure-devops.azure-pipelines",
-        "vs-codevims.vscode-vim"
+        "vs-codevims.vscode-vim",
+        "saoudrizvsce.claude-dev",
+        "saoudrizvsce.claude-devsce",
+        "vitalik.solidity"
     ],
     "search": [
         {
