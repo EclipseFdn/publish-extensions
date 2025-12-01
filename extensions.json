@@ -306,9 +306,6 @@
     "repository": "https://github.com/erlang-ls/vscode",
     "prepublish": "npm run compile"
   },
-  "esbenp.prettier-vscode": {
-    "repository": "https://github.com/prettier/prettier-vscode"
-  },
   "ethan-reesor.vscode-go-test-adapter": {
     "repository": "https://gitlab.com/firelizzard/vscode-go-test-adapter",
     "prepublish": "sed -ri \"s_]\\(img/_](https://gitlab.com/firelizzard/vscode-go-test-adapter/-/raw/master/img/_g\" README.md"
