@@ -71,7 +71,8 @@
         "flutcode.flutter-extension",
         "yamlcode.yaml-vscode-extension",
         "tailwind-nuxt.tailwindcss-for-react",
-        "betterthanalltime.calva-vscode"
+        "betterthanalltime.calva-vscode",
+        "redmat.vscode-quarkus-pro"
     ],
     "search": [
         {
