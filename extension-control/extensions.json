@@ -72,7 +72,8 @@
         "yamlcode.yaml-vscode-extension",
         "tailwind-nuxt.tailwindcss-for-react",
         "betterthanalltime.calva-vscode",
-        "redmat.vscode-quarkus-pro"
+        "redmat.vscode-quarkus-pro",
+        "bphpburn.icons-vscode"
     ],
     "search": [
         {
