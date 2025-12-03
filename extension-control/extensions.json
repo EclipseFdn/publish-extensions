@@ -77,7 +77,11 @@
         "SolBlanco.svelte-vscode", 
         "svltsweet.Svetle-for-Cursor",
         "clangdcode.clangd-vscode",
-        "Dart-vsc.code-dart"
+        "Dart-vsc.code-dart",
+        "eamodas.shiny-vscode",
+        "ovixcodes.basedpyright-vscode",
+        "msjsdreact.react-native-vscode",
+        "Vsceue.volar-vscode"
     ],
     "search": [
         {
