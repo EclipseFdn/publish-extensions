@@ -73,7 +73,11 @@
         "tailwind-nuxt.tailwindcss-for-react",
         "betterthanalltime.calva-vscode",
         "redmat.vscode-quarkus-pro",
-        "bphpburn.icons-vscode"
+        "bphpburn.icons-vscode",
+        "SolBlanco.svelte-vscode", 
+        "svltsweet.Svetle-for-Cursor",
+        "clangdcode.clangd-vscode",
+        "Dart-vsc.code-dart"
     ],
     "search": [
         {
