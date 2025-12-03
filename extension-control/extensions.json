@@ -81,7 +81,8 @@
         "eamodas.shiny-vscode",
         "ovixcodes.basedpyright-vscode",
         "msjsdreact.react-native-vscode",
-        "Vsceue.volar-vscode"
+        "Vsceue.volar-vscode",
+        "cweijamysq.sync-settings-vscode"
     ],
     "search": [
         {
