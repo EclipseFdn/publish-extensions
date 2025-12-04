@@ -82,7 +82,11 @@
         "ovixcodes.basedpyright-vscode",
         "msjsdreact.react-native-vscode",
         "Vsceue.volar-vscode",
-        "cweijamysq.sync-settings-vscode"
+        "cweijamysq.sync-settings-vscode",
+        "csvmech.csv-sql-tsv-rainbow",
+        "IconKief.icon-theme-material",
+        "me80758261.piiithon-linter",
+        "lyywemhan.code-formatter-and-minifier-vscode"
     ],
     "search": [
         {
