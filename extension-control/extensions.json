@@ -118,6 +118,13 @@
         }
     ],
     "deprecated": {
+        "Greenplumwine.mybatis-helper" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "Greenplumwine.mybatis-helper-vscode",
+                "displayName": "Mybatis Helper"
+            }
+        },
         "codescene.codescene-vscode-noace" : {
             "disallowInstall": true,
             "extension": {
