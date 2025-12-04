@@ -607,6 +607,9 @@
   "lostintangent.workspace-layout": {
     "repository": "https://github.com/lostintangent/workspace-layout"
   },
+  "lokesh-garg.css-scss-modules-intellisense": {
+    "repository": "https://github.com/Lokesh-Garg-22/CSS-Modules-IntelliSense"
+  },
   "mads-hartmann.bash-ide-vscode": {
     "repository": "https://github.com/bash-lsp/bash-language-server",
     "location": "vscode-client",
