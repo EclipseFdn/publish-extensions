@@ -653,7 +653,8 @@
                 "displayName": "git-ai for Cursor"
             }
         },
-        "erral.erral-zcmlLanguageConfiguration": true
+        "erral.erral-zcmlLanguageConfiguration": true,
+        "corekraft.flow-linter-vsx": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
