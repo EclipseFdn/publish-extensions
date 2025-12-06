@@ -1587,6 +1587,9 @@
   "yzhang.markdown-all-in-one": {
     "repository": "https://github.com/yzhang-gh/vscode-markdown"
   },
+  "zeybek.camouflage": {
+    "repository": "https://github.com/zeybek/camouflage"
+  },
   "zhuangtongfa.material-theme": {
     "repository": "https://github.com/Binaryify/OneDark-Pro"
   },
