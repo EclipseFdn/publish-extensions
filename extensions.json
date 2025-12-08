@@ -245,6 +245,9 @@
   "DigitalBrainstem.javascript-ejs-support": {
     "repository": "https://github.com/Digitalbrainstem/ejs-grammar"
   },
+  "dionip.comments-cleaner":{
+    "repository": "https://github.com/DioniPinho/Comments-Cleaner"
+  },
   "donjayamanne.git-extension-pack": {
     "repository": "https://github.com/DonJayamanne/git-extension-pack"
   },
