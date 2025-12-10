@@ -58,8 +58,13 @@
     "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
   },
   "Angular.ng-template": {
-    "repository": "https://github.com/angular/vscode-ng-language-service",
-    "prepublish": "scripts/build.sh package.json"
+    "repository": "https://github.com/angular/angular",
+    "location": "vscode-ng-language-service",
+    "custom": [
+      "cd vscode-ng-language-service && pnpm i && pnpm run package",
+      "cp dist/bin/vscode-ng-language-service/ng-template.vsix vscode-ng-language-service/ng-template.vsix"
+    ],
+    "extensionFile": "ng-template.vsix"
   },
   "anseki.vscode-color": {
     "repository": "https://github.com/anseki/vscode-color"
