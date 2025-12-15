@@ -98,7 +98,8 @@
         "devcodaro.codaro-pro",
         "Prisma-Inc.prisma-studio-assistance",
         "cyrilproletuzi.angular-schematics-pro",
-        "littensydev.charmed-icons-pro"
+        "littensydev.charmed-icons-pro",
+        "zigbook/pilot-repl"
     ],
     "search": [
         {
