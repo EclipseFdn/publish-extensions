@@ -36,7 +36,7 @@ async function bufferStream(stream) {
  * @param {(name: string) => boolean} filter
  * @returns {Promise<Map<string, Buffer>>}
  */
-async function readZip(packagePath, filter) {
+async function readZip(packagePath, filter, unique) {
     const result = new Map();
     const zipfile = await yauzl.open(packagePath);
     try {
@@ -44,7 +44,11 @@ async function readZip(packagePath, filter) {
             if (filter(entry.filename)) {
                 const stream = await zipfile.openReadStream(entry);
                 const buffer = await bufferStream(stream);
-                result.set(entry.filename, buffer);
+                if (unique === true && result.has(entry.filename)) {
+                    throw new Error(`file ${entry.filename} exists multiple times`);
+                } else {
+                    result.set(entry.filename, buffer);
+                }
             }
         }
     } finally {
@@ -61,7 +65,7 @@ async function readZip(packagePath, filter) {
  */
 async function readXmlManifest(extensionFile) {
     const fileName = "extension.vsixmanifest";
-    const result = await readZip(extensionFile, (name) => name === fileName);
+    const result = await readZip(extensionFile, (name) => name === fileName, true);
     const rawFile = result.get(fileName);
     if (rawFile == null) {
         return undefined;
@@ -89,7 +93,15 @@ module.exports = async (extensionId, extensionFiles) => {
     const errors = [];
     const registryUrl = `https://${registryHost}`;
     for (const extensionFile of extensionFiles) {
-        const xmlManifest = await readXmlManifest(extensionFile);
+        let xmlManifest = undefined;
+
+        try {
+            xmlManifest = await readXmlManifest(extensionFile);
+        } catch (error) {
+            errors.push(`Manifest could not be read: ${error.message}`);
+            continue;
+        }
+
         const publisher = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Publisher;
         if (publisher.toLowerCase() != namespace.toLowerCase()
         ) {
