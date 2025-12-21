@@ -101,7 +101,9 @@
         "littensydev.charmed-icons-pro",
         "zigbook/pilot-repl",
         "cyrilproletuzi.angular-schematics-pro",
-        "jeronimodevex.color-picker-pro"
+        "jeronimodevex.color-picker-pro",
+        "fresh-vscode-icons-package.native-icons-for-vscode",
+        "vim-editor-extension.vim-plugin-pro"
     ],
     "search": [
         {
