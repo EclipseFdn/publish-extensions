@@ -103,7 +103,9 @@
         "cyrilproletuzi.angular-schematics-pro",
         "jeronimodevex.color-picker-pro",
         "fresh-vscode-icons-package.native-icons-for-vscode",
-        "vim-editor-extension.vim-plugin-pro"
+        "vim-editor-extension.vim-plugin-pro",
+        "klus-ter-team.vscode-klus-ter-verify-ai-pro",
+        "Benachile-studio.protobuf-pro"
     ],
     "search": [
         {
