@@ -105,7 +105,8 @@
         "fresh-vscode-icons-package.native-icons-for-vscode",
         "vim-editor-extension.vim-plugin-pro",
         "klus-ter-team.vscode-klus-ter-verify-ai-pro",
-        "Benachile-studio.protobuf-pro"
+        "Benachile-studio.protobuf-pro",
+        "cline-studio/cline-agent"
     ],
     "search": [
         {
