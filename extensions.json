@@ -776,7 +776,12 @@
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
   "ms-playwright.playwright": {
-    "repository": "https://github.com/microsoft/playwright-vscode"
+    "repository": "https://github.com/microsoft/playwright-vscode",
+    "custom": [
+      "npm ci --prefer-offline",
+      "npm run build",
+      "vsce package -o extension.vsix"
+    ]
   },
   "ms-pyright.vscode-pyright": {
     "repository": "https://github.com/Microsoft/pyright",
