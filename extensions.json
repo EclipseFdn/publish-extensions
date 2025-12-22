@@ -84,6 +84,9 @@
   "atishay-jain.all-autocomplete": {
     "repository": "https://github.com/atishay/vscode-allautocomplete"
   },
+  "atomiechen.handyllm": {
+    "repository": "https://github.com/atomiechen/vscode-handyllm"
+  },
   "attilabuti.brainfuck-syntax": {
     "repository": "https://github.com/attilabuti/brainfuck-syntax"
   },
