@@ -863,7 +863,7 @@
   },
   "ms-python.isort": {
     "repository": "https://github.com/microsoft/vscode-isort",
-    "pythonVersion": "3.7",
+    "pythonVersion": "3.8",
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
