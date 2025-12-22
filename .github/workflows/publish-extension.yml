@@ -1,4 +1,5 @@
 name: Publish extension
+run-name: Publish extension ${{ fromJson(inputs.extension).id }}
 on:
   workflow_dispatch:
     inputs:
