@@ -49,7 +49,7 @@
     "yauzl-promise": "^4.0.0"
   },
   "devDependencies": {
-    "@actions/github-script": "github:actions/github-script",
+    "@actions/github-script": "github:actions/github-script#v7.1.0",
     "@types/human-number": "^1.0.0",
     "@types/node": "^24.3.0",
     "@types/unzipper": "^0.10.5",
