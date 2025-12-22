@@ -34,6 +34,7 @@ async function bufferStream(stream) {
  *
  * @param {string} packagePath
  * @param {(name: string) => boolean} filter
+ * @param {boolean} unique
  * @returns {Promise<Map<string, Buffer>>}
  */
 async function readZip(packagePath, filter, unique) {
