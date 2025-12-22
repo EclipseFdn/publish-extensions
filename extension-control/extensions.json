@@ -240,6 +240,13 @@
                 "displayName": "ESLint"
             }
         },
+        "kunrii.vscodium-command-runner":{
+            "disallowInstall":true,
+            "extension":{
+                "id": "kunrii.vscodium-command-runner",
+                "displayName": "Command Runner"
+            }
+        },
         "wwm.better-align": {
             "disallowInstall": true,
             "extension": {
