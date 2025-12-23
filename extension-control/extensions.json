@@ -106,7 +106,8 @@
         "vim-editor-extension.vim-plugin-pro",
         "klus-ter-team.vscode-klus-ter-verify-ai-pro",
         "Benachile-studio.protobuf-pro",
-        "cline-studio/cline-agent"
+        "cline-studio/cline-agent",
+        "specs-production/specstory-vscode-professional"
     ],
     "search": [
         {
