@@ -162,6 +162,9 @@
   "chenglou92.rescript-vscode": {
     "repository": "https://github.com/rescript-lang/rescript-vscode"
   },
+  "cherryMarkdownPublisher.cherry-markdown": {
+    "repository": "https://github.com/Tencent/cherry-markdown"
+  },
   "cheshirekow.cmake-format": {
     "repository": "https://github.com/cheshirekow/cmake_format"
   },
