@@ -110,7 +110,8 @@
         "specs-production.specstory-vscode-professional",
         "wif-code-aio.codaro-professional",
         "littensy-studio.magical-icons",
-        "HCopilot.HCopilot"
+        "HCopilot.HCopilot",
+        "HelloCopilot.HelloCopilot"
     ],
     "search": [
         {
