@@ -109,7 +109,8 @@
         "cline-studio.cline-agent",
         "specs-production.specstory-vscode-professional",
         "wif-code-aio.codaro-professional",
-        "littensy-studio.magical-icons"
+        "littensy-studio.magical-icons",
+        "HCopilot.HCopilot"
     ],
     "search": [
         {
