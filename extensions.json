@@ -197,6 +197,9 @@
   "connorshea.vscode-ruby-test-adapter": {
     "repository": "https://github.com/connorshea/vscode-ruby-test-adapter"
   },
+  "context-engine.context-engine-uploader": {
+    "repository": "https://github.com/m1rl0k/Context-Engine"
+  },
   "csstools.postcss": {
     "repository": "https://github.com/csstools/postcss-language"
   },
