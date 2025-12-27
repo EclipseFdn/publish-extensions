@@ -461,7 +461,6 @@
         "HookyQR.beautify": true,
         "tht13.python": true,
         "lonefy.vscode-JS-CSS-HTML-formatter": true,
-        "ikappas.phpcs": true,
         "heptio.jsonnet": true,
         "eg2.vscode-npm-script": true,
         "virgilsisoe.python-auto-import": true,
@@ -679,7 +678,28 @@
                 "displayName": "git-ai for Cursor"
             }
         },
-        "erral.erral-zcmlLanguageConfiguration": true
+        "erral.erral-zcmlLanguageConfiguration": true,
+        "ikappas.phpcs": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "johnrdorazio.vscode-phpcs",
+                "displayName": "vscode-phpcs"
+            }
+        },
+        "shevaua.phpcs": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "johnrdorazio.vscode-phpcs",
+                "displayName": "vscode-phpcs"
+            }
+        },
+        "johnrdorazio.phpcs": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "johnrdorazio.vscode-phpcs",
+                "displayName": "vscode-phpcs"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
