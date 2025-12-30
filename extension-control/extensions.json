@@ -112,7 +112,9 @@
         "littensy-studio.magical-icons",
         "HCopilot.HCopilot",
         "HelloCopilot.HelloCopilot",
-        "Puccin-development.full-access-catppuccin-pro-extension"
+        "Puccin-development.full-access-catppuccin-pro-extension",
+        "cudra-production.vsce-prettier-pro",
+        "studio-velte-distributor.pro-svelte-extension"
     ],
     "search": [
         {
