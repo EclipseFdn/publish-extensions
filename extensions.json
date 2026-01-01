@@ -372,6 +372,9 @@
   "formulahendry.vscode-mysql": {
     "repository": "https://github.com/formulahendry/vscode-mysql"
   },
+  "fpgawars.apio": {
+    "repository": "https://github.com/FPGAwars/apio-vscode"
+  },
   "Fr43nk.seito-openfile": {
     "repository": "https://gitlab.com/fr43nk/seito-openfile"
   },
