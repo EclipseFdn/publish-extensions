@@ -342,8 +342,8 @@
   "felipecaputo.git-project-manager": {
     "repository": "https://github.com/felipecaputo/git-project-manager"
   },
-  "felixfbecker.php-pack": {
-    "repository": "https://github.com/felixfbecker/vscode-php-pack"
+  "xdebug.php-pack": {
+    "repository": "https://github.com/zobo/vscode-php-pack"
   },
   "file-icons.file-icons": {
     "repository": "https://github.com/file-icons/vscode"
