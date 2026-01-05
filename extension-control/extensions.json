@@ -696,7 +696,14 @@
                 "displayName": "git-ai for Cursor"
             }
         },
-        "erral.erral-zcmlLanguageConfiguration": true
+        "erral.erral-zcmlLanguageConfiguration": true,
+        "hyen.i18n-smart-manager":{
+            "disallowInstall": false,
+            "extension": {
+                "id": "ddock.i18n-smart-ddock",
+                "displayName": "I18n Smart DDOCK"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
