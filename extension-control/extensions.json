@@ -151,6 +151,12 @@
         }
     ],
     "deprecated": {
+        "kv9898.vscode-pyright" : {
+            "disallowInstall": false
+        },
+        "kv9898.open-remote-wsl" : {
+            "disallowInstall": false
+        },
         "codescene.codescene-vscode-noace" : {
             "disallowInstall": true,
             "extension": {
