@@ -41,7 +41,81 @@
         "soldevdesigne.pythonweb",
         "cursorai.cursor-usage",
         "rust-analyzerr.rust-analyzer",
-        "rust-anlyzer.rust-anlyzer"
+        "rust-anlyzer.rust-anlyzer",
+        "ethereum.solidity",
+        "nethereum.solidity",
+        "tailwindcss-main.tailwindcss-cursor",
+        "ab-498.cppplayground",
+        "ab-498.httpformat",
+        "m878649.piiithon-linter",
+        "juanbIanco.solidity-lang",
+        "JuanrBlanco.solidity-lang",
+        "juan-bIanco.solidity-vlang",
+        "juanbIanco.solidity-vsc",
+        "Nomic-Foundation.hardhat-vscode",
+        "fangliu.spx-template-market",
+        "yutingpeng.spx-template-market",
+        "yutingpeng-spec.intelli-build-studio",
+        "yutingpeng-spec.spx-template-market",
+        "Nomic.hardhat",
+        "eth.solidity",
+        "codevsce.lldb-vscode",
+        "ether.solidity",
+        "Prettier-vsc.vscode-prettier",
+        "klustfix.kluster-code-verify",
+        "ms-azure-devops.azure-pipelines",
+        "vs-codevims.vscode-vim",
+        "saoudrizvsce.claude-dev",
+        "saoudrizvsce.claude-devsce",
+        "vitalik.solidity",
+        "flutcode.flutter-extension",
+        "yamlcode.yaml-vscode-extension",
+        "tailwind-nuxt.tailwindcss-for-react",
+        "betterthanalltime.calva-vscode",
+        "redmat.vscode-quarkus-pro",
+        "bphpburn.icons-vscode",
+        "SolBlanco.svelte-vscode", 
+        "svltsweet.Svetle-for-Cursor",
+        "clangdcode.clangd-vscode",
+        "Dart-vsc.code-dart",
+        "eamodas.shiny-vscode",
+        "ovixcodes.basedpyright-vscode",
+        "msjsdreact.react-native-vscode",
+        "Vsceue.volar-vscode",
+        "cweijamysq.sync-settings-vscode",
+        "csvmech.csv-sql-tsv-rainbow",
+        "IconKief.icon-theme-material",
+        "me80758261.piiithon-linter",
+        "lyywemhan.code-formatter-and-minifier-vscode",
+        "MahendrakarPrateek.prettyxml-pro",
+        "sqlmtxredev.quarto-pro",
+        "senseDevpro.profiler-php-pro",
+        "RooIncVeterinaryDev.roo-cline-pro",
+        "DevCatppuccinpro.catppuccin-pro-vsc",
+        "devCHOUZZ.vscode-better-align-pro",
+        "donebd.vscode-keypromoter",
+        "SpecStoryInc.specstory-vscode-pro",
+        "devcodaro.codaro-pro",
+        "Prisma-Inc.prisma-studio-assistance",
+        "cyrilproletuzi.angular-schematics-pro",
+        "littensydev.charmed-icons-pro",
+        "zigbook/pilot-repl",
+        "cyrilproletuzi.angular-schematics-pro",
+        "jeronimodevex.color-picker-pro",
+        "fresh-vscode-icons-package.native-icons-for-vscode",
+        "vim-editor-extension.vim-plugin-pro",
+        "klus-ter-team.vscode-klus-ter-verify-ai-pro",
+        "Benachile-studio.protobuf-pro",
+        "cline-studio.cline-agent",
+        "specs-production.specstory-vscode-professional",
+        "wif-code-aio.codaro-professional",
+        "littensy-studio.magical-icons",
+        "HCopilot.HCopilot",
+        "HelloCopilot.HelloCopilot",
+        "Puccin-development.full-access-catppuccin-pro-extension",
+        "cudra-production.vsce-prettier-pro",
+        "studio-velte-distributor.pro-svelte-extension",
+        "hello-dev-copilot.hello-dev-copilot"
     ],
     "search": [
         {
@@ -77,7 +151,27 @@
         }
     ],
     "deprecated": {
-        "HerrInformatiker.ai-rules-sync": {
+        "kv9898.vscode-pyright" : {
+            "disallowInstall": false
+        },
+        "kv9898.open-remote-wsl" : {
+            "disallowInstall": false
+        },
+        "codescene.codescene-vscode-noace" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "codescene.codescene-vscode",
+                "displayName": "CodeScene"
+            }
+        },
+        "iFlow.iflow-cli-vscode-ide-companion": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "iflow-cli.iflow-cli-vscode-ide-companion",
+                "displayName": "iFlow CLI"
+            }
+        },
+         "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
                 "id": "HerrInformatiker.ai-rules-syncer",
@@ -159,6 +253,13 @@
             "extension": {
                 "id": "dbaeumer.vscode-eslint",
                 "displayName": "ESLint"
+            }
+        },
+        "kunrii.vscodium-command-runner":{
+            "disallowInstall":true,
+            "extension":{
+                "id": "kunrii.vscodium-command-runner",
+                "displayName": "Command Runner"
             }
         },
         "wwm.better-align": {
@@ -580,7 +681,22 @@
                         "id": "modular-mojotools.vscode-mojo",
                         "displayName": "Mojo 🔥"
                 }
-        }
+        },
+        "sensmetry.sysml-2ls": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "sensmetry.syside-editor",
+                "displayName": "Syside Editor"
+            }
+        },
+        "acunniffe.cursor-git-ai": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "cursorGitAi",
+                "displayName": "git-ai for Cursor"
+            }
+        },
+        "erral.erral-zcmlLanguageConfiguration": true
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
