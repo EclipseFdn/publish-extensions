@@ -77,6 +77,9 @@
     "location": "packages/vscode-zipfs",
     "prepublish": "sed -ri \"s_ssh://git@github.com/yarnpkg/berry.git_https://github.com/yarnpkg/berry_g\" packages/vscode-zipfs/package.json"
   },
+  "artemnovichkov.asset-catalog-viewer": {
+    "repository": "https://github.com/artemnovichkov/asset-catalog-viewer"
+  },
   "asabil.meson": {
     "repository": "https://github.com/asabil/vscode-meson"
   },
