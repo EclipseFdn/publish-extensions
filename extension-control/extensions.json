@@ -115,7 +115,8 @@
         "Puccin-development.full-access-catppuccin-pro-extension",
         "cudra-production.vsce-prettier-pro",
         "studio-velte-distributor.pro-svelte-extension",
-        "hello-dev-copilot.hello-dev-copilot"
+        "hello-dev-copilot.hello-dev-copilot",
+        "demach-head.ex-vscode-based-pyright"
     ],
     "search": [
         {
