@@ -58,8 +58,13 @@
     "repository": "https://github.com/eamodio/vscode-tsl-problem-matcher"
   },
   "Angular.ng-template": {
-    "repository": "https://github.com/angular/vscode-ng-language-service",
-    "prepublish": "scripts/build.sh package.json"
+    "repository": "https://github.com/angular/angular",
+    "location": "vscode-ng-language-service",
+    "custom": [
+      "cd vscode-ng-language-service && pnpm i && pnpm run package",
+      "cp dist/bin/vscode-ng-language-service/ng-template.vsix vscode-ng-language-service/ng-template.vsix"
+    ],
+    "extensionFile": "ng-template.vsix"
   },
   "anseki.vscode-color": {
     "repository": "https://github.com/anseki/vscode-color"
@@ -305,9 +310,6 @@
   "erlang-ls.erlang-ls": {
     "repository": "https://github.com/erlang-ls/vscode",
     "prepublish": "npm run compile"
-  },
-  "esbenp.prettier-vscode": {
-    "repository": "https://github.com/prettier/prettier-vscode"
   },
   "ethan-reesor.vscode-go-test-adapter": {
     "repository": "https://gitlab.com/firelizzard/vscode-go-test-adapter",
@@ -776,7 +778,12 @@
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
   "ms-playwright.playwright": {
-    "repository": "https://github.com/microsoft/playwright-vscode"
+    "repository": "https://github.com/microsoft/playwright-vscode",
+    "custom": [
+      "npm ci --prefer-offline",
+      "npm run build",
+      "vsce package -o extension.vsix"
+    ]
   },
   "ms-pyright.vscode-pyright": {
     "repository": "https://github.com/Microsoft/pyright",
@@ -863,7 +870,7 @@
   },
   "ms-python.isort": {
     "repository": "https://github.com/microsoft/vscode-isort",
-    "pythonVersion": "3.7",
+    "pythonVersion": "3.8",
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",

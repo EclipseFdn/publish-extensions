@@ -58,7 +58,65 @@
         "yutingpeng-spec.intelli-build-studio",
         "yutingpeng-spec.spx-template-market",
         "Nomic.hardhat",
-        "eth.solidity"
+        "eth.solidity",
+        "codevsce.lldb-vscode",
+        "ether.solidity",
+        "Prettier-vsc.vscode-prettier",
+        "klustfix.kluster-code-verify",
+        "ms-azure-devops.azure-pipelines",
+        "vs-codevims.vscode-vim",
+        "saoudrizvsce.claude-dev",
+        "saoudrizvsce.claude-devsce",
+        "vitalik.solidity",
+        "flutcode.flutter-extension",
+        "yamlcode.yaml-vscode-extension",
+        "tailwind-nuxt.tailwindcss-for-react",
+        "betterthanalltime.calva-vscode",
+        "redmat.vscode-quarkus-pro",
+        "bphpburn.icons-vscode",
+        "SolBlanco.svelte-vscode", 
+        "svltsweet.Svetle-for-Cursor",
+        "clangdcode.clangd-vscode",
+        "Dart-vsc.code-dart",
+        "eamodas.shiny-vscode",
+        "ovixcodes.basedpyright-vscode",
+        "msjsdreact.react-native-vscode",
+        "Vsceue.volar-vscode",
+        "cweijamysq.sync-settings-vscode",
+        "csvmech.csv-sql-tsv-rainbow",
+        "IconKief.icon-theme-material",
+        "me80758261.piiithon-linter",
+        "lyywemhan.code-formatter-and-minifier-vscode",
+        "MahendrakarPrateek.prettyxml-pro",
+        "sqlmtxredev.quarto-pro",
+        "senseDevpro.profiler-php-pro",
+        "RooIncVeterinaryDev.roo-cline-pro",
+        "DevCatppuccinpro.catppuccin-pro-vsc",
+        "devCHOUZZ.vscode-better-align-pro",
+        "donebd.vscode-keypromoter",
+        "SpecStoryInc.specstory-vscode-pro",
+        "devcodaro.codaro-pro",
+        "Prisma-Inc.prisma-studio-assistance",
+        "cyrilproletuzi.angular-schematics-pro",
+        "littensydev.charmed-icons-pro",
+        "zigbook/pilot-repl",
+        "cyrilproletuzi.angular-schematics-pro",
+        "jeronimodevex.color-picker-pro",
+        "fresh-vscode-icons-package.native-icons-for-vscode",
+        "vim-editor-extension.vim-plugin-pro",
+        "klus-ter-team.vscode-klus-ter-verify-ai-pro",
+        "Benachile-studio.protobuf-pro",
+        "cline-studio.cline-agent",
+        "specs-production.specstory-vscode-professional",
+        "wif-code-aio.codaro-professional",
+        "littensy-studio.magical-icons",
+        "HCopilot.HCopilot",
+        "HelloCopilot.HelloCopilot",
+        "Puccin-development.full-access-catppuccin-pro-extension",
+        "cudra-production.vsce-prettier-pro",
+        "studio-velte-distributor.pro-svelte-extension",
+        "hello-dev-copilot.hello-dev-copilot",
+        "demach-head.ex-vscode-based-pyright"
     ],
     "search": [
         {
@@ -94,6 +152,12 @@
         }
     ],
     "deprecated": {
+        "kv9898.vscode-pyright" : {
+            "disallowInstall": false
+        },
+        "kv9898.open-remote-wsl" : {
+            "disallowInstall": false
+        },
         "codescene.codescene-vscode-noace" : {
             "disallowInstall": true,
             "extension": {
@@ -190,6 +254,13 @@
             "extension": {
                 "id": "dbaeumer.vscode-eslint",
                 "displayName": "ESLint"
+            }
+        },
+        "kunrii.vscodium-command-runner":{
+            "disallowInstall":true,
+            "extension":{
+                "id": "kunrii.vscodium-command-runner",
+                "displayName": "Command Runner"
             }
         },
         "wwm.better-align": {
@@ -605,6 +676,13 @@
         "MS-CEINTL.vscode-language-pack-nl": true,
         "MS-CEINTL.vscode-language-pack-uk": true,
         "interactive-mcp.interactive-mcp": true,
+        "modular-mojotools.vscode-mojo-nightly": {
+                "disallowInstall": true,
+                "extension": {
+                        "id": "modular-mojotools.vscode-mojo",
+                        "displayName": "Mojo 🔥"
+                }
+        },
         "sensmetry.sysml-2ls": {
             "disallowInstall": false,
             "extension": {
@@ -619,7 +697,14 @@
                 "displayName": "git-ai for Cursor"
             }
         },
-        "erral.erral-zcmlLanguageConfiguration": true
+        "erral.erral-zcmlLanguageConfiguration": true,
+        "hyen.i18n-smart-manager":{
+            "disallowInstall": false,
+            "extension": {
+                "id": "ddock.i18n-smart-ddock",
+                "displayName": "I18n Smart DDOCK"
+            }
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
