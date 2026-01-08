@@ -117,7 +117,8 @@
         "studio-velte-distributor.pro-svelte-extension",
         "hello-dev-copilot.hello-dev-copilot",
         "demach-head.ex-vscode-based-pyright",
-        "hellobike-copilot.hellobike-copilot"
+        "hellobike-copilot.hellobike-copilot",
+        "betterthannow-studio.kalvo-vscode"
     ],
     "search": [
         {
