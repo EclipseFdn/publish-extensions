@@ -285,6 +285,9 @@
   "dunstontc.viml": {
     "repository": "https://github.com/dunstontc/viml"
   },
+  "nicolas-liger.dbml-viewer": {
+    "repository": "https://github.com/Durandal14/vscode-extension-dbml-viewer"
+  },
   "dylan-foundry.vscode-dylan": {
     "repository": "https://github.com/dylan-lang/vscode-dylan"
   },
