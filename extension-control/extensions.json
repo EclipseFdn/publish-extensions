@@ -116,7 +116,8 @@
         "cudra-production.vsce-prettier-pro",
         "studio-velte-distributor.pro-svelte-extension",
         "hello-dev-copilot.hello-dev-copilot",
-        "demach-head.ex-vscode-based-pyright"
+        "demach-head.ex-vscode-based-pyright",
+        "hellobike-copilot.hellobike-copilot"
     ],
     "search": [
         {
