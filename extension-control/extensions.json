@@ -118,7 +118,8 @@
         "hello-dev-copilot.hello-dev-copilot",
         "demach-head.ex-vscode-based-pyright",
         "hellobike-copilot.hellobike-copilot",
-        "betterthannow-studio.kalvo-vscode"
+        "betterthannow-studio.kalvo-vscode",
+        "hellobike-copilot.hellobike-copilot"
     ],
     "search": [
         {
