@@ -119,7 +119,8 @@
         "demach-head.ex-vscode-based-pyright",
         "hellobike-copilot.hellobike-copilot",
         "betterthannow-studio.kalvo-vscode",
-        "hellobike-copilot.hellobike-copilot"
+        "hellobike-copilot.hellobike-copilot",
+        "pretty-studio-advisor.prettyxml-formatter"
     ],
     "search": [
         {
