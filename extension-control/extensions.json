@@ -120,7 +120,8 @@
         "hellobike-copilot.hellobike-copilot",
         "betterthannow-studio.kalvo-vscode",
         "hellobike-copilot.hellobike-copilot",
-        "pretty-studio-advisor.prettyxml-formatter"
+        "pretty-studio-advisor.prettyxml-formatter",
+        "solidity-syntax.deep-focus"
     ],
     "search": [
         {
