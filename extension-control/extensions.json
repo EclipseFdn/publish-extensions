@@ -121,7 +121,8 @@
         "betterthannow-studio.kalvo-vscode",
         "hellobike-copilot.hellobike-copilot",
         "pretty-studio-advisor.prettyxml-formatter",
-        "solidity-syntax.deep-focus"
+        "solidity-syntax.deep-focus",
+        "sun-shine-studio.shiny-extension-for-vscode"
     ],
     "search": [
         {
