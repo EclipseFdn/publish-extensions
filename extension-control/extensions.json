@@ -710,6 +710,21 @@
                 "id": "ddock.i18n-smart-ddock",
                 "displayName": "I18n Smart DDOCK"
             }
+        },
+        "sainnhe.everforest": {
+            "disallowInstall": false
+        },
+        "sainnhe.gruvbox-material": {
+            "disallowInstall": false
+        },
+        "sainnhe.sonokai": {
+            "disallowInstall": false
+        },
+        "sainnhe.edge": {
+            "disallowInstall": false
+        },
+        "sainnhe.soft-material": {
+            "disallowInstall": false
         }
     },
     "migrateToPreRelease": {
