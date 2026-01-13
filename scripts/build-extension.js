@@ -7,23 +7,23 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
-
 // @ts-check
 const fs = require("fs");
 const ovsx = require("ovsx");
 const readVSIXPackage = require("@vscode/vsce/out/zip").readVSIXPackage;
 const path = require("path");
 const semver = require("semver");
-const exec = require("./lib/exec");
+const exec = require("../lib/exec");
 const findUp = require("find-up");
 const fg = require("fast-glob");
 
 const { createVSIX } = require("@vscode/vsce");
-const { cannotPublish } = require("./lib/reportStat");
+const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
-const { artifactDirectory, registryHost, defaultPythonVersion } = require("./lib/constants");
+const { artifactDirectory, registryHost, defaultPythonVersion } = require("../lib/constants");
+const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -34,43 +34,72 @@ openGalleryApi.client["_maxRetries"] = 5;
 openGalleryApi.post = (url, data, additionalHeaders) =>
     openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
-(async () => {
-    /**
-     * @type {{extension: import('./types').Extension, context: import('./types').PublishContext, extensions: Readonly<import('./types').Extensions>}}
-     */
-    const { extension, context, extensions } = JSON.parse(process.argv[2]);
-    console.log(`\nProcessing extension: ${JSON.stringify({ extension, context }, undefined, 2)}`);
-    try {
-        const { id } = extension;
-        const [namespace] = id.split(".");
+const ensureBuildPrerequisites = async () => {
+    // Make yarn use bash
+    await exec("yarn config set script-shell /bin/bash");
 
-        let packagePath = context.repo;
+    // Don't show large git advice blocks
+    await exec("git config --global advice.detachedHead false");
+
+    // Create directory for storing built extensions
+    if (fs.existsSync(artifactDirectory)) {
+        // If the folder has any files, delete them
+        try {
+            fs.rmSync(`${artifactDirectory}*`);
+        } catch {}
+    } else {
+        fs.mkdirSync(artifactDirectory);
+    }
+};
+
+// @ts-check
+/**
+ * @param {import('../types').Extension} extension
+ * @param {import('../types').PublishContext} publishContext
+ */
+async function buildVersion(extension, publishContext) {
+    console.debug(`Building ${extension.id} for ${publishContext.target || "universal"}...`);
+    console.log(`\nProcessing extension: ${JSON.stringify({ extension, publishContext }, undefined, 2)}`);
+    try {
+        await ensureBuildPrerequisites();
+        const { id } = extension;
+        let packagePath = publishContext.repo;
         if (packagePath && extension.location) {
             packagePath = path.join(packagePath, extension.location);
         }
 
         /** @type {import('ovsx').PublishOptions} */
         let options;
-        if (context.file) {
-            options = { extensionFile: context.file, targets: [context.target] };
-        } else if (context.repo && context.ref) {
-            console.log(`${id}: preparing from ${context.repo}...`);
+        if (publishContext.file) {
+            options = { extensionFile: publishContext.file, targets: [publishContext.target] };
+        } else if (publishContext.repo && publishContext.ref) {
+            console.log(`${id}: preparing from ${publishContext.repo}...`);
+            await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
+            await resolveExtension(
+                extension,
+                publishContext.msVersion && {
+                    version: publishContext.msVersion,
+                    lastUpdated: publishContext.msLastUpdated,
+                },
+            );
 
             const [publisher, name] = extension.id.split(".");
             process.env.EXTENSION_ID = extension.id;
             process.env.EXTENSION_PUBLISHER = publisher;
             process.env.EXTENSION_NAME = name;
-            process.env.VERSION = context.version;
-            process.env.MS_VERSION = context.msVersion;
-            process.env.OVSX_VERSION = context.ovsxVersion;
-            await exec(`git checkout ${context.ref}`, { cwd: context.repo });
+            process.env.VERSION = publishContext.version;
+            process.env.MS_VERSION = publishContext.msVersion;
+            process.env.OVSX_VERSION = publishContext.ovsxVersion;
+            await exec(`git checkout ${publishContext.ref}`, { cwd: publishContext.repo });
 
             try {
-                const nvmFile = await findUp(".nvmrc", { cwd: path.join(context.repo, extension.location ?? ".") });
+                const nvmFile = await findUp(".nvmrc", {
+                    cwd: path.join(publishContext.repo, extension.location ?? "."),
+                });
                 if (nvmFile) {
                     // If the project has a preferred Node version, use it
                     await exec("source ~/.nvm/nvm.sh && nvm install", {
-                        cwd: path.join(context.repo, extension.location ?? "."),
+                        cwd: path.join(publishContext.repo, extension.location ?? "."),
                         quiet: true,
                     });
                 }
@@ -79,7 +108,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     console.debug("Installing appropriate Python version...");
                     await exec(
                         `pyenv install -s ${extension.pythonVersion} && pyenv global ${extension.pythonVersion}`,
-                        { cwd: path.join(context.repo, extension.location ?? "."), quiet: false },
+                        { cwd: path.join(publishContext.repo, extension.location ?? "."), quiet: false },
                     );
                 }
             } catch {}
@@ -87,34 +116,36 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             if (extension.custom) {
                 try {
                     for (const command of extension.custom) {
-                        await exec(command, { cwd: context.repo });
+                        await exec(command, { cwd: publishContext.repo });
                     }
 
                     options = {
                         extensionFile: path.join(
-                            context.repo,
+                            publishContext.repo,
                             extension.location ?? ".",
                             extension.extensionFile ?? "extension.vsix",
                         ),
                     };
 
-                    if (context.target) {
-                        console.info(`Looking for a ${context.target} vsix package in ${context.repo}...`);
-                        const vsixFiles = await fg(path.join(`*-${context.target}-*.vsix`), {
-                            cwd: context.repo,
+                    if (publishContext.target) {
+                        console.info(
+                            `Looking for a ${publishContext.target} vsix package in ${publishContext.repo}...`,
+                        );
+                        const vsixFiles = await fg(path.join(`*-${publishContext.target}-*.vsix`), {
+                            cwd: publishContext.repo,
                             onlyFiles: true,
                         });
                         if (vsixFiles.length > 0) {
                             console.info(
-                                `Found ${vsixFiles.length} ${context.target} vsix package(s) in ${context.repo}: ${vsixFiles.join(", ")}`,
+                                `Found ${vsixFiles.length} ${publishContext.target} vsix package(s) in ${publishContext.repo}: ${vsixFiles.join(", ")}`,
                             );
                             options = {
-                                extensionFile: path.join(context.repo, vsixFiles[0]),
-                                targets: [context.target],
+                                extensionFile: path.join(publishContext.repo, vsixFiles[0]),
+                                targets: [publishContext.target],
                             };
                         } else {
                             throw new Error(
-                                `After running the custom commands, no .vsix file was found for ${extension.id}@${context.target}`,
+                                `After running the custom commands, no .vsix file was found for ${extension.id}@${publishContext.target}`,
                             );
                         }
                     }
@@ -123,7 +154,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                 }
             } else {
                 const yarn = await new Promise((resolve) => {
-                    fs.access(path.join(context.repo, "yarn.lock"), (error) => resolve(!error));
+                    fs.access(path.join(publishContext.repo, "yarn.lock"), (error) => resolve(!error));
                 });
                 try {
                     await exec(`${yarn ? "yarn" : "npm"} install`, { cwd: packagePath });
@@ -146,12 +177,12 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                     }
                 }
                 if (extension.prepublish) {
-                    await exec(extension.prepublish, { cwd: context.repo });
+                    await exec(extension.prepublish, { cwd: publishContext.repo });
                 }
                 if (extension.extensionFile) {
-                    options = { extensionFile: path.join(context.repo, extension.extensionFile) };
+                    options = { extensionFile: path.join(publishContext.repo, extension.extensionFile) };
                 } else {
-                    options = { extensionFile: path.join(context.repo, "extension.vsix") };
+                    options = { extensionFile: path.join(publishContext.repo, "extension.vsix") };
                     if (yarn) {
                         options.yarn = true;
                     }
@@ -165,31 +196,32 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
                             baseContentUrl: options.baseContentUrl,
                             baseImagesUrl: options.baseImagesUrl,
                             useYarn: options.yarn,
-                            target: context.target,
+                            target: publishContext.target,
                         });
                     } finally {
                         process.env["VSCE_TESTS"] = vsceTests;
                     }
                 }
-                console.log(`${id}: prepared from ${context.repo}`);
+                console.log(`${id}: prepared from ${publishContext.repo}`);
             }
         }
 
         // Check if the requested version is greater than the one on Open VSX.
         const { xmlManifest, manifest } = options.extensionFile && (await readVSIXPackage(options.extensionFile));
-        context.version = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Version || manifest?.version;
-        if (!context.version) {
+        publishContext.version =
+            xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Version || manifest?.version;
+        if (!publishContext.version) {
             throw new Error(`${extension.id}: version is not resolved`);
         }
 
-        if (context.ovsxVersion) {
-            if (semver.gt(context.ovsxVersion, context.version)) {
+        if (publishContext.ovsxVersion) {
+            if (semver.gt(publishContext.ovsxVersion, publishContext.version)) {
                 throw new Error(
-                    `extensions.json is out-of-date: Open VSX version ${context.ovsxVersion} is already greater than specified version ${context.version}`,
+                    `extensions.json is out-of-date: Open VSX version ${publishContext.ovsxVersion} is already greater than specified version ${publishContext.version}`,
                 );
             }
-            if (semver.eq(context.ovsxVersion, context.version) && process.env.FORCE !== "true") {
-                console.log(`[SKIPPED] Requested version ${context.version} is already published on Open VSX`);
+            if (semver.eq(publishContext.ovsxVersion, publishContext.version) && process.env.FORCE !== "true") {
+                console.log(`[SKIPPED] Requested version ${publishContext.version} is already published on Open VSX`);
                 return;
             }
         }
@@ -216,6 +248,7 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             }
 
             const dependenciesNotOnOpenVsx = [];
+            const extensions = JSON.parse(await fs.promises.readFile("./extensions.json", "utf-8"));
             for (const dependency of extensionDependenciesNotBuiltin) {
                 if (process.env.SKIP_PUBLISH && Object.keys(extensions).find((key) => key === dependency)) {
                     continue;
@@ -234,42 +267,25 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             }
         }
 
-        if (options.extensionFile && process.env.EXTENSIONS) {
+        if (options.extensionFile) {
             console.info(`Copying file to ${artifactDirectory}`);
-            const outputFile = `${extension.id}${context.target ? `@${context.target}` : ""}.vsix`;
-            fs.copyFileSync(options.extensionFile, path.join("/tmp/artifacts/", outputFile));
-        }
-
-        if (process.env.SKIP_PUBLISH === "true") {
-            return;
-        }
-
-        console.log(`Attempting to publish ${id} to Open VSX`);
-
-        // Create a public Open VSX namespace if needed.
-        try {
-            await ovsx.createNamespace({ name: namespace });
-        } catch (error) {
-            console.log(`Creating Open VSX namespace failed -- assuming that it already exists`);
-            console.log(error);
-        }
-
-        console.info(`Publishing extension as ${options.targets ? options.targets.join(", ") : "universal"}`);
-        if (process.env.OVSX_PAT) {
-            await ovsx.publish(options);
-            console.log(`Published ${id} to https://${registryHost}/extension/${id.split(".")[0]}/${id.split(".")[1]}`);
-        } else {
-            console.error(
-                "The OVSX_PAT environment variable was not provided, which means the extension cannot be published. Provide it or set SKIP_PUBLISH to true to avoid seeing this.",
+            const outputPath = path.join(
+                artifactDirectory,
+                `${extension.id}${publishContext.target ? `@${publishContext.target}` : ""}.vsix`,
             );
-            process.exitCode = 1;
+            fs.copyFileSync(options.extensionFile, outputPath);
+            options.extensionFile = outputPath;
         }
+
+        return options;
     } catch (error) {
         if (error && String(error).indexOf("is already published.") !== -1) {
             console.log(`Could not process extension -- assuming that it already exists`);
             console.log(error);
         } else {
-            console.error(`[FAIL] Could not process extension: ${JSON.stringify({ extension, context }, null, 2)}`);
+            console.error(
+                `[FAIL] Could not process extension: ${JSON.stringify({ extension, publishContext }, null, 2)}`,
+            );
             console.error(error);
             process.exitCode = 1;
         }
@@ -279,4 +295,58 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
             await exec(`pyenv global ${defaultPythonVersion}`);
         }
     }
-})();
+}
+
+// @ts-check
+/**
+ * @param {import('../types').Extension} extension
+ * @param {import('../types').PublishContext} publishContext
+ */
+module.exports = async (extension, publishContext) => {
+    publishContext.msLastUpdated = new Date(publishContext.msLastUpdated);
+    publishContext.ovsxLastUpdated = new Date(publishContext.ovsxLastUpdated);
+
+    const allOptions = [];
+    if (publishContext.files) {
+        // Build all targets of extension from GitHub Release assets
+        for (const [target, file] of Object.entries(publishContext.files)) {
+            if (!extension.target || Object.keys(extension.target).includes(target)) {
+                publishContext.file = file;
+                publishContext.target = target;
+                const options = await buildVersion(extension, publishContext);
+                if (options) {
+                    allOptions.push(options);
+                }
+            } else {
+                console.log(`${extension.id}: skipping, since target ${target} is not included`);
+            }
+        }
+    } else if (extension.target) {
+        // Build all specified targets of extension from sources
+        for (const [target, targetData] of Object.entries(extension.target)) {
+            publishContext.target = target;
+            if (targetData !== true) {
+                publishContext.environmentVariables = targetData.env;
+            }
+            const options = await buildVersion(extension, publishContext);
+            if (options) {
+                allOptions.push(options);
+            }
+        }
+    } else {
+        // Build only the universal target of extension from sources
+        const options = await buildVersion(extension, publishContext);
+        if (options) {
+            allOptions.push(options);
+        }
+    }
+
+    const extensionFiles = [];
+    for (const options of allOptions) {
+        if (options.extensionFile) {
+            extensionFiles.push(options.extensionFile);
+        }
+    }
+
+    return extensionFiles;
+};
