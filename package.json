@@ -28,7 +28,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@actions/artifact": "^2.3.2",
+    "@actions/artifact": "^5.0.1",
     "@vscode/vsce": "^3.0.0",
     "ajv": "^8.8.1",
     "chai": "^5.1.0",
