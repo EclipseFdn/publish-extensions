@@ -1214,6 +1214,33 @@
   "rioj7.html-related-links": {
     "repository": "https://github.com/rioj7/html-related-links"
   },
+  "rioj7.my-code-actions": {
+    "repository": "https://github.com/rioj7/my-code-actions"
+  },
+  "rioj7.regex-text-gen": {
+    "repository": "https://github.com/rioj7/regex-text-gen"
+  },
+  "rioj7.select-by": {
+    "repository": "https://github.com/rioj7/select-by"
+  },
+  "rioj7.vscode-betterWhitespaceV2": {
+    "repository": "https://github.com/rioj7/vscode-betterWhitespaceV2"
+  },
+  "rioj7.vscode-file-templates": {
+    "repository": "https://github.com/rioj7/vscode-file-templates"
+  },
+  "rioj7.vscode-indentWhitespace": {
+    "repository": "https://github.com/rioj7/vscode-indentWhitespace"
+  },
+  "rioj7.vscode-json-validate": {
+    "repository": "https://github.com/rioj7/vscode-json-validate"
+  },
+  "rioj7.vscode-recently-used": {
+    "repository": "https://github.com/rioj7/vscode-recently-used"
+  },
+  "rioj7.vscode-remove-comments": {
+    "repository": "https://github.com/rioj7/remove-comments"
+  },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
   },
