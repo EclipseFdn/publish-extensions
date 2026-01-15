@@ -30,7 +30,7 @@ jobs:
     env:
       DO_DOWNLOAD: ${{ fromJSON(inputs.publishContext).files != null }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         if: ${{ env.DO_DOWNLOAD == 'true' }}
       - uses: actions/setup-node@v4.3.0
         if: ${{ env.DO_DOWNLOAD == 'true' }}
@@ -58,7 +58,7 @@ jobs:
     permissions:
       actions: none
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4.3.0
         with:
           node-version: "22.x"
@@ -113,7 +113,7 @@ jobs:
     permissions:
       actions: none
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4.3.0
         with:
           node-version: "22.x"
