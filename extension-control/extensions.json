@@ -122,7 +122,8 @@
         "hellobike-copilot.hellobike-copilot",
         "pretty-studio-advisor.prettyxml-formatter",
         "solidity-syntax.deep-focus",
-        "sun-shine-studio.shiny-extension-for-vscode"
+        "sun-shine-studio.shiny-extension-for-vscode",
+        "sol-studio.solidity-extension"
     ],
     "search": [
         {
