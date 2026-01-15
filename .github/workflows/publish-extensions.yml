@@ -39,7 +39,7 @@ jobs:
           node-version: "22.x"
       - run: npm install
       - run: npm i -g @vscode/vsce pnpm
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
