@@ -736,7 +736,8 @@
             "extension": {
                 "id": "johnrdorazio.vscode-phpcs",
                 "displayName": "vscode-phpcs"
-            }
+            },
+            "additionalInfo": "The name change was required on the VS Code marketplace, to avoid a name conflict with the previously published phpcs extensions."
         }
     },
     "migrateToPreRelease": {
