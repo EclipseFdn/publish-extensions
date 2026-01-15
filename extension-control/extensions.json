@@ -74,7 +74,7 @@
         "betterthanalltime.calva-vscode",
         "redmat.vscode-quarkus-pro",
         "bphpburn.icons-vscode",
-        "SolBlanco.svelte-vscode", 
+        "SolBlanco.svelte-vscode",
         "svltsweet.Svetle-for-Cursor",
         "clangdcode.clangd-vscode",
         "Dart-vsc.code-dart",
@@ -730,6 +730,13 @@
         },
         "sainnhe.soft-material": {
             "disallowInstall": false
+        },
+        "johnrdorazio.phpcs": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "johnrdorazio.vscode-phpcs",
+                "displayName": "vscode-phpcs"
+            }
         }
     },
     "migrateToPreRelease": {
