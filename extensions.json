@@ -1158,6 +1158,11 @@
   "philosowaffle.openapi-designer": {
     "repository": "https://github.com/philosowaffle/vs-openapi-designer"
   },
+  "pigweed.pigweed": {
+    "repository": "https://github.com/pigweed-project/pigweed",
+    "location": "pw_ide/ts/pigweed_vscode",
+    "prepublish": "npm i && npm run package"
+  },
   "Pilleye.dusk-theme": {
     "repository": "https://github.com/pilleye/dusk-theme"
   },
