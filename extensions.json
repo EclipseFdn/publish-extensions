@@ -1535,5 +1535,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "solarized-one.vscode": {
+    "repository": "https://github.com/solarized-one/vscode"
   }
 }
