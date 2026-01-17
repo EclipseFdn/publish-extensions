@@ -124,7 +124,9 @@
         "solidity-syntax.deep-focus",
         "sun-shine-studio.shiny-extension-for-vscode",
         "sol-studio.solidity-extension",
-        "awesome-codebase.codebase-dart-pro"
+        "awesome-codebase.codebase-dart-pro",
+        "antigravity-user.auto-accept-cdp",
+        "dev-studio-sense.php-comp-tools-vscode"
     ],
     "search": [
         {
