@@ -1093,6 +1093,9 @@
   "Nightrains.robloxlsp": {
     "repository": "https://github.com/NightrainsRbx/RobloxLsp"
   },
+  "ninoseki.mogami": {
+    "repository": "https://github.com/ninoseki/vscode-mogami"
+  },
   "njpwerner.autodocstring": {
     "repository": "https://github.com/NilsJPWerner/autoDocstring"
   },
