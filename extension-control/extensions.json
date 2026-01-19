@@ -162,6 +162,13 @@
         }
     ],
     "deprecated": {
+        "dschibster.sf-org-list" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "dennisgrzyb.sf-org-list",
+                "displayName": "SF Org List"
+            }
+        },
         "kv9898.vscode-pyright" : {
             "disallowInstall": false
         },
