@@ -1,12 +1,38 @@
 {
-    "name": "publish-extensions",
-    "image": "mcr.microsoft.com/devcontainers/base",
-    // Features to add to the dev container. More info: https://containers.dev/features.
-    "features": {
-        "ghcr.io/shyim/devcontainers-features/bun:0": {},
-        "ghcr.io/devcontainers/features/node:1": {},
-        "ghcr.io/devcontainers/features/python:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/java:1": {}
-    }
+	"name": "publish-extensions",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/shyim/devcontainers-features/bun:0": {},
+		"ghcr.io/devcontainers/features/python:1": {},
+		"ghcr.io/devcontainers/features/java:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"editor.codeActionsOnSave": {
+					"source.fixAll.eslint": "explicit"
+				}
+			},
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker",
+				"ms-vscode.vscode-json",
+				"bradlc.vscode-tailwindcss"
+			]
+		}
+	},
+	"runArgs": [
+		"--network=host"
+	],
+	"remoteUser": "node",
+	"postCreateCommand": "npm install",
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+	]
 }
