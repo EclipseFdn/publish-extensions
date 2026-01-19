@@ -1535,5 +1535,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "ExecutableBookProject.myst-highlight": {
+    "repository": "https://github.com/executablebooks/myst-vs-code"
   }
 }
