@@ -1300,6 +1300,10 @@
   "small.php-ci": {
     "repository": "https://github.com/smallp/vscode-ci"
   },
+  "smallcase.postcssense": {
+    "repository": "https://github.com/smallcase/sc-fe-postcssense",
+    "prepublish": "npm run compile"
+  },
   "snyk-security.snyk-vulnerability-scanner": {
     "repository": "https://github.com/snyk/vscode-extension"
   },
