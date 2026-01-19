@@ -712,6 +712,13 @@
             }
         },
         "erral.erral-zcmlLanguageConfiguration": true,
+        "hirosystems.clarity-lsp": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "stackslabs.clarity-stacks",
+                "displayName": "Clarity - Stacks Labs"
+            }
+        },
         "hyen.i18n-smart-manager":{
             "disallowInstall": false,
             "extension": {
