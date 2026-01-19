@@ -190,6 +190,13 @@
             }
         },
         "andrewhertog.codex-editor-extension": true,
+        "agani-ds.avr-utils": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "microchip.mplab-extension-pack",
+                "displayName": "MPLAB"
+            }
+        },
         "DavidGomes.platformio-ide-cursor": {
             "disallowInstall": true,
             "extension": {
