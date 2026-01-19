@@ -33,7 +33,7 @@ jobs:
       actions: write
       contents: read
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4.3.0
         with:
           node-version: "22.x"
@@ -100,7 +100,7 @@ jobs:
       actions: none
     if: ${{ !github.event.inputs.extensions }} # only run on full runs
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4.3.0
         with:
           node-version: "18.x"
