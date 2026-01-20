@@ -1125,6 +1125,9 @@
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
+  "OHZIInteractiveStudio.ohzi-vscode-glb-viewer": {
+    "repository": "https://github.com/ohzinteractive/vscode-glb-viewer"
+  },
   "paiqo.databricks-vscode": {
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
