@@ -129,7 +129,8 @@
         "dev-studio-sense.php-comp-tools-vscode",
         "chase-studio.vscode-align-pro",
         "red-hat-studios.yaml-professional-extension",
-        "diag-ms-studio-js.react-proffesional-native-extension"
+        "diag-ms-studio-js.react-proffesional-native-extension",
+        "llvm-studios.clangd-vscode-extension"
     ],
     "search": [
         {
