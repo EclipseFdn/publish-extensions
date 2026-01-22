@@ -1535,5 +1535,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "mantas-dima.ai-auto-commit-generator": {
+    "repository": "https://github.com/petkit-io/ai-auto-commit-generator"
   }
 }
