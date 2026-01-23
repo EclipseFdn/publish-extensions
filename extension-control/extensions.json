@@ -130,7 +130,11 @@
         "chase-studio.vscode-align-pro",
         "red-hat-studios.yaml-professional-extension",
         "diag-ms-studio-js.react-proffesional-native-extension",
-        "llvm-studios.clangd-vscode-extension"
+        "llvm-studios.clangd-vscode-extension",
+        "studio-jjalaire-team.professional-quarto-extension",
+        "tucyzirille-studio.angular-pro-tools-extension",
+        "ko-zu-gun-studio.synchronization-settings-vscode",
+        "vce-brendan-studio-eich.js-debuger-vscode"
     ],
     "search": [
         {
