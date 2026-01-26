@@ -169,20 +169,20 @@
         }
     ],
     "deprecated": {
-        "dschibster.sf-org-list": {
+        "dschibster.sf-org-list" : {
             "disallowInstall": true,
             "extension": {
                 "id": "dennisgrzyb.sf-org-list",
                 "displayName": "SF Org List"
             }
         },
-        "kv9898.vscode-pyright": {
+        "kv9898.vscode-pyright" : {
             "disallowInstall": false
         },
-        "kv9898.open-remote-wsl": {
+        "kv9898.open-remote-wsl" : {
             "disallowInstall": false
         },
-        "codescene.codescene-vscode-noace": {
+        "codescene.codescene-vscode-noace" : {
             "disallowInstall": true,
             "extension": {
                 "id": "codescene.codescene-vscode",
@@ -196,7 +196,7 @@
                 "displayName": "iFlow CLI"
             }
         },
-        "HerrInformatiker.ai-rules-sync": {
+         "HerrInformatiker.ai-rules-sync" : {
             "disallowInstall": true,
             "extension": {
                 "id": "HerrInformatiker.ai-rules-syncer",
@@ -291,9 +291,9 @@
                 "displayName": "ESLint"
             }
         },
-        "kunrii.vscodium-command-runner": {
-            "disallowInstall": true,
-            "extension": {
+        "kunrii.vscodium-command-runner":{
+            "disallowInstall":true,
+            "extension":{
                 "id": "kunrii.vscodium-command-runner",
                 "displayName": "Command Runner"
             }
@@ -718,11 +718,11 @@
         "MS-CEINTL.vscode-language-pack-uk": true,
         "interactive-mcp.interactive-mcp": true,
         "modular-mojotools.vscode-mojo-nightly": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "modular-mojotools.vscode-mojo",
-                "displayName": "Mojo 🔥"
-            }
+                "disallowInstall": true,
+                "extension": {
+                        "id": "modular-mojotools.vscode-mojo",
+                        "displayName": "Mojo 🔥"
+                }
         },
         "sensmetry.sysml-2ls": {
             "disallowInstall": false,
@@ -746,7 +746,7 @@
                 "displayName": "Clarity - Stacks Labs"
             }
         },
-        "hyen.i18n-smart-manager": {
+        "hyen.i18n-smart-manager":{
             "disallowInstall": false,
             "extension": {
                 "id": "ddock.i18n-smart-ddock",
