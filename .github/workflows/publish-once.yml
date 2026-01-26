@@ -19,9 +19,9 @@ jobs:
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v4.3.0
+      - uses: actions/setup-node@v6.2.0
         with:
-          node-version: "20.x"
+          node-version: "22.x"
       - name: Download extension file
         run: wget -O extension.vsix "${{ github.event.inputs.extensions }}"
       - name: Create Open VSX namespace

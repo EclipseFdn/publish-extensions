@@ -13,10 +13,10 @@ jobs:
     name: Validate PR
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4.3.0
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6.2.0
         with:
-          node-version: "18.x"
+          node-version: "22.x"
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
@@ -30,9 +30,20 @@ jobs:
         run: |
           pyenv install 3.8
           pyenv global 3.8
-      - run: EXTENSIONS=$(node diff-extensions) node publish-extensions
+      - run: echo "EXTENSIONS=$(node diff-extensions)" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          EXTENSIONS: ${{ env.EXTENSIONS }}
+        with:
+          script: |
+            const script = require('./scripts/publish-extensions.js');
+            await script(async (extension, context) => {
+              console.log(`Would publish ${extension.id} with context:`, JSON.stringify(context, null, 2));
+            });
       - name: Report results
         run: bun run ./report-extensions.ts
       - uses: actions/upload-artifact@v4

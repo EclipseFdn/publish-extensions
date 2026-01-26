@@ -1,0 +1,6 @@
+tasks:
+  install_deps:
+    name: Install Dependencies
+    triggeredBy:
+      - postEnvironmentStart
+    command: npm install

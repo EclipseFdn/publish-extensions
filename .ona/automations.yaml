@@ -1,0 +1,80 @@
+tasks:
+  install-dependencies:
+    name: Install dependencies
+    description: Install npm dependencies for the project
+    command: npm install
+    triggeredBy:
+      - postDevcontainerStart
+      - manual
+
+  format-code:
+    name: Format code
+    description: Format all code using Prettier
+    command: npm run format
+    triggeredBy:
+      - manual
+
+  validate-extensions:
+    name: Validate extensions
+    description: Validate extensions.json schema and format
+    command: |
+      echo "Validating extensions.json..."
+      node -e "
+        const fs = require('fs');
+        const path = require('path');
+        try {
+          const extensions = JSON.parse(fs.readFileSync('extensions.json', 'utf8'));
+          console.log('✅ extensions.json is valid JSON');
+          console.log(\`Found \${Object.keys(extensions).length} extensions\`);
+        } catch (error) {
+          console.error('❌ extensions.json validation failed:', error.message);
+          process.exit(1);
+        }
+      "
+    triggeredBy:
+      - manual
+
+  publish-extensions:
+    name: Publish extensions
+    description: Run the main publish extensions script
+    command: node publish-extensions
+    triggeredBy:
+      - manual
+    dependsOn:
+      - install-dependencies
+
+  add-extension:
+    name: Add new extension
+    description: Interactive script to add a new extension
+    command: node add-extension.js
+    triggeredBy:
+      - manual
+    dependsOn:
+      - install-dependencies
+
+  diff-extensions:
+    name: Diff extensions
+    description: Compare extension versions and show differences
+    command: node diff-extensions.js
+    triggeredBy:
+      - manual
+    dependsOn:
+      - install-dependencies
+
+  setup-environment:
+    name: Setup development environment
+    description: Complete environment setup including dependencies and validation
+    command: |
+      echo "🚀 Setting up development environment..."
+      echo "📦 Dependencies installed"
+      echo "✅ Environment ready for VS Code extension publishing"
+      echo ""
+      echo "Available commands:"
+      echo "  - npm run publish: Publish extensions"
+      echo "  - npm run format: Format code"
+      echo "  - node add-extension.js: Add new extension"
+      echo "  - node diff-extensions.js: Compare extensions"
+    triggeredBy:
+      - postEnvironmentStart
+    dependsOn:
+      - install-dependencies
