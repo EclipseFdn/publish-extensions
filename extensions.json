@@ -604,6 +604,9 @@
   "maziac.asm-code-lens": {
     "repository": "https://github.com/maziac/asm-code-lens"
   },
+  "mbakke.vscode-nastran": {
+    "repository": "https://github.com/dmarc3/vscode-nastran"
+  },
   "medo64.render-crlf": {
     "repository": "https://github.com/medo64/render-crlf"
   },
