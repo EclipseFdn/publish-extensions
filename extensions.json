@@ -149,6 +149,9 @@
   "BriteSnow.vscode-toggle-quotes": {
     "repository": "https://github.com/BriteSnow/vscode-toggle-quotes"
   },
+  "brittanychiang.halcyon-vscode": {
+    "repository": "https://github.com/bchiang7/halcyon-vscode"
+  },
   "buianhthang.gitflow": {
     "repository": "https://github.com/anhthang/vscode-gitflow"
   },
