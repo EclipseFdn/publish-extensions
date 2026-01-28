@@ -613,6 +613,9 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
+  "meta.relay": {
+    "repository": "https://github.com/facebook/relay"
+  },
   "miguelsolorio.fluent-icons": {
     "repository": "https://github.com/misolori/vscode-fluent-icons"
   },
