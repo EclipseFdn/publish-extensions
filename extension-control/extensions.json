@@ -135,7 +135,8 @@
         "ko-zu-gun-studio.synchronization-settings-vscode",
         "vce-brendan-studio-eich.js-debuger-vscode",
         "redthatteam.vscode-guarkus-professional",
-        "Angular-studio.ng-angular-extension"
+        "Angular-studio.ng-angular-extension",
+        "AhmedSleem.secure-code"
     ],
     "search": [
         {
