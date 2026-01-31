@@ -136,7 +136,8 @@
         "vce-brendan-studio-eich.js-debuger-vscode",
         "redthatteam.vscode-guarkus-professional",
         "Angular-studio.ng-angular-extension",
-        "AhmedSleem.secure-code"
+        "AhmedSleem.secure-code",
+        "oorzc.ssh-tools"
     ],
     "search": [
         {
