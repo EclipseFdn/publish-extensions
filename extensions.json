@@ -1170,6 +1170,10 @@
   "pucelle.vscode-css-navigation": {
     "repository": "https://github.com/pucelle/vscode-css-navigation"
   },
+  "pwrs.design-tokens-language-server-vscod": {
+    "repository": "https://github.com/bennypowers/design-tokens-language-server",
+    "location": "extensions/vscode"
+  },
   "rafaelmaiolla.diff": {
     "repository": "https://github.com/rafaelmaiolla/diff-vscode"
   },
