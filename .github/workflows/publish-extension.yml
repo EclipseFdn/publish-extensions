@@ -68,10 +68,10 @@ jobs:
       - name: Set up pyenv
         uses: "gabrielfalcao/pyenv-action@32ef4d2c861170ce17ded56d10329d83f4c8f797"
         with:
+            default: 3.9
             command: python --version
       - name: Set default global version
         run: |
-          pyenv install 3.9
           pyenv global 3.9
       - uses: actions/setup-java@v4
         with:
