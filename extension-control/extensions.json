@@ -137,7 +137,10 @@
         "redthatteam.vscode-guarkus-professional",
         "Angular-studio.ng-angular-extension",
         "AhmedSleem.secure-code",
-        "oorzc.ssh-tools"
+        "oorzc.ssh-tools",
+        "oorzc.i18n-tools-plus",
+        "oorzc.mind-map",
+        "oorzc.scss-to-css-compile"
     ],
     "search": [
         {
