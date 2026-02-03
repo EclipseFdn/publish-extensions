@@ -141,7 +141,8 @@
         "oorzc.i18n-tools-plus",
         "oorzc.mind-map",
         "oorzc.scss-to-css-compile",
-        "cosmic-themes.sql-formatter"
+        "cosmic-themes.sql-formatter",
+        "lavender-studio.theme-lavender-dreams"
     ],
     "search": [
         {
