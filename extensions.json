@@ -613,6 +613,9 @@
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
   },
+  "michen00.invisible-squiggles": {
+    "repository": "https://github.com/michen00/invisible-squiggles"
+  },
   "miguelsolorio.fluent-icons": {
     "repository": "https://github.com/misolori/vscode-fluent-icons"
   },
