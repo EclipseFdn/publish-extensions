@@ -148,7 +148,9 @@
         "inangalek.project-manager-extension",
         "dep-labs-studio.dep-proffesinal-extension",
         "dark-code-studio.flutter-extension",
-        "brategmaqendaalar-studio.pro-prettyxml-formatter"
+        "brategmaqendaalar-studio.pro-prettyxml-formatter",
+        "REditorSupporter.r-vscode",
+        "cud-dot-prod-studio.prettier-pro-vscode-extension"
     
     ],
     "search": [
