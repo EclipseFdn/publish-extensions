@@ -1214,6 +1214,14 @@
   "rioj7.html-related-links": {
     "repository": "https://github.com/rioj7/html-related-links"
   },
+  "rip-lang.print": {
+    "repository": "https://github.com/shreeve/rip-lang",
+    "location": "packages/print/vscode"
+  },
+  "rip-lang.rip": {
+    "repository": "https://github.com/shreeve/rip-lang",
+    "location": "packages/vscode"
+  },
   "ritwickdey.LiveServer": {
     "repository": "https://github.com/ritwickdey/vscode-live-server"
   },
