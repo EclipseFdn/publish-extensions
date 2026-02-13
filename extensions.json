@@ -1176,6 +1176,9 @@
   "RandomChance.logstash": {
     "repository": "https://github.com/randomchance/vscode-logstash-configuration-syntax"
   },
+  "david-rickard.git-diff-and-merge-tool": {
+    "repository": "https://github.com/RandomEngy/VSCodeGitDiffAndMergeTool"
+  },
   "rebornix.ruby": {
     "repository": "https://github.com/rubyide/vscode-ruby",
     "location": "packages/vscode-ruby-client",
