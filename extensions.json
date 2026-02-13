@@ -1468,6 +1468,12 @@
     "repository": "https://github.com/rubyide/vscode-ruby",
     "location": "packages/vscode-ruby"
   },
+  "WindLi.yunxiao-workitem-helper": {
+    "repository": "https://github.com/windli2018/yunxiao-project",
+  },
+  "WindLi.vscode-copybara": {
+    "repository": "https://github.com/windli2018/vscode-copybara",
+  },
   "wix.vscode-import-cost": {
     "repository": "https://github.com/wix/import-cost",
     "custom": [
