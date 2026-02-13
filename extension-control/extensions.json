@@ -615,13 +615,6 @@
                 "displayName": "SerenityOS DSL Syntax Highlight"
             }
         },
-        "Boundary.baml-extension-preview": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "Boundary.baml-extension",
-                "displayName": "BAML"
-            }
-        },
         "lifeart.vscode-ember-unstable": {
             "disallowInstall": true,
             "extension": {
