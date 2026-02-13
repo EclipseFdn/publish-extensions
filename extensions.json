@@ -270,6 +270,9 @@
   "draivin.hsnips": {
     "repository": "https://github.com/draivin/hsnips"
   },
+  "drxiong.claude-dr-xiong": {
+    "repository": "https://github.com/Haleclipse/dr-xiong-claude"
+  },
   "dsznajder.es7-react-js-snippets": {
     "repository": "https://github.com/dsznajder/vscode-es7-javascript-react-snippets"
   },
