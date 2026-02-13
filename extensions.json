@@ -1223,6 +1223,9 @@
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
   },
+  "ruschaaf.extended-embedded-languages": {
+    "repository": "https://github.com/ruschaaf/extended-embedded-languages.git"
+  },
   "RoyAction.color-manager": {
     "repository": "https://github.com/royaction/vscode-colormanager"
   },
