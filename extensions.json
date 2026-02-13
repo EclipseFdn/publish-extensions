@@ -549,6 +549,9 @@
   "kortina.vscode-markdown-notes": {
     "repository": "https://github.com/kortina/vscode-markdown-notes"
   },
+  "l7ssha.TagInserter": {
+    "repository": "https://github.com/l7ssha/TagInserter"
+  },
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
@@ -612,6 +615,9 @@
   },
   "MehediDracula.php-namespace-resolver": {
     "repository": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
+  },
+  "microsoft.vscode-htmlhint": {
+    "repository": "https://github.com/Microsoft/vscode-htmlhint"
   },
   "miguelsolorio.fluent-icons": {
     "repository": "https://github.com/misolori/vscode-fluent-icons"
