@@ -1145,6 +1145,10 @@
   "paulmolluzzo.convert-css-in-js": {
     "repository": "https://github.com/paulmolluzzo/convert-css-in-js"
   },
+  "pbkit.vscode-pbkit": {
+    "repository": "https://github.com/pbkit/vscode-pbkit",
+    "prepublish": "npm run build"
+  },
   "peterj.proto": {
     "repository": "https://github.com/pj3677/vscode-protobuf",
     "prepublish": "[ $VERSION = '0.0.3' ] && sed -i 's/\\(\"icon\": \".*\\.\\)svg\\(\"\\)/\\1png\\2/g' package.json && npx svgexport ./images/protobuficon.svg ./images/protobuficon.png || true"
