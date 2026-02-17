@@ -1220,6 +1220,9 @@
   "RobbOwen.synthwave-vscode": {
     "repository": "https://github.com/robb0wen/synthwave-vscode"
   },
+  "RoiEfrati.npm-stuff": {
+    "repository": "https://github.com/RoiEf/npm-stuff"
+  },
   "rokoroku.vscode-theme-darcula": {
     "repository": "https://github.com/rokoroku/vscode-theme-darcula"
   },
