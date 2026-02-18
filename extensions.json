@@ -1364,6 +1364,9 @@
   "travis.simple-dark": {
     "repository": "https://github.com/HondryTravis/simple-dark"
   },
+  "trond-snekvik.gnu-mapfiles": {
+    "repository": "https://github.com/trond-snekvik/vscode-gnu-map"
+  },
   "trond-snekvik.simple-rst": {
     "repository": "https://github.com/trond-snekvik/vscode-rst"
   },
