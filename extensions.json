@@ -1535,5 +1535,14 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "mahdihajian.vscode-shelf": {
+    "repository": "https://github.com/mahdi-hajian/vscode-shelf"
+  },
+  "mahdihajian.angular-jasmine-test-runner": {
+    "repository": "https://github.com/mahdi-hajian/angular-jasmine-test-runner"
+  },
+  "mahdihajian.vscode-developer-tools": {
+    "repository": "https://github.com/mahdi-hajian/useful-developer-tools"
   }
 }
