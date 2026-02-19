@@ -1306,9 +1306,6 @@
   "sorbet.sorbet-vscode-extension": {
     "repository": "https://github.com/sorbet/sorbet"
   },
-  "sswg.swift-lang": {
-    "repository": "https://github.com/swift-server/vscode-swift"
-  },
   "steoates.autoimport": {
     "repository": "https://github.com/soates/Auto-Import"
   },
