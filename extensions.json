@@ -1152,6 +1152,9 @@
   "pflannery.vscode-versionlens": {
     "repository": "https://gitlab.com/versionlens/vscode-versionlens/"
   },
+  "pgvt.picc-ccs-support": {
+    "repository": "https://gitlab.com/vitapg/picc-ccs-support"
+  },
   "ph-hawkins.arc-plus": {
     "repository": "https://github.com/phil-harmoniq/arc-plus"
   },
