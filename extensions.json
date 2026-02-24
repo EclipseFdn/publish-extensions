@@ -930,7 +930,7 @@
     "repository": "https://github.com/microsoft/vscode-jupyter-keymap"
   },
   "ms-toolsai.jupyter-hub": {
-    "repository": "https://github.com/jupyterhub/jupyterhub",
+    "repository": "https://github.com/Microsoft/vscode-jupyter-hub"
   },
   "ms-toolsai.jupyter-renderers": {
     "repository": "https://github.com/Microsoft/vscode-notebook-renderers",
