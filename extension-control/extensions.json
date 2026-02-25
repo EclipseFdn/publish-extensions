@@ -686,6 +686,12 @@
                 "displayName": "OpenShift Toolkit"
             }
         },
+        "GabrielBB.vscode-lombok": {
+            "extension": {
+                "id": "vscjava.vscode-lombok",
+                "displayName": "Lombok Annotations Support for VS Code"
+            }
+        },
         "SridharMocherla.bazel-kotlin-vscode-extension": {
             "disallowInstall": true,
             "extension": {
