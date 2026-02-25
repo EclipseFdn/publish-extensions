@@ -121,7 +121,8 @@ jobs:
       - run: npm i -g @vscode/vsce pnpm
       - uses: actions/download-artifact@v6
         with:
-          path: /tmp
+          name: "artifacts"
+          path: /tmp/artifacts
       - uses: actions/github-script@v8
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
