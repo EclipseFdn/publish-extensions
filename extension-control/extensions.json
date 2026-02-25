@@ -802,6 +802,14 @@
                 "id": "Greenplumwine.mybatis-helper-vscode",
                 "displayName": "Mybatis Helper"
             }
+        },
+        "ForceConfigControl.lightning-flow-scanner-vsx": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "salesforce.sfdx-code-analyzer-vscode",
+                "displayName": "Salesforce Code Analyzer"
+            },
+            "additionalInfo": "This extension has been replaced by the official Salesforce Code Analyzer extension. Please migrate to salesforce.sfdx-code-analyzer-vscode."
         }
     },
     "migrateToPreRelease": {
