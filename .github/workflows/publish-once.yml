@@ -14,18 +14,27 @@ on:
         required: false
         default: ""
 
+permissions:
+  contents: none
+
 jobs:
   publish:
     name: node publish-extensions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v6.2.0
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
-          node-version: "22.x"
+          node-version: "24.x"
       - name: Download extension file
-        run: wget -O extension.vsix "${{ github.event.inputs.extensions }}"
+        run: wget -O extension.vsix "${GITHUB_EVENT_INPUTS_EXTENSIONS}"
+        env:
+          GITHUB_EVENT_INPUTS_EXTENSIONS: ${{ github.event.inputs.extensions }}
       - name: Create Open VSX namespace
         if: ${{ github.event.inputs.namespace }}
-        run: npx ovsx create-namespace ${{ github.event.inputs.namespace }} -p ${{ secrets.OVSX_PAT }}
+        run: npx ovsx create-namespace ${GITHUB_EVENT_INPUTS_NAMESPACE} -p ${{ secrets.OVSX_PAT }}
+        env:
+          GITHUB_EVENT_INPUTS_NAMESPACE: ${{ github.event.inputs.namespace }}
       - name: Publish to Open VSX
-        run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }} ${{ github.event.inputs.flags }}
+        run: npx ovsx publish extension.vsix  -p ${{ secrets.OVSX_PAT }} ${GITHUB_EVENT_INPUTS_FLAGS}
+        env:
+          GITHUB_EVENT_INPUTS_FLAGS: ${{ github.event.inputs.flags }}

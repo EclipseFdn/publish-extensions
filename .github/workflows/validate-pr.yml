@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  contents: read
+
 jobs:
   publish_extensions:
     env:
@@ -13,17 +16,19 @@ jobs:
     name: Validate PR
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6.2.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          node-version: "22.x"
-      - uses: oven-sh/setup-bun@v2
+          persist-credentials: false
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: "24.x"
+      - uses: oven-sh/setup-bun@3d267786b128fe76c2f16a390aa2448b815359f3 # v2
         with:
           bun-version: latest
       - run: npm install
       - run: npm i -g @vscode/vsce pnpm
       - name: Set up pyenv
-        uses: "gabrielfalcao/pyenv-action@32ef4d2c861170ce17ded56d10329d83f4c8f797"
+        uses: gabrielfalcao/pyenv-action@a1fc55906be92612782934c70e3985b940bd0165 # v18
         with:
             command: python --version
       - name: Set default global version
@@ -33,7 +38,7 @@ jobs:
       - run: echo "EXTENSIONS=$(node diff-extensions)" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/github-script@v8
+      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
@@ -46,7 +51,7 @@ jobs:
             });
       - name: Report results
         run: bun run ./report-extensions.ts
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: report
@@ -55,14 +60,3 @@ jobs:
             /tmp/result.md
       - name: Upload job summary
         run: cat /tmp/result.md >> $GITHUB_STEP_SUMMARY
-      - name: Save PR number to file
-        if: github.event_name == 'pull_request'
-        run: echo ${{ github.event.number }} > PR_NUMBER.txt
-      - name: Archive PR number
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: PR_NUMBER
-          path: PR_NUMBER.txt
-
-
