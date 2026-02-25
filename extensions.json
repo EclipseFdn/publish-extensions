@@ -1133,6 +1133,9 @@
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
+  "pablodelucca.pixel-agents": {
+    "repository": "https://github.com/pablodelucca/pixel-agents"
+  },
   "paiqo.databricks-vscode": {
     "repository": "https://github.com/paiqo/Databricks-VSCode"
   },
