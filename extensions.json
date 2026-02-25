@@ -235,7 +235,7 @@
     "repository": "https://github.com/denoland/vscode_deno"
   },
   "dfinity-foundation.vscode-motoko": {
-    "repository": "https://github.com/dfinity/vscode-motoko",
+    "repository": "https://github.com/caffeinelabs/vscode-motoko",
     "prepublish": "npm run package"
   },
   "DigitalBrainstem.javascript-ejs-support": {
