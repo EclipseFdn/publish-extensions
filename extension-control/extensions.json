@@ -153,7 +153,11 @@
         "cud-dot-prod-studio.prettier-pro-vscode-extension",
         "studio-jja-laire.quarto-advanced-suite",
         "cliagenball.cline-agent-extension",
-        "quartoprof.quarto-professional-suite"
+        "quartoprof.quarto-professional-suite",
+        "randevtek-dev.extension-thunder-client-free",
+        "Jeronimo-self-dev.smart-color-picker", 
+        "crazy-ndkilddmn.vim-smart-tool",
+        "ilvvilab.php-composr-tool-extension"
     
     ],
     "search": [
