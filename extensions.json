@@ -897,7 +897,7 @@
   "ms-toolsai.jupyter-hub": {
     "repository": "https://github.com/Microsoft/vscode-jupyter-hub",
     "custom": [
-      "npm ci --ignore-scripts --prefer-offline --no-audit && npm run postinstall && npm run package"
+      "npm ci --prefer-offline --no-audit && npm run package"
     ],
     "extensionFile": "ms-toolsai-jupyter-hub-insiders.vsix",
     "timeout": 30
