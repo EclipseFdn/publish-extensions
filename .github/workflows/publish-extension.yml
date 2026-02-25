@@ -86,6 +86,8 @@ jobs:
       - uses: actions/download-artifact@v6
         with:
           path: /tmp
+      - name: Display structure of downloaded files
+        run: ls -R /tmp
       - id: build_extension
         name: Build extension
         uses: actions/github-script@v8
