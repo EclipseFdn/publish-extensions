@@ -795,6 +795,13 @@
                 "id": "swiftlang.swift-vscode",
                 "displayName": "Swift Language Support"
             }
+        },
+        "Greenplumwine.mybatis-helper" : {
+            "disallowInstall": true,
+            "extension": {
+                "id": "Greenplumwine.mybatis-helper-vscode",
+                "displayName": "Mybatis Helper"
+            }
         }
     },
     "migrateToPreRelease": {
