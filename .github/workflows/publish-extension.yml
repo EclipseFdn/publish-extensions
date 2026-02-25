@@ -85,9 +85,7 @@ jobs:
       - run: npm i -g @vscode/vsce pnpm
       - uses: actions/download-artifact@v6
         with:
-          path: /tmp
-      - name: Display structure of downloaded files
-        run: ls -R /tmp
+          path: /tmp/download
       - id: build_extension
         name: Build extension
         uses: actions/github-script@v8
