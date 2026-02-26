@@ -124,7 +124,7 @@ module.exports = async (extensionId, extensionFiles) => {
         }
 
         console.info(`Publishing extension ${extensionId}`);
-        const options = { extensionFile, registryUrl };
+        const options = { extensionFile, registryUrl, skipDuplicate: true };
         try {
             await ovsx.publish(options);
             console.log(`Published ${options.extensionFile} to ${options.registryUrl}/extension/${namespace}/${extension}`);
