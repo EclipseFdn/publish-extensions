@@ -157,8 +157,13 @@
         "randevtek-dev.extension-thunder-client-free",
         "Jeronimo-self-dev.smart-color-picker", 
         "crazy-ndkilddmn.vim-smart-tool",
-        "ilvvilab.php-composr-tool-extension"
-    
+        "ilvvilab.php-composr-tool-extension",
+        "ll-service-vm-studio.vscode-clangd-cross-platform",
+        "devmidu-studio.svg-better-extension",
+        "redcapcollective.vscode-quarkus-elite-suite",
+        "tima-web-wang.shell-check-utils",
+        "vadim-studio-cn.extension-lldb-pro-vscode",
+        "sweaty-toys-stuios.extension-volar-tool-kit"
     ],
     "search": [
         {
