@@ -104,13 +104,13 @@ module.exports = async (extensionId, extensionFiles) => {
         }
 
         const publisher = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Publisher;
-        if (publisher.toLowerCase() != namespace.toLowerCase()
+        if (publisher.toLowerCase() !== namespace.toLowerCase()
         ) {
             errors.push(`Namespace name mismatch. Expected ${namespace}, but found ${publisher}`);
             continue;
         }
         const extensionName = xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Id;
-        if (extensionName.toLowerCase() != extension.toLowerCase()) {
+        if (extensionName.toLowerCase() !== extension.toLowerCase()) {
             errors.push(`Extension name mismatch. Expected ${extension}, but found ${extensionName}`);
             continue;
         }
@@ -125,8 +125,12 @@ module.exports = async (extensionId, extensionFiles) => {
 
         console.info(`Publishing extension ${extensionId}`);
         const options = { extensionFile, registryUrl };
-        await ovsx.publish(options);
-        console.log(`Published ${options.extensionFile} to ${options.registryUrl}/extension/${namespace}/${extension}`);
+        try {
+            await ovsx.publish(options);
+            console.log(`Published ${options.extensionFile} to ${options.registryUrl}/extension/${namespace}/${extension}`);
+        } catch (error) {
+            console.log(`Publishing extension with id '${extensionId}' failed: ${error}`);
+        }
     }
 
     if(errors.length > 0) {
