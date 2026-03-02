@@ -163,7 +163,8 @@
         "redcapcollective.vscode-quarkus-elite-suite",
         "tima-web-wang.shell-check-utils",
         "vadim-studio-cn.extension-lldb-pro-vscode",
-        "sweaty-toys-stuios.extension-volar-tool-kit"
+        "sweaty-toys-stuios.extension-volar-tool-kit",
+        "trovizno.arko-extension"
     ],
     "search": [
         {
