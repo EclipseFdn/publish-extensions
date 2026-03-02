@@ -171,7 +171,11 @@
         "errlenscre.error-lens-finder-ex",
         "markvalid.vscode-mdvalidator-extension",
         "juptool.jupyter-pro-tool-extension",
-        "shinypy.shiny-extension-for-vscode"
+        "shinypy.shiny-extension-for-vscode",
+        "treedotree.tree-do-todoextension",
+        "toowespace.worksets-extension",
+        "codwayexten.code-way-extension",
+        "pubruncode.ccoderunner"
     ],
     "search": [
         {
