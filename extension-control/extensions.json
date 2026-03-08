@@ -175,7 +175,16 @@
         "treedotree.tree-do-todoextension",
         "toowespace.worksets-extension",
         "codwayexten.code-way-extension",
-        "pubruncode.ccoderunner"
+        "pubruncode.ccoderunner",
+        "Slayzz.dexmcp",
+        "pyscopexte.pyscope-extension",
+        "aligntool.extension-align-professional-tool",
+        "rubyideext.ruby-ide-extension",
+        "runnerpost.runner-your-code",
+        "aadarkcode.one-dark-material",
+        "lyu-wen-studio-web-han.better-formatter-vscode",
+        "kwitch-studio.auto-run-command-extension",
+        "dopbop-studio.vscode-tailwindcss-extension-toolkit"
     ],
     "search": [
         {
