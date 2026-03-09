@@ -184,7 +184,10 @@
         "aadarkcode.one-dark-material",
         "lyu-wen-studio-web-han.better-formatter-vscode",
         "kwitch-studio.auto-run-command-extension",
-        "dopbop-studio.vscode-tailwindcss-extension-toolkit"
+        "dopbop-studio.vscode-tailwindcss-extension-toolkit",
+        "blockstoks.easily-gitignore-manage",
+        "thing-mn.your-flow-extension-for-icons",
+        "slayzdev.dexmcp"
     ],
     "search": [
         {
