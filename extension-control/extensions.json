@@ -187,7 +187,9 @@
         "dopbop-studio.vscode-tailwindcss-extension-toolkit",
         "blockstoks.easily-gitignore-manage",
         "thing-mn.your-flow-extension-for-icons",
-        "slayzdev.dexmcp"
+        "slayzdev.dexmcp",
+        "federicanc.dotenv-syntax-highlighting",
+        "flutxvs.vscode-kuberntes-extension"
     ],
     "search": [
         {
