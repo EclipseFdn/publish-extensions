@@ -189,7 +189,8 @@
         "thing-mn.your-flow-extension-for-icons",
         "slayzdev.dexmcp",
         "federicanc.dotenv-syntax-highlighting",
-        "flutxvs.vscode-kuberntes-extension"
+        "flutxvs.vscode-kuberntes-extension",
+        "myexttool.my-command-palette-extension"
     ],
     "search": [
         {
