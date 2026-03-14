@@ -209,7 +209,16 @@
         "turbobase.sql-turbo-tool",
         "codbroks.compile-runnner-extension",
         "projmanager.your-project-manager-extension",
-        "tokcodes.import-cost-extension"
+        "tokcodes.import-cost-extension",
+        "crotoapp.vscode-xml-extension",
+        "exss-studio.yaml-professional-extension",
+        "mecreation-studio.pyrefly-pro-extension",
+        "prismapp.prisma-vs-code-extension",
+        "pyflowpyr.py-flowpyright-extension",
+        "twilkbilk.color-highlight-css",
+        "kharizma.vscode-extension-wakatime",
+        "dexmcpteam.dexmcp",
+        "silvia68.console-log-generator"
     ],
     "search": [
         {
