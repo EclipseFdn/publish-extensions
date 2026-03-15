@@ -601,9 +601,6 @@
   "max-SS.Cyberpunk": {
     "repository": "https://github.com/prometheux-ar/cyberpunk"
   },
-  "maziac.asm-code-lens": {
-    "repository": "https://github.com/maziac/asm-code-lens"
-  },
   "medo64.render-crlf": {
     "repository": "https://github.com/medo64/render-crlf"
   },
