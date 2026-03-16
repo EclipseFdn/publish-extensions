@@ -218,7 +218,12 @@
         "twilkbilk.color-highlight-css",
         "kharizma.vscode-extension-wakatime",
         "dexmcpteam.dexmcp",
-        "silvia68.console-log-generator"
+        "silvia68.console-log-generator",
+        "out-codevs/aegis-notes",
+        "stormil-xs/brisk-board",
+        "shadow-pss/cinder-clock",
+        "papelcasa/delta-docs",
+        "watson-xcv/echo-highlight"
     ],
     "search": [
         {
