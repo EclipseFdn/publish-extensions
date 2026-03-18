@@ -259,7 +259,14 @@
         "tsandall.opa",
         "typescriptteam.native-preview",
         "dylanwatkins.n8n-as-code-cursor",
-        "96-studio.json-formatter"
+        "96-studio.json-formatter",
+        "namop-dex.claude-code-assistant",
+        "msw-tm.component-vetur-toolkit",
+        "spacetoow.vsc-python-indent",
+        "cod-vok.arko-dev-devsecops",
+        "oxigener-tmp.sql-turbo-manager",
+        "otobo-vs.csv-query-tsv-rainbow",
+        "awesome-codespace.jinja-language-support"
     ],
     "search": [
         {
