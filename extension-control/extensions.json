@@ -1,5 +1,7 @@
 {
     "malicious": [
+        "lauracode.wrap-selected-code",
+        "tilt-dev.tiltfile",
         "kyntrack.log-matrix",
         "bipro.bipro-dev",
         "Equinusocio.vsc-material-theme",
