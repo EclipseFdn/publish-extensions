@@ -1,5 +1,6 @@
 {
     "malicious": [
+        "norgor.capnp",
         "slayzzzdev.dexmcp",
         "abronan.capnproto-syntax",
         "arcad.arcad-extension",
