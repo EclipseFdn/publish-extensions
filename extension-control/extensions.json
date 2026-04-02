@@ -1,9 +1,10 @@
 {
     "malicious": [
-		"juan-franblanco/solidity-etherum",
-		"juanblancosol/solidity-vscode-ext",
-		"ethereum-foundation/solidity-ether",
-		"juanfran-blanco/solidity-etheru",
+		"juan-f-blanco.solidity-vscode-ext",
+		"juan-franblanco.solidity-etherum",
+		"juanblancosol.solidity-vscode-ext",
+		"ethereum-foundation.solidity-ether",
+		"juanfran-blanco.solidity-etheru",
 		"salom-leon69.media-preview",
 		"bazil-tmov71.css-language-features",
 		"sanchesnoe8254.jake",
