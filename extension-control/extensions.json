@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"jaunblanco.solidity-vscode-ext",
 		"juan-f-blanco.solidity-vscode-ext",
 		"juan-franblanco.solidity-etherum",
 		"juanblancosol.solidity-vscode-ext",
