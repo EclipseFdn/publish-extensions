@@ -1,5 +1,7 @@
 {
     "malicious": [
+		"ovixcode.vscode-better-comments",
+		"sxatvo-tm.compile-runnner-build",
 		"catspace-studio.ng-angular-language",
 		"awwwadem.language-professional-tools",
 		"colleen72koes.console-ninja",
