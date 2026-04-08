@@ -1,5 +1,12 @@
 {
     "malicious": [
+		"openclaw-mcp.openclaw-mcp",
+		"specstudio.code-wakatime-activity-tracker",
+		"tool-studio.prettier-pro-code-format",
+		"specstudio.code-wakatime-activity-tracker",
+		"kotpot.modern-css-toolkit",
+		"dos-studio.easily-gitignore-manage-file",
+		"sol.solidity-vscode-ext",
 		"calow-dex.prisma-database-schema-tools",
 		"icepower1997.glacier-cave-theme",
 		"ovixcode.vscode-better-comments",
