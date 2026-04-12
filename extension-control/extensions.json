@@ -1,5 +1,14 @@
 {
     "malicious": [
+		"Intility.vscode-backstage",
+		"rbxdev.rbxdev-ls",
+		"Intility.vscode-backstage",
+		"crypto.solidity",
+		"rajdeepchandra.spectrum-design-tokens-for-vscode",
+		"A8.a8-windsurf-helper",
+		"oyayak-tm.productivity-json-tool",
+		"clocktimes.codex-dart-debugger",
+		"jinliming2.vscode-go-template",
 		"openclaw-mcp.openclaw-mcp",
 		"specstudio.code-wakatime-activity-tracker",
 		"tool-studio.prettier-pro-code-format",
