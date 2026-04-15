@@ -1,5 +1,9 @@
 {
     "malicious": [
+		"web3.solidity",
+		"chriswiegman.cw-markdown-word-count",
+		"SheikhoDev.random-names",
+		"meijiahao.vscode-h5-viewer",
 		"Intility.vscode-backstage",
 		"rbxdev.rbxdev-ls",
 		"Intility.vscode-backstage",
