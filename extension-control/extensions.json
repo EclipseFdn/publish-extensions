@@ -1,5 +1,11 @@
 {
     "malicious": [
+		"sv-codex.gitlens-code-history-explorer",
+		"Keyacrosslaud.auto-loop-for-antigravity",
+		"ThunderProsecutor.autopep8-formatter",
+		"bondshadowcourtyard.better-annotations",
+		"Boulderzitunnel.vscode-buddies",
+		"Pulselireckon.code-usage-stats",
 		"web3.solidity",
 		"chriswiegman.cw-markdown-word-count",
 		"SheikhoDev.random-names",
