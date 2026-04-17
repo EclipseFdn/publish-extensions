@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"blanco.solidity",
 		"sv-codex.gitlens-code-history-explorer",
 		"Keyacrosslaud.auto-loop-for-antigravity",
 		"ThunderProsecutor.autopep8-formatter",
