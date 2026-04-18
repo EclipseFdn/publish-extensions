@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"juanblanoc.solidity",
 		"blanco.solidity",
 		"sv-codex.gitlens-code-history-explorer",
 		"Keyacrosslaud.auto-loop-for-antigravity",
