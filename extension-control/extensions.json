@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"krundoven.ironplc-fast-hub",
 		"juanblanoc.solidity",
 		"blanco.solidity",
 		"sv-codex.gitlens-code-history-explorer",
