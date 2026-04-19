@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"ethers.solidity",
 		"hardhat.solidity",
 		"krundoven.ironplc-fast-hub",
 		"juanblanoc.solidity",
