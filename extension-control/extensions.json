@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"Artifactory-Software-Studio.vscode-jrrog-extension",
 		"ethers.solidity",
 		"hardhat.solidity",
 		"krundoven.ironplc-fast-hub",
