@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"sepolia.solidity",
 		"Artifactory-Software-Studio.vscode-jrrog-extension",
 		"ethers.solidity",
 		"hardhat.solidity",
