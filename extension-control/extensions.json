@@ -1,5 +1,14 @@
 {
     "malicious": [
+		"lairinspectortrek70/todo-highlighter",
+		"Spikearshock/csv-rainbow",
+		"floktokbok/autoimport-smart-tool",
+		"flape-osx/align-code-format-tool",
+		"dev-tm/code-python-indent-helper",
+		"gorth-tm/your-project-manager-Organizer",
+		"Victorbetweenhose/agent-auto-accept",
+		"WinnerDomain17/version-lens-tool",
+		"TASKING-winIDEA/TASKING-winIDEA",
 		"aeschli.vscode-css-formatter",
 		"BracketPairColorDLW.bracket-pair-color-dlw",
 		"georgewfraser.vscode-javac",
