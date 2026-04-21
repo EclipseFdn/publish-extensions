@@ -1,5 +1,11 @@
 {
     "malicious": [
+		"aeschli.vscode-css-formatter",
+		"BracketPairColorDLW.bracket-pair-color-dlw",
+		"georgewfraser.vscode-javac",
+		"inferrinizzard.prettier-sql-vscode",
+		"jcbuisson.vue",
+		"mohd-akram.vscode-html-format",
 		"sidthesloth.html5-boilerplate",
 		"rodrigovallades.es7-react-js-snippets",
 		"dongli.python-preview",
