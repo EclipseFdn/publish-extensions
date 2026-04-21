@@ -1,5 +1,10 @@
 {
     "malicious": [
+		"sidthesloth.html5-boilerplate",
+		"rodrigovallades.es7-react-js-snippets",
+		"dongli.python-preview",
+		"bianxianyang.htmlplay",
+		"Spikearshock.csv-rainbow",
 		"sepolia.solidity",
 		"Artifactory-Software-Studio.vscode-jrrog-extension",
 		"ethers.solidity",
