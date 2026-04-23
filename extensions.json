@@ -1540,5 +1540,8 @@
   },
   "zxh404.vscode-proto3": {
     "repository": "https://github.com/zxh0/vscode-proto3"
+  },
+  "demcon.uscope": {
+    "repository": "https://github.com/DEMCON/uscope"
   }
 }
