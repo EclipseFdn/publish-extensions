@@ -1130,6 +1130,9 @@
   "onecentlin.laravel5-snippets": {
     "repository": "https://github.com/onecentlin/laravel5-snippets-vscode"
   },
+  "onlyati.quadlet-lsp": {
+    "repository": "https://github.com/onlyati/quadlet-lsp-vscode-extension"
+  },
   "openfl.lime-vscode-extension": {
     "repository": "https://github.com/openfl/lime-vscode-extension"
   },
