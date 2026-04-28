@@ -1196,6 +1196,9 @@
       "cd packages/vscode-ruby-client && vsce package --no-dependencies -o extension.vsix"
     ]
   },
+  "RedMser.godot-hover-docs": {
+    "repository": "https://github.com/RedMser/godot-hover-docs"
+  },
   "reduckted.vscode-gitweblinks": {
     "repository": "https://github.com/reduckted/GitWebLinks",
     "location": "vscode"
