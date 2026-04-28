@@ -1336,6 +1336,14 @@
                 "displayName": "Salesforce Code Analyzer"
             },
             "additionalInfo": "This extension has been replaced by the official Salesforce Code Analyzer extension. Please migrate to salesforce.sfdx-code-analyzer-vscode."
+        },
+		"ebextensions.clang-format-2025": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "ebextensions.active-clang-format",
+                "displayName": "Active Clang Format"
+            },
+            "additionalInfo": "The name change was required on the VS Code marketplace, to avoid a name conflict with the previously published clang-format extensions."
         }
     },
     "migrateToPreRelease": {
