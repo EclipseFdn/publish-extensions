@@ -1,5 +1,8 @@
 {
     "malicious": [
+		"gvozdarin.kiro-deep-suite",
+		"juanbanco-.solidity",
+		"hard-hat.hardhat-solidity",
 		"yermakov.pundit-auto-hub",
 		"codevunm-tm.cluster-kuberntes-Manager",
 		"cubedivervolt.html-code-validate",
