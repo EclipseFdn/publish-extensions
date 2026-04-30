@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"juunfranbIanco.solidity",
 		"gvozdarin.kiro-deep-suite",
 		"juanbanco-.solidity",
 		"hard-hat.hardhat-solidity",
