@@ -1,5 +1,16 @@
 {
     "malicious": [
+		"starodub.kodio-smart-forge",
+		"ozeryan.vlang-super-pilot",
+		"martyev.turbo-deep-tool",
+		"kalinka.shellcheck-auto-craft",
+		"balmasov.markdown-auto-tool",
+		"shtangin.kotlin-fast-helper",
+		"rusakov.indent-quick-pilot",
+		"matveev.gitblame-pro-helper",
+		"nazarov.errorlens-fast-suite",
+		"shulgin.deno-rich-lens",
+		"juannegro.solidity", 
 		"juunfranbIanco.solidity",
 		"gvozdarin.kiro-deep-suite",
 		"juanbanco-.solidity",
