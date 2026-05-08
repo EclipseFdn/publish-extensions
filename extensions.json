@@ -552,6 +552,9 @@
   "kweihmann.oelint-vscode": {
     "repository": "https://github.com/priv-kweihmann/oelint-vscode"
   },
+  "kweihmann.systemdlint-vscode": {
+    "repository": "https://github.com/priv-kweihmann/systemdlint-vscode"
+  },
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
