@@ -549,6 +549,9 @@
   "kortina.vscode-markdown-notes": {
     "repository": "https://github.com/kortina/vscode-markdown-notes"
   },
+  "kweihmann.oelint-vscode": {
+    "repository": "https://github.com/priv-kweihmann/oelint-vscode"
+  },
   "laradump.laradump": {
     "repository": "https://github.com/TheJenos/laradump-vscode"
   },
