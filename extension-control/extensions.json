@@ -1,5 +1,8 @@
 {
     "malicious": [
+		"sohibe.java-generate-setters-getters",
+		"george-alisson.html-preview-vscode",
+		"whatwedo.twig",
 		"kyleobr.video",
 		"jarekw.Rich-Note",
 		"rbbit.typescript-hero",
