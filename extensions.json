@@ -123,6 +123,9 @@
   "bierner.markdown-mermaid": {
     "repository": "https://github.com/mjbvz/vscode-markdown-mermaid"
   },
+  "bierner.markdown-preview-github-styles": {
+    "repository": "https://github.com/mjbvz/vscode-github-markdown-preview-style"
+  },
   "bmalehorn.vscode-fish": {
     "repository": "https://github.com/bmalehorn/vscode-fish",
     "custom": [
@@ -1526,6 +1529,9 @@
   },
   "ybaumes.highlight-trailing-white-spaces": {
     "repository": "https://github.com/yifu/highlight-trailing-whitespaces"
+  },
+  "yuchiu2002.default-material-dark-theme": {
+    "repository": "https://github.com/yuchiu/Default-Material-Dark-Theme"
   },
   "yzane.markdown-pdf": {
     "repository": "https://github.com/yzane/vscode-markdown-pdf"
