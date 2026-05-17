@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"MCPincer.mcpincer",
 		"sohibe.java-generate-setters-getters",
 		"george-alisson.html-preview-vscode",
 		"whatwedo.twig",
