@@ -1345,6 +1345,9 @@
   "tecosaur.latex-utilities": {
     "repository": "https://github.com/tecosaur/LaTeX-Utilities"
   },
+  "tinygo.vscode-tinygo": {
+    "repository": "https://github.com/tinygo-org/vscode-tinygo"
+  },
   "Tobiah.unity-tools": {
     "repository": "https://github.com/TobiahZ/unity-tools"
   },
