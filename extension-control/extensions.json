@@ -1,5 +1,13 @@
 {
     "malicious": [
+		"SingularityInc.claude-notifier",
+		"pdragon.azure-rbs-workbench",
+		"thykka.superpowers",
+		"DenizhanDaklr.copilot-vscode-deepseek",
+		"ishantgupta777.pipfi-code-share",
+		"arieldev.sql-visual-debugger",
+		"vegamo.deepcode-vscode",
+		"ruslanmv.gitpilot-vscode",
 		"electronlsr.open-remote-ssh",
 		"MCPincer.mcpincer",
 		"sohibe.java-generate-setters-getters",
