@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"asdasd.test-ext",
 		"SingularityInc.claude-notifier",
 		"pdragon.azure-rbs-workbench",
 		"thykka.superpowers",
