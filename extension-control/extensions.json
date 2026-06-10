@@ -1434,7 +1434,7 @@
                 "displayName": "Active Clang Format"
             },
             "additionalInfo": "The name change was required on the VS Code marketplace, to avoid a name conflict with the previously published clang-format extensions."
-        }
+        },
 		"github-workflow-updater/github-workflow-updater": {
 			"disallowInstall": true,
 			"extension": {
