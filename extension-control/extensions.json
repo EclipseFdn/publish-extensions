@@ -1434,7 +1434,15 @@
                 "displayName": "Active Clang Format"
             },
             "additionalInfo": "The name change was required on the VS Code marketplace, to avoid a name conflict with the previously published clang-format extensions."
-        }
+        },
+		"github-workflow-updater/github-workflow-updater": {
+			"disallowInstall": true,
+			"extension": {
+				"id": "OWASP-github-workflow-updater/github-workflow-updater",
+				"displayName": "GitHub Workflow Updater"
+			},
+			"additionalInfo": "This project has been donated to OWASP, and is now maintained at https://github.com/OWASP/GitHub-Workflow-Updater-Extension"
+		}
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
