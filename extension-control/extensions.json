@@ -1,5 +1,7 @@
 {
     "malicious": [
+		"ExarGD.vsblack",
+		"noellee-doc.flint-debug",
 		"ci-ai-box.hll-ai-box",
 		"test-ui-harry.preview-beta",
 		"clotomoto.code-way-editor",
