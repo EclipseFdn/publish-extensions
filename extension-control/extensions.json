@@ -1445,7 +1445,10 @@
 				"displayName": "GitHub Workflow Updater"
 			},
 			"additionalInfo": "This project has been donated to OWASP, and is now maintained at https://github.com/OWASP/GitHub-Workflow-Updater-Extension"
-		}
+		},
+		"IBM.vscode-sourceorbit": {
+            "disallowInstall": false
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
