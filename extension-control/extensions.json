@@ -1,5 +1,9 @@
 {
     "malicious": [
+		"codebuddyai.codebuddy-ai",
+		"divyanshuagrawal.competitive-programming-helper",
+    	"fabric.vscode-fabric",
+		"shubhamprajapati1202.office-editor",
 		"AtomMaterial.a-file-icon-vscode",
 		"epolicardo.sql-server-profiler-tool",
 		"sarthikbhat.json-server",
