@@ -1485,6 +1485,14 @@
 		},
 		"IBM.vscode-sourceorbit": {
             "disallowInstall": false
+        },
+        "redhat.devspaces-copilot-chat-integration": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "redhat.devspaces-copilot-chat-integration",
+                "displayName": "Dev Spaces Copilot Chat Integration"
+            },
+            "additionalInfo": "This extension has been integrated into VS Code as of version 1.116.0."
         }
     },
     "migrateToPreRelease": {
