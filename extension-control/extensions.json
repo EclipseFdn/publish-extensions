@@ -934,6 +934,14 @@
                 "displayName": "Live Preview"
             }
         },
+        "chrisatcursor.language-matlab": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "mathworks.language-matlab",
+                "displayName": "MATLAB"
+            },
+            "additionalInfo": "MathWorks now publishes and maintains the official MATLAB extension on Open VSX. Please migrate to mathworks.language-matlab."
+        },
         "Shan.code-settings-sync": {
             "disallowInstall": true,
             "additionalInfo": "Please use the built-in [Settings Sync](https://aka.ms/vscode-settings-sync-help) functionality instead."
