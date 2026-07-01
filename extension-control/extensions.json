@@ -1,5 +1,7 @@
 {
     "malicious": [
+		"colourafredi.vscode-deepseek",
+		"phplasma.csv-to-table",
 		"AnasFiguigui.pokemon-pets",
 		"codebuddyai.codebuddy-ai",
 		"divyanshuagrawal.competitive-programming-helper",
