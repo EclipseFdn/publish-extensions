@@ -1,6 +1,11 @@
 {
     "malicious": [
+		"markis.code-coverage",
+		"ms-vsonline.vsonline",
+		"qinjia.view-in-browser",
 		"colourafredi.vscode-deepseek",
+		"gemini.gemini-vsx",
+		"cloudflare.cloudflare-workers-bindings-extension",
 		"phplasma.csv-to-table",
 		"AnasFiguigui.pokemon-pets",
 		"codebuddyai.codebuddy-ai",
