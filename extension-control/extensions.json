@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"shenjiaolong.vue-helper",
 		"markis.code-coverage",
 		"ms-vsonline.vsonline",
 		"qinjia.view-in-browser",
