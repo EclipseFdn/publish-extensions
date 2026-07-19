@@ -1,5 +1,7 @@
 {
     "malicious": [
+		"karigari.chat",
+		"mindaro.mindaro",
 		"shenjiaolong.vue-helper",
 		"markis.code-coverage",
 		"ms-vsonline.vsonline",
