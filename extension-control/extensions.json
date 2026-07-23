@@ -1,5 +1,14 @@
 {
     "malicious": [
+		"orsenkucher.vscode-graphql",		
+		"micnil.vscode-checkpoints",
+		"pieterjongsma.swift-playgrounds",
+		"qezhu.gitlink",
+		"developersoapbox.vscode-springboot-snippets",
+		"pomber.git-file-history",
+		"jasonn-porch.gitlab-mr",
+		"intel-corporation.oneapi-environment-configurator",
+		"intel-corporation.oneapi-samples",
 		"karigari.chat",
 		"mindaro.mindaro",
 		"shenjiaolong.vue-helper",
