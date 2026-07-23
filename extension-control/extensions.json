@@ -1,5 +1,11 @@
 {
     "malicious": [
+		"killalau.vscode-liquid-snippets",		
+		"micnil.vscode-checkpoints",
+		"pieterjongsma.swift-playgrounds",
+		"qezhu.gitlink",
+		"trufflesuite-csi.truffle-vscode",
+		"tungvn.wordpress-snippet",
 		"orsenkucher.vscode-graphql",		
 		"micnil.vscode-checkpoints",
 		"pieterjongsma.swift-playgrounds",
