@@ -389,6 +389,11 @@
     "prepublish": "yarn bundle",
     "repository": "https://github.com/microsoft/vscode-pull-request-github"
   },
+  "GoHugoIO.gotmplfmt": {
+    "repository": "https://github.com/gohugoio/gotmplfmt.git",
+    "location": "vscode",
+    "prepublish": "npm run --prefix vscode compile"
+  },
   "golang.go": {
     "repository": "https://github.com/golang/vscode-go"
   },
