@@ -1,5 +1,9 @@
 {
     "malicious": [
+		"AyushSinghal.Code-Mate",
+		"ajhyndman.jslint",
+		"carbonid1.emmet-jss",
+		"tchojnacki.cpp-compile", 
 		"killalau.vscode-liquid-snippets",		
 		"trufflesuite-csi.truffle-vscode",
 		"tungvn.wordpress-snippet",
