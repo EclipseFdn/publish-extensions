@@ -1422,8 +1422,14 @@
     "repository": "https://github.com/microsoft/vscode-java-pack"
   },
   "vscjava.vscode-java-test": {
-    "prepublish": "npm run build-plugin",
-    "repository": "https://github.com/microsoft/vscode-java-test"
+    "repository": "https://github.com/microsoft/vscode-java-test",
+    "custom": [
+      "echo 'Temporary workaround: switch to main to pick up fixes for JDTLS snapshot drift (microsoft/vscode-java-test#1882, #1894) not yet in a release tag. Remove once 0.47.0 or later is tagged.'",
+      "git fetch origin main && git checkout origin/main",
+      "npm install",
+      "npm run build-plugin",
+      "VSCE_TESTS=1 vsce package -o extension.vsix"
+    ]
   },
   "vscjava.vscode-maven": {
     "prepublish": "npm run build-plugin",
