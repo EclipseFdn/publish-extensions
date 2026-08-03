@@ -107,6 +107,9 @@
   "belfz.search-crates-io": {
     "repository": "https://github.com/belfz/search-crates-io"
   },
+  "benszabo.hotline-vice": {
+    "repository": "https://github.com/b3nk3/hotline-vice-vscode-theme"
+  },
   "bierner.color-info": {
     "repository": "https://github.com/mattbierner/vscode-color-info"
   },
