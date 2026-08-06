@@ -1,6 +1,7 @@
 {
     "malicious": [
-				"angelo-breuer.license-header-manager",
+		"helper-beeps.solidity-pro",
+		"angelo-breuer.license-header-manager",
 		"jakeboone02.cypher-query-language",
 		"madhavd1.javadoc-tools",
 		"miclo.sort-typescript-imports",
