@@ -967,6 +967,14 @@
         }
     ],
     "deprecated": {
+        "gabrielbacha.vscode-focus-mode": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "gabrielbacha.explorer-focus-presets",
+                "displayName": "Explorer Focus Presets"
+            },
+            "additionalInfo": "This extension was renamed to keep a consistent extension identity across Open VSX and the Visual Studio Marketplace."
+        },
         "dschibster.sf-org-list" : {
             "disallowInstall": true,
             "extension": {
