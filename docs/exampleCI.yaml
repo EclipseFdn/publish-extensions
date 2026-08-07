@@ -30,24 +30,25 @@ jobs:
       tag: ${{ steps.setup-tag.outputs.tag }}
       version: ${{ steps.setup-tag.outputs.version }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 20
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
-        run: npm i
+        run: |
+          npm ci
+          npm install --save-dev vsce ovsx
 
       - name: Setup package path
         id: setup
-        run: echo "::set-output name=packageName::$(node -e "console.log(require('./package.json').name + '-' + require('./package.json').version + '.vsix')")"
+        run: echo "packageName=$(node -e "console.log(require('./package.json').name + '-' + require('./package.json').version + '.vsix')")" >> $GITHUB_OUTPUT
 
       - name: Package
-        run: |
-          npx vsce package --out ${{ steps.setup.outputs.packageName }}
+        run: npx vsce package --out ${{ steps.setup.outputs.packageName }}
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.setup.outputs.packageName }}
           path: ./${{ steps.setup.outputs.packageName }}
@@ -55,12 +56,11 @@ jobs:
 
       - name: Setup tag
         id: setup-tag
+        shell: pwsh
         run: |
           $version = (Get-Content ./package.json -Raw | ConvertFrom-Json).version
-          Write-Host "tag: release/$version"
-          Write-Host "::set-output name=tag::release/$version"
-          Write-Host "::set-output name=version::$version"
-        shell: pwsh
+          "tag=release/$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
   publishMS:
     name: Publish to VS marketplace
@@ -68,8 +68,8 @@ jobs:
     needs: package
     if: github.event.inputs.publishMS == 'true'
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
           name: ${{ needs.package.outputs.packageName }}
       - name: Publish to VS marketplace
@@ -81,8 +81,8 @@ jobs:
     needs: package
     if: github.event.inputs.publishOVSX == 'true'
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
           name: ${{ needs.package.outputs.packageName }}
       - name: Publish to Open VSX
@@ -94,7 +94,7 @@ jobs:
     needs: package
     if: github.event.inputs.publishGH == 'true'
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: ${{ needs.package.outputs.packageName }}
 
