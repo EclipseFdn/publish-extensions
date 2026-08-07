@@ -1,5 +1,6 @@
 {
     "malicious": [
+		"web3devtoolsx.solidity-pro",
 		"helper-beeps.solidity-pro",
 		"angelo-breuer.license-header-manager",
 		"jakeboone02.cypher-query-language",
