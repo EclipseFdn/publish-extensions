@@ -1,5 +1,17 @@
 {
     "malicious": [
+		"celsoaf.brightscript",
+		"jkiviluoto.tws",
+		"arikfr.paraglide-vscode",
+		"ghaschel.vscode-angular-html",
+		"stormier.vue-dsfr-snippets",
+		"emilerolley.publicodes-language-server",
+		"luongnd.edge",
+		"edenlabio.fhir-profiler-tool",
+		"hanifmifta.adocs",
+		"akmittal.hugofy",
+		"gematikde.codfsh",
+		"mitre-health.vscode-language-fsh",
 		"web3devtoolsx.solidity-pro",
 		"helper-beeps.solidity-pro",
 		"angelo-breuer.license-header-manager",
