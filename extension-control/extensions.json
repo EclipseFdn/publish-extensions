@@ -1646,6 +1646,10 @@
                 "displayName": "Dev Spaces Copilot Chat Integration"
             },
             "additionalInfo": "This extension has been integrated into VS Code as of version 1.116.0."
+        },
+        "afedb.cooked": {
+            "disallowInstall": true,
+            "additionalInfo": "This extension is no longer maintained."
         }
     },
     "migrateToPreRelease": {
