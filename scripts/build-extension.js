@@ -16,6 +16,7 @@ const semver = require("semver");
 const exec = require("../lib/exec");
 const findUp = require("find-up");
 const fg = require("fast-glob");
+const shescape = require("shescape");
 
 const { createVSIX } = require("@vscode/vsce");
 const { cannotPublish } = require("../lib/reportStat");
@@ -24,6 +25,8 @@ const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
 const { artifactDirectory, registryHost, defaultPythonVersion } = require("../lib/constants");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
+
+const shellEscape = new shescape.Shescape({ shell: true });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -90,7 +93,7 @@ async function buildVersion(extension, publishContext) {
             process.env.VERSION = publishContext.version;
             process.env.MS_VERSION = publishContext.msVersion;
             process.env.OVSX_VERSION = publishContext.ovsxVersion;
-            await exec(`git checkout ${publishContext.ref}`, { cwd: publishContext.repo });
+            await exec(`git checkout ${shellEscape.quote(publishContext.ref)}`, { cwd: publishContext.repo });
 
             try {
                 const nvmFile = await findUp(".nvmrc", {
