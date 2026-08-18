@@ -23,6 +23,9 @@
   ],
   "bin": "bin/publish-extensions",
   "main": "publish-extensions",
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  },
   "scripts": {
     "publish": "node publish-extensions",
     "format": "prettier --write .",
