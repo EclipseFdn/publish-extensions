@@ -1649,6 +1649,14 @@
         "afedb.cooked": {
             "disallowInstall": true,
             "additionalInfo": "This extension is no longer maintained."
+        },
+        "MOSAICO.mosaico-reference-client": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "MOSAICO.mosaico-reference-client-v2",
+                "displayName": "MOSAICO Reference Client V2"
+            },
+            "additionalInfo": "Development has moved on to version 2, which is re-built from the ground up focusing on the MOSAICO requirements."
         }
     },
     "migrateToPreRelease": {
