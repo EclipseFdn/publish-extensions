@@ -1100,6 +1100,9 @@
   "neilbrayfield.php-docblocker": {
     "repository": "https://github.com/neild3r/vscode-php-docblocker"
   },
+  "nhoizey.gremlins": {
+    "repository": "https://github.com/nhoizey/vscode-gremlins"
+  },
   "nick-rudenko.back-n-forth": {
     "repository": "https://github.com/nikita-rudenko/back-n-forth"
   },
