@@ -754,6 +754,7 @@
   },
   "ms-python.autopep8": {
     "repository": "https://github.com/microsoft/vscode-autopep8",
+    "pythonVersion": "3.10",
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
@@ -766,6 +767,7 @@
   },
   "ms-python.black-formatter": {
     "repository": "https://github.com/microsoft/vscode-black-formatter",
+    "pythonVersion": "3.10",
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
@@ -819,6 +821,7 @@
   },
   "ms-python.flake8": {
     "repository": "https://github.com/microsoft/vscode-flake8",
+    "pythonVersion": "3.10",
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
@@ -855,6 +858,7 @@
   },
   "ms-python.pylint": {
     "repository": "https://github.com/microsoft/vscode-pylint",
+    "pythonVersion": "3.10",
     "custom": [
       "python -m pip install -U pip",
       "python -m pip install wheel",
