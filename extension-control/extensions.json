@@ -1657,6 +1657,14 @@
                 "displayName": "MOSAICO Reference Client V2"
             },
             "additionalInfo": "Development has moved on to version 2, which is re-built from the ground up focusing on the MOSAICO requirements."
+        },
+        "bytesbrains.cruise": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "bytesbrains.bytesbrains-cruise",
+                "displayName": "BytesBrains Cruise"
+            },
+            "additionalInfo": "Renamed to bytesbrains.bytesbrains-cruise: the same extension under a new id, because the Visual Studio Marketplace needs a name unique across publishers. Install the new one and enter your Cruise key again once."
         }
     },
     "migrateToPreRelease": {
