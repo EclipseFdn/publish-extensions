@@ -459,6 +459,9 @@
   "ipedrazas.kubernetes-snippets": {
     "repository": "https://github.com/ipedrazas/kubernetes-snippets"
   },
+  "ironmansoftware.powershellprotools" : {
+    "repository": "https://github.com/ironmansoftware/powershell-pro-tools/"
+  }
   "itsjonq.owlet": {
     "repository": "https://github.com/ItsJonQ/owlet"
   },
