@@ -555,6 +555,25 @@
   "lextudio.restructuredtext": {
     "repository": "https://github.com/vscode-restructuredtext/vscode-restructuredtext"
   },
+  "lhl2617.lilypond-formatter": {
+    "repository": "https://github.com/lhl2617/VSLilyPond-formatter",
+    "custom": [
+      "python -m pip install -U pip",
+      "python -m pip install wheel",
+      "python -m pip install -r ly/requirements.txt",
+      "python ly/build.py",
+      "npm ci --prefer-offline"
+    ]
+  },
+  "lhl2617.lilypond-pdf-preview": {
+    "repository": "https://github.com/lhl2617/VSLilyPond-PDF-Preview"
+  },
+  "lhl2617.lilypond-snippets": {
+    "repository": "https://github.com/lhl2617/VSLilyPond-snippets"
+  },
+  "lhl2617.VSLilyPond": {
+    "repository": "https://github.com/lhl2617/VSLilyPond"
+  },
   "lintangwisesa.arduino": {
     "repository": "https://github.com/LintangWisesa/VScode-Arduino-Theme"
   },
