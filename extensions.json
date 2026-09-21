@@ -295,6 +295,9 @@
   "enkia.tokyo-night": {
     "repository": "https://github.com/enkia/tokyo-night-vscode-theme"
   },
+  "eridien.vscode-function-explorer": {
+    "repository": "https://github.com/eridien/vscode-function-explorer"
+  },
   "erlang-ls.erlang-ls": {
     "repository": "https://github.com/erlang-ls/vscode",
     "prepublish": "npm run compile"
