@@ -1,5 +1,7 @@
 {
     "malicious": [
+		"alejandroaranda.solidity-langsupport",
+		"alejandroaranda.solidity-languini",
 		"tutatut.tutatut-auto-click",
 		"celsoaf.brightscript",
 		"jkiviluoto.tws",
