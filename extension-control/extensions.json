@@ -1,5 +1,7 @@
 {
     "malicious": [
+		"juanfranblanco.solidity-vscode",
+		"Nomic-ETH.hardhat-solidity",
 		"alejandroaranda.solidity-langsupport",
 		"alejandroaranda.solidity-languini",
 		"tutatut.tutatut-auto-click",
