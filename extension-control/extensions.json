@@ -1,5 +1,9 @@
 {
     "malicious": [
+		"holiday-themes.theme-coca-cola-christmas",
+		"lohsebhipolg2s.theme-aurora-borealis",
+		"solidity-syntax.deep-focus",
+		"cosmic-themes.theme-cosmic-nebula",
 		"juanfranblanco.solidity-vscode",
 		"Nomic-ETH.hardhat-solidity",
 		"alejandroaranda.solidity-langsupport",
