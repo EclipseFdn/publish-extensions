@@ -1673,6 +1673,14 @@
                 "displayName": "BytesBrains Cruise"
             },
             "additionalInfo": "Renamed to bytesbrains.bytesbrains-cruise: the same extension under a new id, because the Visual Studio Marketplace needs a name unique across publishers. Install the new one and enter your Cruise key again once."
+        },
+        "tuvokyang.dline-preview": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "tuvokyang.dline-insiders",
+                "displayName": "Dline (Insiders)"
+            },
+            "additionalInfo": "Dline (Preview) is no longer updated. Install Dline (Insiders) for the latest development builds, and uninstall Dline (Preview) first: both register the same dline.* commands and views."
         }
     },
     "migrateToPreRelease": {
