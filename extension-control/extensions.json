@@ -987,6 +987,14 @@
         }
     ],
     "deprecated": {
+        "matteopolak.jai": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "matteopolak.jai-toolchain",
+                "displayName": "Jai Toolchain"
+            },
+            "additionalInfo": "This extension was renamed to keep a consistent extension identity across Open VSX and the Visual Studio Marketplace."
+        },
         "gabrielbacha.vscode-focus-mode": {
             "disallowInstall": true,
             "extension": {
