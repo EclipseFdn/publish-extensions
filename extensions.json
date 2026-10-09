@@ -497,6 +497,9 @@
   "jianbingfang.dupchecker": {
     "repository": "https://github.com/jianbingfang/vscode-dup-checker"
   },
+  "johnathanludwig.fileswitcher": {
+    "repository": "https://github.com/johnathanludwig/vscode-fileswitcher"
+  },
   "johnpapa.Angular2": {
     "repository": "https://github.com/johnpapa/vscode-angular-snippets"
   },
