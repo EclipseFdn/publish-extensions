@@ -534,6 +534,9 @@
   "karunamurti.rspec-snippets": {
     "repository": "https://github.com/karuna/vscode-rspec-snippets"
   },
+  "kdcro101.favorites": {
+    "repository": "https://github.com/kdcro101/vscode-favorites"
+  },
   "Kelvin.vscode-sshfs": {
     "repository": "https://github.com/SchoofsKelvin/vscode-sshfs"
   },
