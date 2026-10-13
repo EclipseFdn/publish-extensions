@@ -987,6 +987,14 @@
         }
     ],
     "deprecated": {
+        "Codeium.codeium": {
+            "disallowInstall": true,
+            "additionalInfo": "This extension is out of date and is not supported."
+        },
+        "Codeium.codeium-enterprise-updater": {
+            "disallowInstall": true,
+            "additionalInfo": "This extension is out of date and is not supported."
+        },
         "matteopolak.jai": {
             "disallowInstall": true,
             "extension": {
