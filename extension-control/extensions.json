@@ -1697,6 +1697,14 @@
                 "displayName": "Isolux Theme"
             },
             "additionalInfo": "Theme XulbuX PRO has been completely redesigned and superseded by Isolux Theme."
+        },
+        "nolindnaidoo.jevlint-le": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "nolindnaidoo.decisionlint",
+                "displayName": "DecisionLint"
+            },
+            "additionalInfo": "JevLint-LE was renamed to DecisionLint at 1.0.0, when it grew from one model to every platform that serves a decision model. The same linter under its new id: install DecisionLint. The final JevLint-LE release, 0.9.0, only points there."
         }
     },
     "migrateToPreRelease": {
