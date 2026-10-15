@@ -1690,6 +1690,14 @@
             },
             "additionalInfo": "Dline (Preview) is no longer updated. Install Dline (Insiders) for the latest development builds, and uninstall Dline (Preview) first: both register the same dline.* commands and views."
         },
+        "xulbux.theme-xulbux-neon-pro": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "xulbux.theme-isolux",
+                "displayName": "Isolux Theme"
+            },
+            "additionalInfo": "Theme XulbuX PRO has been completely redesigned and superseded by Isolux Theme."
+        },
         "nolindnaidoo.jevlint-le": {
             "disallowInstall": false,
             "extension": {
