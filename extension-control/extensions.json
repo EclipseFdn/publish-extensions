@@ -987,6 +987,22 @@
         }
     ],
     "deprecated": {
+        "nguyentruong354.live-serve": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "nguyentruong354.live-serve-rs",
+                "displayName": "live-serve-rs: Go Live without Node"
+            },
+            "additionalInfo": "The extension was renamed to nguyentruong354.live-serve-rs, so it has the same identity on Open VSX and the Visual Studio Marketplace. Its settings (liveServe.*) and commands are unchanged."
+        },
+        "nguyentruong354.live-serve-native": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "nguyentruong354.live-serve-rs",
+                "displayName": "live-serve-rs: Go Live without Node"
+            },
+            "additionalInfo": "The extension was renamed to nguyentruong354.live-serve-rs, so it has the same identity on Open VSX and the Visual Studio Marketplace. Its settings (liveServe.*) and commands are unchanged."
+        },
         "Codeium.codeium": {
             "disallowInstall": true,
             "additionalInfo": "This extension is out of date and is not supported."
