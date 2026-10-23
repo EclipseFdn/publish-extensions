@@ -995,22 +995,6 @@
             "disallowInstall": true,
             "additionalInfo": "This extension is out of date and is not supported."
         },
-        "matteopolak.jai": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "matteopolak.jacket",
-                "displayName": "Jacket"
-            },
-            "additionalInfo": "This extension was renamed to keep a consistent extension identity across Open VSX and the Visual Studio Marketplace."
-        },
-        "matteopolak.jai-toolchain": {
-            "disallowInstall": true,
-            "extension": {
-                "id": "matteopolak.jacket",
-                "displayName": "Jacket"
-            },
-            "additionalInfo": "The project was renamed to Jacket; this listing continues as matteopolak.jacket."
-        },
         "gabrielbacha.vscode-focus-mode": {
             "disallowInstall": true,
             "extension": {
