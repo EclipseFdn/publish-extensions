@@ -1003,6 +1003,10 @@
             },
             "additionalInfo": "The extension was renamed to nguyentruong354.live-serve-rs, so it has the same identity on Open VSX and the Visual Studio Marketplace. Its settings (liveServe.*) and commands are unchanged."
         },
+        "kamotami.zuiku-extension": {
+            "disallowInstall": true,
+            "additionalInfo": "Development and distribution of the Zuiku IDE extension have ended. The Web editor remains available at https://zuiku.dev. No restart is scheduled."
+        },
         "Codeium.codeium": {
             "disallowInstall": true,
             "additionalInfo": "This extension is out of date and is not supported."
@@ -1729,6 +1733,14 @@
                 "displayName": "DecisionLint"
             },
             "additionalInfo": "JevLint-LE was renamed to DecisionLint at 1.0.0, when it grew from one model to every platform that serves a decision model. The same linter under its new id: install DecisionLint. The final JevLint-LE release, 0.9.0, only points there."
+        },
+        "rstack.rstest": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "rstack.rstack",
+                "displayName": "Rstack"
+            },
+            "additionalInfo": "This extension was folded into the Rstack extension."
         }
     },
     "migrateToPreRelease": {
