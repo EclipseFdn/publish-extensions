@@ -987,6 +987,10 @@
         }
     ],
     "deprecated": {
+        "kamotami.zuiku-extension": {
+            "disallowInstall": true,
+            "additionalInfo": "Development and distribution of the Zuiku IDE extension have ended. The Web editor remains available at https://zuiku.dev. No restart is scheduled."
+        },
         "Codeium.codeium": {
             "disallowInstall": true,
             "additionalInfo": "This extension is out of date and is not supported."
