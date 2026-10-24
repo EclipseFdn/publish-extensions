@@ -1725,6 +1725,14 @@
                 "displayName": "Rstack"
             },
             "additionalInfo": "This extension was folded into the Rstack extension."
+        },
+        "nightgauge.nightgauge-vscode": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "nightgauge.nightgauge",
+                "displayName": "Nightgauge for VS Code"
+            },
+            "additionalInfo": "Nightgauge now publishes under nightgauge.nightgauge, the same ID it uses on the Visual Studio Marketplace. Install Nightgauge for VS Code for 0.7.2 and later, and uninstall this extension first: both register the same nightgauge.* commands and views."
         }
     },
     "migrateToPreRelease": {
