@@ -1741,6 +1741,14 @@
                 "displayName": "Rstack"
             },
             "additionalInfo": "This extension was folded into the Rstack extension."
+        },
+        "badasslighting.ma3dev": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "badasslighting.grandma-devkit",
+                "displayName": "Devkit for Grand MA2+MA3"
+            },
+            "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
         }
     },
     "migrateToPreRelease": {
