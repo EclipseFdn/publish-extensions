@@ -1742,6 +1742,14 @@
             },
             "additionalInfo": "This extension was folded into the Rstack extension."
         },
+        "FallenMax.vimium-markdown-preview": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "FallenMax.vim-keys-for-markdown-preview",
+                "displayName": "Vim Keys for Markdown Preview"
+            },
+            "additionalInfo": "This extension has moved to FallenMax.vim-keys-for-markdown-preview. Uninstall the old extension before installing the new one."
+        },
         "badasslighting.ma3dev": {
             "disallowInstall": true,
             "extension": {
