@@ -92,6 +92,9 @@
   "aurorabiz.blade-ui-kit": {
     "repository": "https://github.com/Y-open/blade-ui-kit-vscode"
   },
+  "azfaryasin.auto-code-saver": { 
+    "repository": "https://github.com/azfaryasin/auto-code-saver" 
+  },
   "bajdzis.vscode-database": {
     "repository": "https://github.com/Bajdzis/vscode-database"
   },
