@@ -741,8 +741,8 @@
     "repository": "https://github.com/Azure/vscode-kubernetes-tools"
   },
   "ms-mssql.mssql": {
-      "repository": "https://github.com/Microsoft/vscode-mssql",
-      "location": "extensions/mssql"
+    "repository": "https://github.com/Microsoft/vscode-mssql",
+    "location": "extensions/mssql"
   },
   "ms-playwright.playwright": {
     "repository": "https://github.com/microsoft/playwright-vscode",
@@ -868,22 +868,129 @@
   "ms-python.python": {
     "repository": "https://github.com/microsoft/vscode-python",
     "custom": [
-      "python -m pip install -U pip",
-      "python -m pip install wheel",
-      "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/python --implementation py -r requirements.txt",
-      "python -m pip --disable-pip-version-check install packaging",
-      "python ./python_files/download_get_pip.py",
-      "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/jedilsp --implementation py --platform any --abi none -r ./python_files/jedilsp_requirements/requirements.txt",
+      "python -m venv .venv",
+      ".venv/bin/python -m pip install wheel nox",
+      ".venv/bin/python -m nox --session install_python_libs",
       "npm ci --prefer-offline",
       "npm run addExtensionPackDependencies",
-      "npm run package"
+      "node \"$PUBLISH_EXTENSIONS_ROOT/scripts/python/pet.js\" stage",
+      "npx gulp prePublishBundle",
+      "npx vsce package --target \"$VSIX_TARGET\" --out \"ms-python-insiders-$VSIX_TARGET.vsix\""
     ],
-    "extensionFile": "ms-python-insiders.vsix",
-    "pythonVersion": "3.9",
-    "timeout": 30
+    "timeout": 30,
+    "target": {
+      "web": {
+        "env": {
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "linux-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "linux-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-unknown-linux-gnu"
+        }
+      },
+      "linux-armhf": {
+        "env": {
+          "CARGO_TARGET": "armv7-unknown-linux-gnueabihf"
+        }
+      },
+      "alpine-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "alpine-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-unknown-linux-gnu"
+        }
+      },
+      "darwin-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-apple-darwin"
+        }
+      },
+      "darwin-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-apple-darwin"
+        }
+      },
+      "win32-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-pc-windows-msvc"
+        }
+      },
+      "win32-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-pc-windows-msvc"
+        }
+      }
+    }
   },
   "ms-python.vscode-python-envs": {
-    "repository": "https://github.com/microsoft/vscode-python-environments"
+    "repository": "https://github.com/microsoft/vscode-python-environments",
+    "custom": [
+      "npm ci --prefer-offline",
+      "node \"$PUBLISH_EXTENSIONS_ROOT/scripts/python/pet.js\" stage",
+      "npm run package",
+      "npx vsce package --target \"$VSIX_TARGET\" --out \"ms-python-envs-$VSIX_TARGET.vsix\""
+    ],
+    "target": {
+      "web": {
+        "env": {
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "linux-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "linux-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-unknown-linux-gnu"
+        }
+      },
+      "linux-armhf": {
+        "env": {
+          "CARGO_TARGET": "armv7-unknown-linux-gnueabihf"
+        }
+      },
+      "alpine-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "alpine-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-unknown-linux-gnu"
+        }
+      },
+      "darwin-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-apple-darwin"
+        }
+      },
+      "darwin-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-apple-darwin"
+        }
+      },
+      "win32-x64": {
+        "env": {
+          "CARGO_TARGET": "x86_64-pc-windows-msvc"
+        }
+      },
+      "win32-arm64": {
+        "env": {
+          "CARGO_TARGET": "aarch64-pc-windows-msvc"
+        }
+      }
+    }
   },
   "MS-SarifVSCode.sarif-viewer": {
     "repository": "https://github.com/Microsoft/sarif-vscode-extension"

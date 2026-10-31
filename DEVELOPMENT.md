@@ -91,3 +91,13 @@ Following environment variables are available:
 [^ms]: [The Microsoft Visual Studio Code Extensions Marketplace](https://marketplace.visualstudio.com/)
 [^clone]: `git clone https://github.com/open-vsx/publish-extensions/`
 [^deps]: `npm i`
+
+
+### Python Environment Tools
+
+The Python extension builds use the default branch of
+`microsoft/python-environment-tools`. The publish workflow resolves its commit
+once per run so that all target builds use the same revision. Set `PET_REF` to
+a branch, tag, or commit when building PET locally with
+`scripts/python/pet.js build`. Set `PET_ARTIFACTS_DIR` to select the artifact
+directory used by the build and staging commands.
