@@ -87,13 +87,26 @@ async function buildVersion(extension, publishContext) {
             );
 
             const [publisher, name] = extension.id.split(".");
-            process.env.EXTENSION_ID = extension.id;
-            process.env.EXTENSION_PUBLISHER = publisher;
-            process.env.EXTENSION_NAME = name;
-            process.env.VERSION = publishContext.version;
-            process.env.MS_VERSION = publishContext.msVersion;
-            process.env.OVSX_VERSION = publishContext.ovsxVersion;
-            await exec(`git checkout ${shellEscape.quote(publishContext.ref)}`, { cwd: publishContext.repo });
+
+            /**
+             * @type {typeof exec}
+             */
+            const execBuildStep = (command, options) => {
+                options ??= {};
+                options.env = {
+                    EXTENSION_ID: extension.id,
+                    EXTENSION_PUBLISHER: publisher,
+                    EXTENSION_NAME: name,
+                    VERSION: publishContext.version,
+                    MS_VERSION: publishContext.msVersion,
+                    OVSX_VERSION: publishContext.ovsxVersion,
+                    ...options.env,
+                };
+
+                return exec(command, options);
+            };
+
+            await execBuildStep(`git checkout ${shellEscape.quote(publishContext.ref)}`, { cwd: publishContext.repo });
 
             try {
                 const nvmFile = await findUp(".nvmrc", {
@@ -101,7 +114,7 @@ async function buildVersion(extension, publishContext) {
                 });
                 if (nvmFile) {
                     // If the project has a preferred Node version, use it
-                    await exec("source ~/.nvm/nvm.sh && nvm install", {
+                    await execBuildStep("source ~/.nvm/nvm.sh && nvm install", {
                         cwd: path.join(publishContext.repo, extension.location ?? "."),
                         quiet: true,
                     });
@@ -109,7 +122,7 @@ async function buildVersion(extension, publishContext) {
 
                 if (extension.pythonVersion) {
                     console.debug("Installing appropriate Python version...");
-                    await exec(
+                    await execBuildStep(
                         `pyenv install -s ${extension.pythonVersion} && pyenv global ${extension.pythonVersion}`,
                         { cwd: path.join(publishContext.repo, extension.location ?? "."), quiet: false },
                     );
@@ -119,7 +132,7 @@ async function buildVersion(extension, publishContext) {
             if (extension.custom) {
                 try {
                     for (const command of extension.custom) {
-                        await exec(command, { cwd: publishContext.repo });
+                        await execBuildStep(command, { cwd: publishContext.repo });
                     }
 
                     options = {
@@ -160,7 +173,7 @@ async function buildVersion(extension, publishContext) {
                     fs.access(path.join(publishContext.repo, "yarn.lock"), (error) => resolve(!error));
                 });
                 try {
-                    await exec(`${yarn ? "yarn" : "npm"} install`, { cwd: packagePath });
+                    await execBuildStep(`${yarn ? "yarn" : "npm"} install`, { cwd: packagePath });
                 } catch (e) {
                     const pck = JSON.parse(await fs.promises.readFile(path.join(packagePath, "package.json"), "utf-8"));
                     // try to auto migrate from vscode: https://code.visualstudio.com/api/working-with-extensions/testing-extension#migrating-from-vscode
@@ -174,13 +187,13 @@ async function buildVersion(extension, publishContext) {
                             "tsc",
                         );
                         await fs.promises.writeFile(path.join(packagePath, "package.json"), content, "utf-8");
-                        await exec(`${yarn ? "yarn" : "npm"} install`, { cwd: packagePath });
+                        await execBuildStep(`${yarn ? "yarn" : "npm"} install`, { cwd: packagePath });
                     } else {
                         throw e;
                     }
                 }
                 if (extension.prepublish) {
-                    await exec(extension.prepublish, { cwd: publishContext.repo });
+                    await execBuildStep(extension.prepublish, { cwd: publishContext.repo });
                 }
                 if (extension.extensionFile) {
                     options = { extensionFile: path.join(publishContext.repo, extension.extensionFile) };
