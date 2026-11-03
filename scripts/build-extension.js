@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
-// @ts-check
 const fs = require("fs");
 const ovsx = require("ovsx");
 const readVSIXPackage = require("@vscode/vsce/out/zip").readVSIXPackage;

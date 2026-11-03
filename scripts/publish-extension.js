@@ -8,7 +8,6 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-// @ts-check
 const ovsx = require("ovsx");
 const yauzl = require("yauzl-promise");
 const xml2js = require("xml2js");

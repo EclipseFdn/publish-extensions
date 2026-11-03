@@ -7,9 +7,6 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
-
-//@ts-check
-
 export interface MSExtensionStat {
     msInstalls: number;
     msVersion: string;

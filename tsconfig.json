@@ -16,6 +16,7 @@
 
         "jsx": "react-jsx",
         "allowJs": true,
+        "checkJs": true,
         "esModuleInterop": true,
 
         "strict": true,
