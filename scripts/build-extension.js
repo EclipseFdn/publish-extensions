@@ -94,6 +94,7 @@ async function buildVersion(extension, publishContext) {
             const execBuildStep = (command, options) => {
                 options ??= {};
                 options.env = {
+                    ...publishContext.environmentVariables,
                     EXTENSION_ID: extension.id,
                     EXTENSION_PUBLISHER: publisher,
                     EXTENSION_NAME: name,
