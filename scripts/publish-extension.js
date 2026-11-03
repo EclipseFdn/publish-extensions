@@ -76,7 +76,6 @@ async function readXmlManifest(extensionFile) {
     return await parser.parseStringPromise(xml);
 }
 
-// @ts-check
 /**
  * @param {string} extensionId
  * @param {string[]} extensionFiles
@@ -97,7 +96,7 @@ module.exports = async (extensionId, extensionFiles) => {
 
         try {
             xmlManifest = await readXmlManifest(extensionFile);
-        } catch (error) {
+        } catch (/** @type {any} */ error) {
             errors.push(`Manifest could not be read: ${error.message}`);
             continue;
         }

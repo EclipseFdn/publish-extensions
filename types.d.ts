@@ -8,13 +8,13 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 export interface MSExtensionStat {
-    msInstalls: number;
-    msVersion: string;
+    msInstalls?: number;
+    msVersion?: string;
 }
 
 export interface ExtensionStat extends MSExtensionStat {
-    daysInBetween: number;
-    openVersion: string;
+    daysInBetween?: number;
+    openVersion?: string;
 }
 
 export interface PublishStat {
@@ -47,20 +47,6 @@ export interface PublishStat {
 
 export interface Extensions {
     [id: string]: Omit<Extension, "id">;
-}
-
-export interface SingleExtensionQueryResult {
-    publisher: Publisher;
-    extensionId: string;
-    extensionName: string;
-    displayName: string;
-    flags: number;
-    lastUpdated: string;
-    publishedDate: string;
-    releaseDate: string;
-    shortDescription: string;
-    deploymentType: number;
-    statistics: Statistic[];
 }
 
 export interface Statistic {
@@ -129,9 +115,4 @@ export interface PublishContext {
     ref?: string;
 
     environmentVariables?: { [key: string]: string };
-}
-
-interface IRawGalleryExtensionProperty {
-    readonly key: string;
-    readonly value: string;
 }

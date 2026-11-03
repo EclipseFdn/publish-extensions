@@ -1,6 +1,11 @@
 {
     "compilerOptions": {
         "types": ["bun-types"],
+        "typeRoots": [
+            "./typings",
+            "./node_modules",
+            "./node_modules/@types"
+        ],
 
         // enable latest features
         "lib": ["esnext"],
