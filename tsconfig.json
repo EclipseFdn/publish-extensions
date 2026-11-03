@@ -14,7 +14,6 @@
         "composite": true,
         "moduleDetection": "force",
 
-        "jsx": "react-jsx",
         "allowJs": true,
         "checkJs": true,
         "esModuleInterop": true,
