@@ -1749,6 +1749,14 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
+        },
+        "macdara.clear-resume": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "macdara.cornerman",
+                "displayName": "cornerman"
+            },
+            "additionalInfo": "clear-resume was renamed to cornerman at 0.7.0. The final clear-resume release, 0.4.2, names cornerman as its replacement."
         }
     },
     "migrateToPreRelease": {
