@@ -869,18 +869,47 @@
     "repository": "https://github.com/microsoft/vscode-python",
     "custom": [
       "python -m pip install -U pip",
-      "python -m pip install wheel",
+      "python -m pip install wheel nox",
+      "rustup target add \"${CARGO_TARGET}\"",
+      "git clone --depth=1 https://github.com/microsoft/python-environment-tools ./python-env-tools",
+      "nox --session native_build",
       "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/python --implementation py -r requirements.txt",
       "python -m pip --disable-pip-version-check install packaging",
       "python ./python_files/download_get_pip.py",
       "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/jedilsp --implementation py --platform any --abi none -r ./python_files/jedilsp_requirements/requirements.txt",
       "npm ci --prefer-offline",
       "npm run addExtensionPackDependencies",
-      "npm run package"
+      "npm run package",
+      "mv ms-python{,-\"${VSIX_TARGET}\"}-insiders.vsix"
     ],
-    "extensionFile": "ms-python-insiders.vsix",
-    "pythonVersion": "3.9",
-    "timeout": 30
+    "pythonVersion": "3.10",
+    "timeout": 30,
+    "target": {
+      "linux-x64": {
+        "env": {
+          "VSIX_TARGET": "linux-x64",
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "alpine-x64": {
+        "env": {
+          "VSIX_TARGET": "alpine-x64",
+          "CARGO_TARGET": "x86_64-unknown-linux-musl"
+        }
+      },
+      "win32-x64": {
+        "env": {
+          "VSIX_TARGET": "win32-x64",
+          "CARGO_TARGET": "x86_64-pc-windows-msvc"
+        }
+      },
+      "win32-arm64": {
+        "env": {
+          "VSIX_TARGET": "win32-arm64",
+          "CARGO_TARGET": "aarch64-pc-windows-msvc"
+        }
+      }
+    }
   },
   "ms-python.vscode-python-envs": {
     "repository": "https://github.com/microsoft/vscode-python-environments"
