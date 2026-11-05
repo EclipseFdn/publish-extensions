@@ -34,7 +34,7 @@ The best way to add an extension here is to [open this repository in Gitpod](htt
 To test, run:
 
 ```
-GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node local-workflow.js
+GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true FORCE=true node local-workflow.js
 ```
 
 ### `GITHUB_TOKEN`
