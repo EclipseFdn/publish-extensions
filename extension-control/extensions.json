@@ -1749,6 +1749,14 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
+        },
+        "saffo.curbcut": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "saffo.waysill",
+                "displayName": "Waysill"
+            },
+            "additionalInfo": "Curbcut was renamed to Waysill and moved to the new id saffo.waysill. The final release of saffo.curbcut (1.1.0) only points there."
         }
     },
     "migrateToPreRelease": {
