@@ -1,5 +1,8 @@
 {
     "malicious": [
+		"stazottest0.auto-run-command-stazottest0-1",
+		"gabrielgrinberg.auto-run-command-stazottest0",
+		"verner-hukov13.playwright",
 		"holiday-themes.theme-coca-cola-christmas",
 		"lohsebhipolg2s.theme-aurora-borealis",
 		"solidity-syntax.deep-focus",
