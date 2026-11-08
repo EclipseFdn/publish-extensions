@@ -1752,6 +1752,14 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
+        },
+        "robocorp.robocorp-code": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sema4ai.sema4ai",
+                "displayName": "Sema4.ai SDK"
+            },
+            "additionalInfo": "Robocorp Code is no longer maintained and has been superseded by the Sema4.ai SDK extension."
         }
     },
     "migrateToPreRelease": {
