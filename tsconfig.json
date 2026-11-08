@@ -1,9 +1,14 @@
 {
     "compilerOptions": {
         "types": ["bun-types"],
+        "typeRoots": [
+            "./typings",
+            "./node_modules",
+            "./node_modules/@types"
+        ],
 
         // enable latest features
-        "lib": ["esnext", "node"],
+        "lib": ["esnext"],
         "module": "esnext",
         "target": "esnext",
 
@@ -14,8 +19,8 @@
         "composite": true,
         "moduleDetection": "force",
 
-        "jsx": "react-jsx",
         "allowJs": true,
+        "checkJs": true,
         "esModuleInterop": true,
 
         "strict": true,

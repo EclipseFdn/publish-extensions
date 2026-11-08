@@ -15,16 +15,15 @@
 //   node add-extension.js abusaidm.html-snippets2 https://github.com/my-org/repo --location 'packages/xy'
 //
 
-// @ts-check
 const fs = require("fs");
 const minimist = require("minimist");
 const util = require("util");
 const exec = require("./lib/exec");
 const extensionsSchema = require("./extensions-schema.json");
-const fetch = require("node-fetch");
+const fetch = require("node-fetch").default;
 const { getPublicGalleryAPI } = require("@vscode/vsce/out/util");
 const parseXmlManifest = require("@vscode/vsce/out/xml").parseXmlManifest;
-const { ExtensionQueryFlags, PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
+const { ExtensionQueryFlags } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
 
 const flags = [
     ExtensionQueryFlags.IncludeMetadata,
@@ -38,28 +37,35 @@ msGalleryApi.client["_allowRetries"] = true;
 msGalleryApi.client["_maxRetries"] = 5;
 
 const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
-    /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+    /** @type {[PromiseSettledResult<import("azure-devops-node-api/interfaces/GalleryInterfaces").PublishedExtension | undefined>]} */
     let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(id, flags)]);
-    if (msExtension.status === "fulfilled") {
-        const vsixManifest =
-            msExtension.value?.versions &&
-            msExtension.value?.versions[0].files?.find(
-                (file) => file.assetType === "Microsoft.VisualStudio.Services.VsixManifest",
-            )?.source;
-        const response = await fetch(vsixManifest);
-        const data = await parseXmlManifest(await response.text());
-        const url = new URL(
-            data.PackageManifest.Metadata[0].Properties[0].Property.find(
-                (property) => property.$.Id === "Microsoft.VisualStudio.Services.Links.Source",
-            ).$.Value,
-        );
-
-        if (url.host === "github.com") {
-            return url.toString().replace(".git", "");
-        }
-
-        return url.toString();
+    if (msExtension.status !== "fulfilled") {
+        return;
     }
+
+    const vsixManifest =
+        msExtension.value?.versions &&
+        msExtension.value?.versions[0].files?.find(
+            (file) => file.assetType === "Microsoft.VisualStudio.Services.VsixManifest",
+        )?.source;
+
+    if (!vsixManifest) {
+        return;
+    }
+
+    const response = await fetch(vsixManifest);
+    const data = await parseXmlManifest(await response.text());
+    const url = new URL(
+        data.PackageManifest.Metadata[0].Properties[0].Property.find(
+            (/** @type {any} */ property) => property.$.Id === "Microsoft.VisualStudio.Services.Links.Source",
+        ).$.Value,
+    );
+
+    if (url.host === "github.com") {
+        return url.toString().replace(".git", "");
+    }
+
+    return url.toString();
 };
 
 (async () => {
@@ -101,13 +107,13 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
         }
     }
 
-    const extDefinition = {
+    const extDefinition = /** @type {import("./types").Extension} */ ({
         repository: repoURL,
-    };
+    });
 
     // Validate extra args
-    delete argv._; // delete positional arguments
-    for (const arg of Object.keys(argv)) {
+    delete (/** @type {any} */ (argv))._; // delete positional arguments
+    for (const arg of /** @type {Array<keyof typeof extensionsSchema.additionalProperties.properties>} */ (Object.keys(argv))) {
         const propDef = extensionsSchema.additionalProperties.properties[arg];
         // console.debug(`arg=${arg}:`, argv[arg], propDef)
         if (!propDef) {
@@ -117,7 +123,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
 
         // parse & validate value
         if (propDef.type === "string") {
-            extDefinition[arg] = String(argv[arg]); // minimist might've assumed a different type (e.g. number)
+            extDefinition[arg] = /** @type {any} */ (String(argv[arg])); // minimist might've assumed a different type (e.g. number)
         } else if (propDef.type === "number") {
             if (typeof argv[arg] !== "number") {
                 console.error(
@@ -125,7 +131,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
                 );
                 process.exit(1);
             }
-            extDefinition[arg] = argv[arg]; // numbers are parsed by minimist already
+            extDefinition[arg] = /** @type {any} */ (argv[arg]); // numbers are parsed by minimist already
         } else {
             console.error(
                 `argument '${arg}' is of type '${propDef.type}' which is not implemented by this script, sorry`,
@@ -178,7 +184,7 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
     process.env.FORCE = "true";
     process.env.SKIP_PUBLISH = "true";
 
-    const out = await exec("node publish-extensions", { quiet: true, ghtoken: true });
+    const out = await exec("node bin/publish-extensions", { quiet: true, ghtoken: true });
     if (out && out.stderr.includes("[FAIL] Could not process extension:")) {
         console.error(
             `There was an error while trying to build ${extID}. Reverting back to the previous state of extensions.json.`,

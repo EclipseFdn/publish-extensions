@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
-// @ts-check
 const fs = require("fs");
 const ovsx = require("ovsx");
 const readVSIXPackage = require("@vscode/vsce/out/zip").readVSIXPackage;
@@ -22,19 +21,18 @@ const { createVSIX } = require("@vscode/vsce");
 const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
-const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
 const { artifactDirectory, registryHost, defaultPythonVersion } = require("../lib/constants");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: true });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
-const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
+const isBuiltIn = (/** @type {string} */ id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
 
 const openGalleryApi = new PublicGalleryAPI(`https://${registryHost}/vscode`, "3.0-preview.1");
 openGalleryApi.client["_allowRetries"] = true;
 openGalleryApi.client["_maxRetries"] = 5;
-openGalleryApi.post = (url, data, additionalHeaders) =>
+openGalleryApi.post = (/** @type {string} */ url, /** @type {string} */ data, /** @type {import("typed-rest-client/Interfaces").IHeaders} */ additionalHeaders) =>
     openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 const ensureBuildPrerequisites = async () => {
@@ -55,7 +53,6 @@ const ensureBuildPrerequisites = async () => {
     }
 };
 
-// @ts-check
 /**
  * @param {import('../types').Extension} extension
  * @param {import('../types').PublishContext} publishContext
@@ -71,19 +68,19 @@ async function buildVersion(extension, publishContext) {
             packagePath = path.join(packagePath, extension.location);
         }
 
-        /** @type {import('ovsx').PublishOptions} */
+        /** @type {import('ovsx').PublishOptions | undefined} */
         let options;
         if (publishContext.file) {
             options = { extensionFile: publishContext.file, targets: [publishContext.target] };
-        } else if (publishContext.repo && publishContext.ref) {
+        } else if (packagePath && publishContext.repo && publishContext.ref) {
             console.log(`${id}: preparing from ${publishContext.repo}...`);
             await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
             await resolveExtension(
                 extension,
-                publishContext.msVersion && {
+                publishContext.msVersion ? {
                     version: publishContext.msVersion,
-                    lastUpdated: publishContext.msLastUpdated,
-                },
+                    lastUpdated: /** @type {Date} */ (publishContext.msLastUpdated),
+                } : undefined,
             );
 
             const [publisher, name] = extension.id.split(".");
@@ -156,9 +153,12 @@ async function buildVersion(extension, publishContext) {
                     throw e;
                 }
             } else {
-                const yarn = await new Promise((resolve) => {
-                    fs.access(path.join(publishContext.repo, "yarn.lock"), (error) => resolve(!error));
-                });
+                const yarn = await (async (repo) => {
+                    return new Promise((resolve) => {
+                        fs.access(path.join(repo, "yarn.lock"), (error) => resolve(!error));
+                    })
+                })(publishContext.repo);
+
                 try {
                     await exec(`${yarn ? "yarn" : "npm"} install`, { cwd: packagePath });
                 } catch (e) {
@@ -210,7 +210,7 @@ async function buildVersion(extension, publishContext) {
         }
 
         // Check if the requested version is greater than the one on Open VSX.
-        const { xmlManifest, manifest } = options.extensionFile && (await readVSIXPackage(options.extensionFile));
+        const { xmlManifest, manifest } = options?.extensionFile ? (await readVSIXPackage(options.extensionFile)) : {};
         publishContext.version =
             xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.Version || manifest?.version;
         if (!publishContext.version) {
@@ -232,13 +232,13 @@ async function buildVersion(extension, publishContext) {
         // TODO(ak) check license is open-source
         if (
             !xmlManifest?.PackageManifest?.Metadata[0]?.License?.[0] &&
-            !manifest.license &&
+            !manifest?.license &&
             !(packagePath && (await ovsx.isLicenseOk(packagePath, manifest)))
         ) {
             throw new Error(`${extension.id}: license is missing`);
         }
 
-        const { extensionDependencies } = manifest;
+        const { extensionDependencies } = manifest ?? {};
         if (extensionDependencies) {
             const extensionDependenciesNotBuiltin = extensionDependencies.filter((id) => !isBuiltIn(id));
             const unpublishableDependencies = extensionDependenciesNotBuiltin.filter((dependency) =>
@@ -257,7 +257,7 @@ async function buildVersion(extension, publishContext) {
                     continue;
                 }
 
-                /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+                /** @type {[PromiseSettledResult<import("azure-devops-node-api/interfaces/GalleryInterfaces").PublishedExtension | undefined>]} */
                 const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(dependency)]);
                 if (ovsxExtension.status === "fulfilled" && !ovsxExtension.value) {
                     dependenciesNotOnOpenVsx.push(dependency);
@@ -270,7 +270,7 @@ async function buildVersion(extension, publishContext) {
             }
         }
 
-        if (options.extensionFile) {
+        if (options?.extensionFile) {
             console.info(`Copying file to ${artifactDirectory}`);
             const outputPath = path.join(
                 artifactDirectory,
@@ -300,14 +300,13 @@ async function buildVersion(extension, publishContext) {
     }
 }
 
-// @ts-check
 /**
  * @param {import('../types').Extension} extension
  * @param {import('../types').PublishContext} publishContext
  */
 module.exports = async (extension, publishContext) => {
-    publishContext.msLastUpdated = new Date(publishContext.msLastUpdated);
-    publishContext.ovsxLastUpdated = new Date(publishContext.ovsxLastUpdated);
+    publishContext.msLastUpdated = publishContext.msLastUpdated && new Date(publishContext.msLastUpdated);
+    publishContext.ovsxLastUpdated = publishContext.ovsxLastUpdated && new Date(publishContext.ovsxLastUpdated);
 
     const allOptions = [];
     if (publishContext.files) {
