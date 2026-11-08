@@ -21,13 +21,11 @@
       "url": "https://www.gitpod.io"
     }
   ],
-  "bin": "bin/publish-extensions",
-  "main": "publish-extensions",
   "engines": {
     "node": ">=24.0.0 <25.0.0"
   },
   "scripts": {
-    "publish": "node publish-extensions",
+    "build": "node bin/build-extensions",
     "format": "prettier --write .",
     "test": "node --test"
   },
