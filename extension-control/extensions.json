@@ -989,7 +989,7 @@
             ]
         }
     ],
-    "deprecated": {
+    "deprecated": {         "xdffish.agent-skills-matrix": {             "disallowInstall": true,             "extension": {                 "id": "xdffish.agent-skills-matrix-vsc",                 "displayName": "Agent Skills Matrix — Multi-Agent Skill Manager"             },             "additionalInfo": "This extension has moved to xdffish.agent-skills-matrix-vsc. Install the replacement at https://open-vsx.org/extension/xdffish/agent-skills-matrix-vsc."         },
         "nguyentruong354.live-serve": {
             "disallowInstall": true,
             "extension": {
