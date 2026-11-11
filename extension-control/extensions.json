@@ -1752,7 +1752,15 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
-        }
+        },
+		"rupeshdevasam.muse-studio": {
+			"disallowInstall": true,
+			"extension": {
+				"id": "twincrewlabs.muse-studio",
+				"displayName": "Muse Studio for VS Code"
+			},
+			"additionalInfo": "Muse Studio moved from the publisher's personal namespace (rupeshdevasam) to the company namespace TwinCrew Labs (twincrewlabs). Please install twincrewlabs.muse-studio instead. It is the same extension, and all future updates will be published there."
+		}
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
