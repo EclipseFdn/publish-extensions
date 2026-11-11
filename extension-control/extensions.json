@@ -1760,7 +1760,15 @@
 				"displayName": "Muse Studio for VS Code"
 			},
 			"additionalInfo": "Muse Studio moved from the publisher's personal namespace (rupeshdevasam) to the company namespace TwinCrew Labs (twincrewlabs). Please install twincrewlabs.muse-studio instead. It is the same extension, and all future updates will be published there."
-		}
+		},
+        "xnervwang.claude-code-extras": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "xnervwang.claude-code-plus",
+                "displayName": "Claude Code Plus"
+            },
+            "additionalInfo": "Work Plan for Claude Code has moved to Claude Code Plus (xnervwang.claude-code-plus). Update this extension to install Claude Code Plus, which will take over your settings, pinned sessions, and session colors and suggest uninstalling the old extension."
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
