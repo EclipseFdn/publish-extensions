@@ -1752,6 +1752,14 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
+        },
+        "xnervwang.claude-code-extras": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "xnervwang.claude-code-plus",
+                "displayName": "Claude Code Plus"
+            },
+            "additionalInfo": "Work Plan for Claude Code has moved to Claude Code Plus (xnervwang.claude-code-plus). Update this extension to install Claude Code Plus, which will take over your settings, pinned sessions, and session colors and suggest uninstalling the old extension."
         }
     },
     "migrateToPreRelease": {
