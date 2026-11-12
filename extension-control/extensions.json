@@ -990,6 +990,14 @@
         }
     ],
     "deprecated": {
+		"CopadoExtension.copadoextension": {
+            "disallowInstall": true,
+			"extension": {
+                "id": "CopadoExtension.copadoextension",
+                "displayName": "Copado Developer Extension (Deprecated)"
+            },
+            "additionalInfo": "This extension is being replaced by Copado Headless."
+        },
         "nguyentruong354.live-serve": {
             "disallowInstall": true,
             "extension": {
