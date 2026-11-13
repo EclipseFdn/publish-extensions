@@ -848,6 +848,8 @@
       "/usr/bin/python3 -m venv .venv",
       "source .venv/bin/activate && python -m pip install nox",
       "source .venv/bin/activate && python -m pip install -t ./bundled/libs --no-cache-dir --no-user --implementation py --no-deps --upgrade -r ./requirements.txt",
+      "git submodule update --init --recursive",
+      "source .venv/bin/activate && python -m pip install -t ./bundled/libs --no-cache-dir --no-deps --upgrade ./external/vscode-common-python-lsp/python",
       "npm ci --prefer-offline",
       "npm run vsce-package"
     ],
