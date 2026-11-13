@@ -19,6 +19,8 @@ const publishExtensionScript = require("./scripts/publish-extension");
 
     await publishExtensionsScript(async (extension, publishContext) => {
         const extensionFiles = await buildExtensionScript(extension, publishContext);
-        await publishExtensionScript(extension.id, extensionFiles);
+        if (process.env.SKIP_PUBLISH !== "true") {
+            await publishExtensionScript(extension.id, extensionFiles);
+        }
     });
 })();

@@ -26,7 +26,7 @@ const { PublishedExtension } = require("azure-devops-node-api/interfaces/Gallery
 const { artifactDirectory, registryHost, defaultPythonVersion } = require("../lib/constants");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
-const shellEscape = new shescape.Shescape({ shell: true });
+const shellEscape = new shescape.Shescape({ shell: "/bin/bash" });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -119,7 +119,23 @@ async function buildVersion(extension, publishContext) {
             if (extension.custom) {
                 try {
                     for (const command of extension.custom) {
-                        await exec(command, { cwd: publishContext.repo });
+                        await exec(
+                            `${publishContext.environmentVariables?.CARGO_TARGET ? 'if [ -s "$HOME/.nvm/nvm.sh" ] && [ -f .nvmrc ]; then source "$HOME/.nvm/nvm.sh" && nvm use; fi && ' : ""}${command}`,
+                            {
+                                cwd: publishContext.repo,
+                                env: {
+                                    ...publishContext.environmentVariables,
+                                    VSIX_TARGET: publishContext.target,
+                                    PUBLISH_EXTENSIONS_ROOT: path.resolve(__dirname, ".."),
+                                    PATH: process.env.EXTENSION_NODE_DIR
+                                        ? `${process.env.EXTENSION_NODE_DIR}${path.delimiter}${process.env.PATH}`
+                                        : process.env.PATH,
+                                    EXTENSION_ID: id,
+                                    EXTENSION_PUBLISHER: publisher,
+                                    EXTENSION_NAME: name,
+                                },
+                            },
+                        );
                     }
 
                     options = {
@@ -134,7 +150,7 @@ async function buildVersion(extension, publishContext) {
                         console.info(
                             `Looking for a ${publishContext.target} vsix package in ${publishContext.repo}...`,
                         );
-                        const vsixFiles = await fg(path.join(`*-${publishContext.target}-*.vsix`), {
+                        const vsixFiles = await fg(path.join(`*-${publishContext.target}{,-*}.vsix`), {
                             cwd: publishContext.repo,
                             onlyFiles: true,
                         });
@@ -313,6 +329,7 @@ module.exports = async (extension, publishContext) => {
     if (publishContext.files) {
         // Build all targets of extension from GitHub Release assets
         for (const [target, file] of Object.entries(publishContext.files)) {
+            if (process.env.ONLY_TARGET && process.env.ONLY_TARGET !== target) continue;
             if (!extension.target || Object.keys(extension.target).includes(target)) {
                 publishContext.file = file;
                 publishContext.target = target;
@@ -327,10 +344,9 @@ module.exports = async (extension, publishContext) => {
     } else if (extension.target) {
         // Build all specified targets of extension from sources
         for (const [target, targetData] of Object.entries(extension.target)) {
+            if (process.env.ONLY_TARGET && process.env.ONLY_TARGET !== target) continue;
             publishContext.target = target;
-            if (targetData !== true) {
-                publishContext.environmentVariables = targetData.env;
-            }
+            publishContext.environmentVariables = targetData === true ? undefined : targetData.env;
             const options = await buildVersion(extension, publishContext);
             if (options) {
                 allOptions.push(options);
