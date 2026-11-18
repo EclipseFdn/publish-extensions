@@ -990,6 +990,14 @@
         }
     ],
     "deprecated": {
+        "devsense-team.devsense": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sysradar.sysradar",
+                "displayName": "SysRadar — VS Code System Monitor & Performance Dashboard"
+            },
+            "additionalInfo": "This extension has been rebranded from 'DevSense' to 'SysRadar' due to a naming conflict with the established DEVSENSE namespace. Please install the replacement extension sysradar.sysradar, which provides the same functionality."
+        },
         "nguyentruong354.live-serve": {
             "disallowInstall": true,
             "extension": {
@@ -1778,3 +1786,4 @@
     },
     "extensionsEnabledWithPreRelease": []
 }
+
