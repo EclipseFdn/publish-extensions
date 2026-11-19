@@ -1,5 +1,15 @@
 {
     "malicious": [
+		"Adaex.vscode-agents-explorer",
+        "neural-llm.power-claude",
+        "uladluch.antigravity-mobile-connector",
+        "charcoal-mint-studio.theme-charcoal-mint",
+        "aurora-them-creator.theme-aurora-nocturne",
+        "KsWpsClaude.wps-claude-vscode",
+        "workern.appblink",
+        "RoyHtml.xampp-manager",
+        "EladNahman.Super-Cool-Extension",
+        "MohamedSelim.br-coder",
 		"stazottest0.auto-run-command-stazottest0-1",
 		"gabrielgrinberg.auto-run-command-stazottest0",
 		"verner-hukov13.playwright",
