@@ -15,6 +15,9 @@
 // Builds the extensions selected by EXTENSIONS into ./out and publishes them to Open VSX (needs OVSX_PAT).
 const { join } = require("node:path");
 
+// Extension ids can be passed as arguments instead of EXTENSIONS: npm run build publisher.name ...
+if (process.argv.length > 2) process.env.EXTENSIONS = process.argv.slice(2).join(",");
+
 // Must be set before build-extension is first required, which reads it at load time.
 require("../lib/constants").artifactDirectory = join(__dirname, "..", "out");
 

@@ -35,10 +35,10 @@ The best way to add an extension here is to [open this repository in Gitpod](htt
 To test, run:
 
 ```
-EXTENSIONS=albert.tabout npm run build
+npm run build albert.tabout
 ```
 
-`npm run build` only builds the extensions into `out/` and never publishes. It always builds, even if the extension is already up to date on Open VSX. `npm run publish` builds them the same way and then publishes them to Open VSX; it requires `OVSX_PAT`.
+`npm run build` takes one or more extension ids (or `EXTENSIONS=a.b,c.d`). It only builds the extensions into `out/` and never publishes. It always builds, even if the extension is already up to date on Open VSX. `npm run publish` builds them the same way and then publishes them to Open VSX; it requires `OVSX_PAT`.
 
 ### `GITHUB_TOKEN`
 

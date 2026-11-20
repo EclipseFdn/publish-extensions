@@ -18,6 +18,9 @@ const { join } = require("node:path");
 // Building an extension explicitly means building it, even if Open VSX is already up to date.
 process.env.FORCE ??= "true";
 
+// Extension ids can be passed as arguments instead of EXTENSIONS: npm run build publisher.name ...
+if (process.argv.length > 2) process.env.EXTENSIONS = process.argv.slice(2).join(",");
+
 // Must be set before build-extension is first required, which reads it at load time.
 require("../lib/constants").artifactDirectory = join(__dirname, "..", "out");
 
