@@ -69,6 +69,8 @@ An extension that ships native binaries is built once per platform, with `target
 
 Each target is built in its own job of the [publish workflow](./.github/workflows/publish-extension.yml), on the runner given by `runsOn` (`ubuntu-latest` if omitted; `ubuntu-24.04-arm`, `macos-latest`, `windows-latest` and `windows-11-arm` are allowed), and `env` is passed to its build commands. All jobs run to the end, but nothing is published unless every target built.
 
+To also publish a universal version next to the platform-specific ones, for platforms that have no build of their own, add `"universal": true` (or an object with `env` and `runsOn`) to `target`. It is built without a platform, so `EXTENSION_TARGET` is not set for it.
+
 The build commands run in Git Bash on Windows, so they must work there too. `.nvmrc` is not honoured on Windows. To build a single target locally, set `BUILD_TARGET`, for example `BUILD_TARGET=linux-x64 npm run build publisher.name`.
 
 ## How do extensions get updated?
