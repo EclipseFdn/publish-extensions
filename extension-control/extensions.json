@@ -1763,6 +1763,14 @@
             },
             "additionalInfo": "This extension was folded into the Rstack extension."
         },
+        "FallenMax.vimium-markdown-preview": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "FallenMax.vim-keys-for-markdown-preview",
+                "displayName": "Vim Keys for Markdown Preview"
+            },
+            "additionalInfo": "This extension has moved to FallenMax.vim-keys-for-markdown-preview. Uninstall the old extension before installing the new one."
+        },
         "badasslighting.ma3dev": {
             "disallowInstall": true,
             "extension": {
@@ -1770,6 +1778,14 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
+        },
+        "rstack.rslint": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "rstack.rstack",
+                "displayName": "Rstack"
+            },
+            "additionalInfo": "This extension was folded into the Rstack extension."
         },
         "rupeshdevasam.muse-studio": {
             "disallowInstall": true,
@@ -1786,6 +1802,26 @@
                 "displayName": "Waysill"
             },
             "additionalInfo": "Curbcut was renamed to Waysill and moved to the new id saffo.waysill. The final release of saffo.curbcut (1.1.0) only points there."
+        },
+        "HuaweiCloud-Developer.developerspace": {
+            "disallowInstall": true,
+            "additionalInfo": "This extension is no longer maintained."
+        },
+        "macdara.clear-resume": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "macdara.cornerman",
+                "displayName": "cornerman"
+            },
+            "additionalInfo": "clear-resume was renamed to cornerman at 0.7.0. The final clear-resume release, 0.4.2, names cornerman as its replacement."
+        },
+        "xnervwang.claude-code-extras": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "xnervwang.claude-code-plus",
+                "displayName": "Claude Code Plus"
+            },
+            "additionalInfo": "Work Plan for Claude Code has moved to Claude Code Plus (xnervwang.claude-code-plus). Update this extension to install Claude Code Plus, which will take over your settings, pinned sessions, and session colors and suggest uninstalling the old extension."
         },
         "robocorp.robocorp-code": {
             "disallowInstall": true,
