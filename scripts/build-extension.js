@@ -23,7 +23,7 @@ const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
-const { artifactDirectory, registryHost, defaultPythonVersion } = require("../lib/constants");
+const { artifactDirectory, registryHost, defaultPythonVersion, pythonVenvPrefix } = require("../lib/constants");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: true });
@@ -66,6 +66,7 @@ const ensureBuildPrerequisites = async () => {
 async function buildVersion(extension, publishContext) {
     console.debug(`Building ${extension.id} for ${publishContext.target || "universal"}...`);
     console.log(`\nProcessing extension: ${JSON.stringify({ extension, publishContext }, undefined, 2)}`);
+    let pythonVenv;
     try {
         await ensureBuildPrerequisites();
         const { id } = extension;
@@ -80,6 +81,14 @@ async function buildVersion(extension, publishContext) {
             options = { extensionFile: publishContext.file, targets: [publishContext.target] };
         } else if (publishContext.repo && publishContext.ref) {
             console.log(`${id}: preparing from ${publishContext.repo}...`);
+
+            // A private virtual environment per build: managed Pythons refuse pip installs (PEP 668), and builds
+            // must not share installed packages. Created first so a missing uv fails before the slow clone.
+            pythonVenv = await fs.promises.mkdtemp(pythonVenvPrefix);
+            await exec(
+                `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenv}`,
+            );
+
             await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
             await resolveExtension(
                 extension,
@@ -105,6 +114,9 @@ async function buildVersion(extension, publishContext) {
                     MS_VERSION: publishContext.msVersion,
                     OVSX_VERSION: publishContext.ovsxVersion,
                     ...options.env,
+                    // Last, so that no target environment variable can drop the venv from the PATH.
+                    VIRTUAL_ENV: pythonVenv,
+                    PATH: `${pythonVenv}/bin${path.delimiter}${process.env.PATH}`,
                 };
 
                 return exec(command, options);
@@ -122,14 +134,6 @@ async function buildVersion(extension, publishContext) {
                         cwd: path.join(publishContext.repo, extension.location ?? "."),
                         quiet: true,
                     });
-                }
-
-                if (extension.pythonVersion) {
-                    console.debug("Installing appropriate Python version...");
-                    await execBuildStep(
-                        `pyenv install -s ${extension.pythonVersion} && pyenv global ${extension.pythonVersion}`,
-                        { cwd: path.join(publishContext.repo, extension.location ?? "."), quiet: false },
-                    );
                 }
             } catch {}
 
@@ -310,9 +314,8 @@ async function buildVersion(extension, publishContext) {
             process.exitCode = 1;
         }
     } finally {
-        // Clean up
-        if (extension.pythonVersion) {
-            await exec(`pyenv global ${defaultPythonVersion}`);
+        if (pythonVenv) {
+            await fs.promises.rm(pythonVenv, { recursive: true, force: true });
         }
     }
 }
