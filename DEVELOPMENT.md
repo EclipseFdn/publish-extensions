@@ -35,7 +35,7 @@ The best way to add an extension here is to [open this repository in Gitpod](htt
 To test, run:
 
 ```
-GITHUB_TOKEN=your_pat EXTENSIONS=albert.tabout SKIP_PUBLISH=true FORCE=true npm run build
+GITHUB_TOKEN=your_pat EXTENSIONS=albert.tabout FORCE=true npm run build
 ```
 
 `npm run build` only builds the extensions into `out/` and never publishes. `npm run publish` builds them the same way and then publishes them to Open VSX; it requires `OVSX_PAT`.
