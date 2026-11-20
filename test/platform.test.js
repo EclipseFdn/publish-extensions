@@ -68,7 +68,10 @@ test("tempPath joins its segments to the temporary directory", () => {
 test("shell is /bin/bash except on Windows, where Git Bash is found through the PATH", () => {
     assert.equal(shell("linux"), "/bin/bash");
     assert.equal(shell("darwin"), "/bin/bash");
-    assert.equal(shell("win32"), "bash");
+    assert.equal(
+        shell("win32", { PATH: "" }, () => false),
+        "bash",
+    );
 });
 
 test("venvBinDirectory is Scripts on Windows and bin elsewhere", () => {
@@ -78,9 +81,9 @@ test("venvBinDirectory is Scripts on Windows and bin elsewhere", () => {
 });
 
 test("platformEnvironment configures git and npm on Windows only", () => {
-    assert.deepEqual(platformEnvironment("linux"), {});
-    assert.deepEqual(platformEnvironment("darwin"), {});
-    assert.deepEqual(platformEnvironment("win32"), {
+    assert.deepEqual(platformEnvironment("linux", {}), {});
+    assert.deepEqual(platformEnvironment("darwin", {}), {});
+    assert.deepEqual(platformEnvironment("win32", {}), {
         GIT_CONFIG_COUNT: "2",
         GIT_CONFIG_KEY_0: "core.autocrlf",
         GIT_CONFIG_VALUE_0: "false",
@@ -88,6 +91,49 @@ test("platformEnvironment configures git and npm on Windows only", () => {
         GIT_CONFIG_VALUE_1: "true",
         npm_config_script_shell: "bash",
     });
+});
+
+test("platformEnvironment appends to the git settings that are already in the environment", () => {
+    const environment = platformEnvironment("win32", {
+        GIT_CONFIG_COUNT: "1",
+        GIT_CONFIG_KEY_0: "http.proxy",
+        GIT_CONFIG_VALUE_0: "http://proxy",
+    });
+
+    assert.equal(environment.GIT_CONFIG_COUNT, "3");
+    assert.equal(environment.GIT_CONFIG_KEY_0, undefined);
+    assert.equal(environment.GIT_CONFIG_KEY_1, "core.autocrlf");
+    assert.equal(environment.GIT_CONFIG_VALUE_1, "false");
+    assert.equal(environment.GIT_CONFIG_KEY_2, "core.longpaths");
+    assert.equal(environment.GIT_CONFIG_VALUE_2, "true");
+});
+
+const gitBash = "C:\\Program Files\\Git\\bin\\bash.exe";
+
+test("shell finds Git Bash next to the git on the PATH, not the WSL launcher in System32", () => {
+    const env = { PATH: "C:\\Windows\\System32;C:\\Program Files\\Git\\cmd;C:\\tools" };
+    const exists = (/** @type {string} */ file) =>
+        [gitBash, "C:\\Windows\\System32\\bash.exe"].includes(file.replaceAll("/", "\\"));
+
+    assert.equal(shell("win32", env, exists), "C:/Program Files/Git/bin/bash.exe");
+});
+
+test("shell prefers bash.exe found on the PATH and the GIT_BASH override", () => {
+    const exists = (/** @type {string} */ file) => file === "D:\\git\\bin\\bash.exe";
+    assert.equal(shell("win32", { PATH: "D:\\git\\bin" }, exists), "D:/git/bin/bash.exe");
+    assert.equal(shell("win32", { GIT_BASH: "E:\\bash.exe", PATH: "D:\\git\\bin" }, exists), "E:/bash.exe");
+});
+
+test("shell falls back to the default install directory, then to bash", () => {
+    const exists = (/** @type {string} */ file) => file === gitBash;
+    assert.equal(
+        shell("win32", { ProgramFiles: "C:\\Program Files", PATH: "" }, exists),
+        "C:/Program Files/Git/bin/bash.exe",
+    );
+    assert.equal(
+        shell("win32", { PATH: "C:\\Windows\\System32" }, () => false),
+        "bash",
+    );
 });
 
 test("removeDirectory removes a directory tree and ignores a missing one", async () => {

@@ -32,10 +32,10 @@ const {
     repositoryDirectory,
     downloadDirectory,
 } = require("../lib/constants");
-const { shell, venvBinDirectory, removeDirectory, platformEnvironment } = require("../lib/platform");
+const { shell, shellName, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
-const shellEscape = new shescape.Shescape({ shell: shell() });
+const shellEscape = new shescape.Shescape({ shell: shellName });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -48,12 +48,12 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
 
 const ensureBuildPrerequisites = async () => {
     // Also for what runs in this process, such as the npm and git commands of vsce when it creates the package.
-    Object.assign(process.env, platformEnvironment());
+    applyPlatformEnvironment();
 
     // Make yarn use bash. The setting only exists in Yarn Classic; Yarn Berry (2+) rejects it.
     const { stdout: yarnVersion } = await exec("yarn --version", { quiet: true });
     if (yarnVersion.trim().startsWith("1.")) {
-        await exec(`yarn config set script-shell ${shell()}`);
+        await exec(`yarn config set script-shell ${shellEscape.quote(shell())}`);
     }
 
     // Don't show large git advice blocks
