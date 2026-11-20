@@ -16,7 +16,6 @@ const semver = require("semver");
 const exec = require("../lib/exec");
 const findUp = require("find-up");
 const fg = require("fast-glob");
-const shescape = require("shescape");
 
 const { createVSIX } = require("@vscode/vsce");
 const { cannotPublish } = require("../lib/reportStat");
@@ -32,11 +31,9 @@ const {
     repositoryDirectory,
     downloadDirectory,
 } = require("../lib/constants");
-const { shell, shellName, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
+const { shell, quote, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
 const { isSelected } = require("../lib/targets");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
-
-const shellEscape = new shescape.Shescape({ shell: shellName });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -54,7 +51,7 @@ const ensureBuildPrerequisites = async () => {
     // Make yarn use bash. The setting only exists in Yarn Classic; Yarn Berry (2+) rejects it.
     const { stdout: yarnVersion } = await exec("yarn --version", { quiet: true });
     if (yarnVersion.trim().startsWith("1.")) {
-        await exec(`yarn config set script-shell ${shellEscape.quote(shell())}`);
+        await exec(`yarn config set script-shell ${quote(shell())}`);
     }
 
     // Don't show large git advice blocks
@@ -104,7 +101,7 @@ async function buildVersion(extension, publishContext) {
             pythonVenv = await fs.promises.mkdtemp(pythonVenvPrefix);
             // Downloads are enabled explicitly: some distributions ship a uv that disables them by default.
             await exec(
-                `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${shellEscape.quote(pythonVenv)}`,
+                `uv venv --seed --managed-python --python ${quote(extension.pythonVersion ?? defaultPythonVersion)} ${quote(pythonVenv)}`,
                 { env: { UV_PYTHON_DOWNLOADS: "automatic" } },
             );
 
@@ -142,7 +139,7 @@ async function buildVersion(extension, publishContext) {
                 return exec(command, options);
             };
 
-            await execBuildStep(`git checkout ${shellEscape.quote(publishContext.ref)}`, { cwd: publishContext.repo });
+            await execBuildStep(`git checkout ${quote(publishContext.ref)}`, { cwd: publishContext.repo });
 
             try {
                 const nvmFile = await findUp(".nvmrc", {
