@@ -1802,6 +1802,10 @@
                 "displayName": "Waysill"
             },
             "additionalInfo": "Curbcut was renamed to Waysill and moved to the new id saffo.waysill. The final release of saffo.curbcut (1.1.0) only points there."
+        },
+        "HuaweiCloud-Developer.developerspace": {
+            "disallowInstall": true,
+            "additionalInfo": "This extension is no longer maintained."
         }
     },
     "migrateToPreRelease": {
