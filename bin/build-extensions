@@ -15,6 +15,9 @@
 // Builds the extensions selected by EXTENSIONS into ./out. Never publishes.
 const { join } = require("node:path");
 
+// Building an extension explicitly means building it, even if Open VSX is already up to date.
+process.env.FORCE ??= "true";
+
 // Must be set before build-extension is first required, which reads it at load time.
 require("../lib/constants").artifactDirectory = join(__dirname, "..", "out");
 
