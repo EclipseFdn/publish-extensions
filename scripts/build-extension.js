@@ -31,10 +31,10 @@ const {
     repositoryDirectory,
     downloadDirectory,
 } = require("../lib/constants");
-const { shell, venvBinDirectory } = require("../lib/platform");
+const { shell, venvBinDirectory, removeDirectory } = require("../lib/platform");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
-const shellEscape = new shescape.Shescape({ shell: true });
+const shellEscape = new shescape.Shescape({ shell: shell() });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -54,12 +54,6 @@ const ensureBuildPrerequisites = async () => {
 
     // Don't show large git advice blocks
     await exec("git config --global advice.detachedHead false");
-
-    if (process.platform === "win32") {
-        // Git for Windows converts line endings and limits path lengths by default, which breaks checked out sources.
-        await exec("git config --global core.autocrlf false");
-        await exec("git config --global core.longpaths true");
-    }
 
     // Create directory for storing built extensions
     if (fs.existsSync(artifactDirectory)) {
@@ -101,12 +95,12 @@ async function buildVersion(extension, publishContext) {
             pythonVenv = await fs.promises.mkdtemp(pythonVenvPrefix);
             // Downloads are enabled explicitly: some distributions ship a uv that disables them by default.
             await exec(
-                `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenv}`,
+                `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${shellEscape.quote(pythonVenv)}`,
                 { env: { UV_PYTHON_DOWNLOADS: "automatic" } },
             );
 
-            await fs.promises.rm(repositoryDirectory, { recursive: true, force: true });
-            await fs.promises.rm(downloadDirectory, { recursive: true, force: true });
+            await removeDirectory(repositoryDirectory);
+            await removeDirectory(downloadDirectory);
             await resolveExtension(
                 extension,
                 publishContext.msVersion && {
@@ -334,7 +328,7 @@ async function buildVersion(extension, publishContext) {
         }
     } finally {
         if (pythonVenv) {
-            await fs.promises.rm(pythonVenv, { recursive: true, force: true });
+            await removeDirectory(pythonVenv);
         }
     }
 }

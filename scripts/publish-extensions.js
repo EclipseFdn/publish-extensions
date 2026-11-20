@@ -17,7 +17,8 @@ const { ExtensionQueryFlags, PublishedExtension } = require("azure-devops-node-a
 const semver = require("semver");
 const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
-const { registryHost, repositoryDirectory, downloadDirectory } = require("../lib/constants");
+const { registryHost, repositoryDirectory, downloadDirectory, statPath } = require("../lib/constants");
+const { removeDirectory } = require("../lib/platform");
 
 /**
  * Checks whether the provided `version` is a prerelease or not
@@ -195,8 +196,8 @@ module.exports = async (doPublish) => {
             }
 
             await updateStat();
-            await fs.promises.rm(repositoryDirectory, { recursive: true, force: true });
-            await fs.promises.rm(downloadDirectory, { recursive: true, force: true });
+            await removeDirectory(repositoryDirectory);
+            await removeDirectory(downloadDirectory);
 
             const resolved = await resolveExtension(
                 extension,
@@ -283,6 +284,6 @@ module.exports = async (doPublish) => {
     }
 
     // TODO how to collect stats with multi stage workflow?
-    await fs.promises.writeFile("/tmp/stat.json", JSON.stringify(stat), { encoding: "utf8" });
+    await fs.promises.writeFile(statPath, JSON.stringify(stat), { encoding: "utf8" });
     process.exit();
 };

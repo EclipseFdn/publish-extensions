@@ -15,7 +15,9 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const os = require("node:os");
 
-const { tempPath, shell, venvBinDirectory } = require("../lib/platform");
+const fs = require("node:fs");
+const path = require("node:path");
+const { tempPath, shell, venvBinDirectory, platformEnvironment, removeDirectory } = require("../lib/platform");
 
 /**
  * @param {string} tmpdir
@@ -51,4 +53,27 @@ test("venvBinDirectory is Scripts on Windows and bin elsewhere", () => {
     assert.equal(venvBinDirectory("/tmp/venv", "linux"), "/tmp/venv/bin");
     assert.equal(venvBinDirectory("/tmp/venv", "darwin"), "/tmp/venv/bin");
     assert.equal(venvBinDirectory("C:/tmp/venv", "win32"), "C:/tmp/venv/Scripts");
+});
+
+test("platformEnvironment configures git and npm on Windows only", () => {
+    assert.deepEqual(platformEnvironment("linux"), {});
+    assert.deepEqual(platformEnvironment("darwin"), {});
+    assert.deepEqual(platformEnvironment("win32"), {
+        GIT_CONFIG_COUNT: "2",
+        GIT_CONFIG_KEY_0: "core.autocrlf",
+        GIT_CONFIG_VALUE_0: "false",
+        GIT_CONFIG_KEY_1: "core.longpaths",
+        GIT_CONFIG_VALUE_1: "true",
+        npm_config_script_shell: "bash",
+    });
+});
+
+test("removeDirectory removes a directory tree and ignores a missing one", async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), "remove-directory-"));
+    fs.mkdirSync(path.join(directory, "a", "b"), { recursive: true });
+    fs.writeFileSync(path.join(directory, "a", "b", "file"), "x");
+
+    await removeDirectory(directory);
+    assert.equal(fs.existsSync(directory), false);
+    await removeDirectory(directory);
 });
