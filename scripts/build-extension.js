@@ -85,8 +85,10 @@ async function buildVersion(extension, publishContext) {
             // A private virtual environment per build: managed Pythons refuse pip installs (PEP 668), and builds
             // must not share installed packages. Created first so a missing uv fails before the slow clone.
             pythonVenv = await fs.promises.mkdtemp(pythonVenvPrefix);
+            // Downloads are enabled explicitly: some distributions ship a uv that disables them by default.
             await exec(
                 `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenv}`,
+                { env: { UV_PYTHON_DOWNLOADS: "automatic" } },
             );
 
             await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
