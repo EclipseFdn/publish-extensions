@@ -42,7 +42,25 @@
             },
             "target": {
                 "type": "object",
-                "description": "An object containing the ids of platforms to target while publishing. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published. The value of the key should be either `true` or an object specifying environment variables to be applied while packaging inside of `env`."
+                "description": "An object containing the ids of platforms to target while publishing. If unspecified, a universal extension will be published in case of building from source and if the vsix is resolved from GitHub Releases, all of the attached platform-specific assets will be published. The value of the key should be either `true` or an object specifying environment variables to be applied while packaging inside of `env` and the runner to build the target on inside of `runsOn` (`ubuntu-latest` if unspecified).",
+                "additionalProperties": {
+                    "anyOf": [
+                        { "const": true },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "env": {
+                                    "type": "object",
+                                    "additionalProperties": { "type": "string" }
+                                },
+                                "runsOn": {
+                                    "enum": ["ubuntu-latest", "ubuntu-24.04-arm", "macos-latest", "windows-latest", "windows-11-arm"]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
             }
         },
         "required": ["repository"],

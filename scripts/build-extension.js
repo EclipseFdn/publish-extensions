@@ -33,6 +33,7 @@ const {
     downloadDirectory,
 } = require("../lib/constants");
 const { shell, shellName, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
+const { isSelected } = require("../lib/targets");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: shellName });
@@ -368,10 +369,12 @@ module.exports = async (extension, publishContext) => {
     } else if (extension.target) {
         // Build all specified targets of extension from sources
         for (const [target, targetData] of Object.entries(extension.target)) {
-            publishContext.target = target;
-            if (targetData !== true) {
-                publishContext.environmentVariables = targetData.env;
+            if (!isSelected(target)) {
+                console.log(`${extension.id}: skipping, since target ${target} is not built by this job`);
+                continue;
             }
+            publishContext.target = target;
+            publishContext.environmentVariables = targetData === true ? undefined : targetData.env;
             const options = await buildVersion(extension, publishContext);
             if (options) {
                 allOptions.push(options);

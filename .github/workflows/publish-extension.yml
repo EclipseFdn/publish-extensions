@@ -53,10 +53,40 @@ jobs:
           script: |
             const script = require('./scripts/download-extension.js');
             await script();
-  build_extension:
-    name: Build Extension (${{ fromJson(inputs.extension).id }})
+  plan:
+    name: Plan build (${{ fromJson(inputs.extension).id }})
     runs-on: ubuntu-latest
-    needs: download_release
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+      - id: plan
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          EXTENSION: ${{ inputs.extension }}
+          PUBLISH_CONTEXT: ${{ inputs.publishContext }}
+        with:
+          script: |
+            const { buildLegs } = require('./lib/targets.js');
+            const legs = buildLegs(JSON.parse(process.env.EXTENSION), JSON.parse(process.env.PUBLISH_CONTEXT));
+            core.info(JSON.stringify(legs, null, 2));
+            core.setOutput("legs", JSON.stringify(legs));
+    outputs:
+      legs: ${{ steps.plan.outputs.legs }}
+  build_extension:
+    name: Build Extension (${{ fromJson(inputs.extension).id }}, ${{ matrix.name }})
+    runs-on: ${{ matrix.runsOn }}
+    needs: [download_release, plan]
+    strategy:
+      # Every leg runs to the end, but nothing is published unless all of them succeed.
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.plan.outputs.legs) }}
+    defaults:
+      run:
+        shell: bash
     permissions:
       actions: none
     steps:
@@ -75,12 +105,14 @@ jobs:
           distribution: "microsoft"
           java-version: "21"
       - name: Install dependencies for native modules
+        if: ${{ runner.os == 'Linux' }}
         run: |
           sudo apt-get update
           sudo apt-get install libpango1.0-dev libgif-dev
       - run: npm install
       - run: npm i -g @vscode/vsce pnpm
       - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        if: ${{ fromJSON(inputs.publishContext).files != null }}
         with:
           path: /tmp/download
       - id: build_extension
@@ -91,6 +123,7 @@ jobs:
           SKIP_PUBLISH: ${{ inputs.skipPublish }}
           EXTENSION: ${{ inputs.extension }}
           PUBLISH_CONTEXT: ${{inputs.publishContext}}
+          BUILD_TARGET: ${{ matrix.target }}
         with:
           script: |
             const extension = JSON.parse(process.env.EXTENSION);
@@ -99,9 +132,6 @@ jobs:
             const extensionFiles = await buildScript(extension, publishContext);
             const uploadScript = require('./scripts/upload-artifacts.js');
             await uploadScript(extensionFiles);
-            core.setOutput("extensionFiles", JSON.stringify(extensionFiles));
-    outputs:
-      extensionFiles: ${{ steps.build_extension.outputs.extensionFiles }}
   publish_extension:
     name: Publish Extension (${{ fromJson(inputs.extension).id }})
     runs-on: ubuntu-latest
@@ -120,16 +150,22 @@ jobs:
       - run: npm i -g @vscode/vsce pnpm
       - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
-          name: "artifacts"
+          pattern: artifacts-*
+          merge-multiple: true
           path: /tmp/artifacts
       - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
           EXTENSION_ID: ${{ fromJson(inputs.extension).id }}
-          EXTENSION_FILES: ${{needs.build_extension.outputs.extensionFiles}}
         with:
           script: |
             const extensionId = process.env.EXTENSION_ID;
-            const extensionFiles = JSON.parse(process.env.EXTENSION_FILES);
+            const fs = require('fs');
+            const path = require('path');
+            const { artifactDirectory } = require('./lib/constants.js');
+            const extensionFiles = fs
+              .readdirSync(artifactDirectory)
+              .filter((file) => file.endsWith('.vsix'))
+              .map((file) => path.join(artifactDirectory, file));
             const script = require('./scripts/publish-extension.js');
             await script(extensionId, extensionFiles);
