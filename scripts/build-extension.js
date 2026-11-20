@@ -23,7 +23,7 @@ const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
-const { artifactDirectory, registryHost, defaultPythonVersion } = require("../lib/constants");
+const { artifactDirectory, registryHost, defaultPythonVersion, pythonVenvPath } = require("../lib/constants");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: true });
@@ -93,9 +93,8 @@ async function buildVersion(extension, publishContext) {
 
             // A fresh virtual environment per build: managed Pythons refuse pip installs (PEP 668), and builds
             // must not share installed packages. Its bin directory goes first on PATH for every build step.
-            const pythonVenv = "/tmp/python-venv";
             await exec(
-                `uv venv --seed --clear --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenv}`,
+                `uv venv --seed --clear --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenvPath}`,
             );
 
             /**
@@ -104,8 +103,8 @@ async function buildVersion(extension, publishContext) {
             const execBuildStep = (command, options) => {
                 options ??= {};
                 options.env = {
-                    VIRTUAL_ENV: pythonVenv,
-                    PATH: `${pythonVenv}/bin${path.delimiter}${process.env.PATH}`,
+                    VIRTUAL_ENV: pythonVenvPath,
+                    PATH: `${pythonVenvPath}/bin${path.delimiter}${process.env.PATH}`,
                     ...publishContext.environmentVariables,
                     EXTENSION_ID: extension.id,
                     EXTENSION_PUBLISHER: publisher,
