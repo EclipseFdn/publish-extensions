@@ -879,7 +879,7 @@
       "python -m pip install --no-user --no-deps --require-hashes --only-binary :all: -t ./python_files/lib/jedilsp --implementation py --platform any --abi none -r ./python_files/jedilsp_requirements/requirements.txt",
       "npm ci --prefer-offline",
       "npm run addExtensionPackDependencies",
-      "npm run package",
+      "npm run package -- --target \"${EXTENSION_TARGET}\"",
       "mv ms-python{,-\"${EXTENSION_TARGET}\"}-insiders.vsix"
     ],
     "pythonVersion": "3.10",
