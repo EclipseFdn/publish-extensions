@@ -17,7 +17,14 @@ const os = require("node:os");
 
 const fs = require("node:fs");
 const path = require("node:path");
-const { tempPath, shell, venvBinDirectory, platformEnvironment, removeDirectory } = require("../lib/platform");
+const {
+    tempDirectory,
+    tempPath,
+    shell,
+    venvBinDirectory,
+    platformEnvironment,
+    removeDirectory,
+} = require("../lib/platform");
 
 /**
  * @param {string} tmpdir
@@ -33,14 +40,29 @@ const withTmpdir = (tmpdir, fn) => {
     }
 };
 
-test("tempPath lives in the temporary directory", () => {
-    withTmpdir("/var/tmp", () => assert.equal(tempPath("repository", "main"), "/var/tmp/repository/main"));
+test("the temporary directory is /tmp on Linux and macOS whatever TMPDIR says", () => {
+    const original = process.env.TMPDIR;
+    process.env.TMPDIR = "/var/tmp";
+    try {
+        assert.equal(tempDirectory("linux"), "/tmp");
+        assert.equal(tempDirectory("darwin"), "/tmp");
+    } finally {
+        if (original === undefined) {
+            delete process.env.TMPDIR;
+        } else {
+            process.env.TMPDIR = original;
+        }
+    }
 });
 
-test("tempPath uses forward slashes for a Windows temporary directory", () => {
+test("the temporary directory on Windows is the system one, with forward slashes", () => {
     withTmpdir("C:\\Users\\runneradmin\\AppData\\Local\\Temp", () =>
-        assert.equal(tempPath("artifacts"), "C:/Users/runneradmin/AppData/Local/Temp/artifacts"),
+        assert.equal(tempDirectory("win32"), "C:/Users/runneradmin/AppData/Local/Temp"),
     );
+});
+
+test("tempPath joins its segments to the temporary directory", () => {
+    assert.equal(tempPath("repository", "main"), `${tempDirectory()}/repository/main`);
 });
 
 test("shell is /bin/bash except on Windows, where Git Bash is found through the PATH", () => {

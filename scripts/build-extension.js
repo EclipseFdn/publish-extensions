@@ -28,10 +28,11 @@ const {
     registryHost,
     defaultPythonVersion,
     pythonVenvPrefix,
+    repoPath,
     repositoryDirectory,
     downloadDirectory,
 } = require("../lib/constants");
-const { shell, venvBinDirectory, removeDirectory } = require("../lib/platform");
+const { shell, venvBinDirectory, removeDirectory, platformEnvironment } = require("../lib/platform");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: shell() });
@@ -46,6 +47,9 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
     openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 const ensureBuildPrerequisites = async () => {
+    // Also for what runs in this process, such as the npm and git commands of vsce when it creates the package.
+    Object.assign(process.env, platformEnvironment());
+
     // Make yarn use bash. The setting only exists in Yarn Classic; Yarn Berry (2+) rejects it.
     const { stdout: yarnVersion } = await exec("yarn --version", { quiet: true });
     if (yarnVersion.trim().startsWith("1.")) {
@@ -78,6 +82,10 @@ async function buildVersion(extension, publishContext) {
     try {
         await ensureBuildPrerequisites();
         const { id } = extension;
+        // The context may come from a job on another machine, with a different temporary directory.
+        if (publishContext.repo) {
+            publishContext.repo = repoPath;
+        }
         let packagePath = publishContext.repo;
         if (packagePath && extension.location) {
             packagePath = path.join(packagePath, extension.location);

@@ -19,7 +19,7 @@ module.exports = async () => {
     const publishContext = JSON.parse(process.env.PUBLISH_CONTEXT);
     publishContext.msLastUpdated = new Date(publishContext.msLastUpdated);
     publishContext.ovsxLastUpdated = new Date(publishContext.ovsxLastUpdated);
-    await resolveExtension(
+    const resolved = await resolveExtension(
         extension,
         publishContext.msVersion && {
             version: publishContext.msVersion,
@@ -28,7 +28,12 @@ module.exports = async () => {
     );
 
     const artifact = new DefaultArtifactClient();
-    await artifact.uploadArtifact("download", Object.values(publishContext.files), downloadDirectory, {
-        retentionDays: 7,
-    });
+    await artifact.uploadArtifact(
+        "download",
+        Object.values(resolved?.files ?? publishContext.files),
+        downloadDirectory,
+        {
+            retentionDays: 7,
+        },
+    );
 };
