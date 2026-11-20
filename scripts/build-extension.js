@@ -91,12 +91,21 @@ async function buildVersion(extension, publishContext) {
 
             const [publisher, name] = extension.id.split(".");
 
+            // A fresh virtual environment per build: managed Pythons refuse pip installs (PEP 668), and builds
+            // must not share installed packages. Its bin directory goes first on PATH for every build step.
+            const pythonVenv = "/tmp/python-venv";
+            await exec(
+                `uv venv --seed --clear --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenv}`,
+            );
+
             /**
              * @type {typeof exec}
              */
             const execBuildStep = (command, options) => {
                 options ??= {};
                 options.env = {
+                    VIRTUAL_ENV: pythonVenv,
+                    PATH: `${pythonVenv}/bin${path.delimiter}${process.env.PATH}`,
                     ...publishContext.environmentVariables,
                     EXTENSION_ID: extension.id,
                     EXTENSION_PUBLISHER: publisher,
@@ -122,14 +131,6 @@ async function buildVersion(extension, publishContext) {
                         cwd: path.join(publishContext.repo, extension.location ?? "."),
                         quiet: true,
                     });
-                }
-
-                if (extension.pythonVersion) {
-                    console.debug("Installing appropriate Python version...");
-                    await execBuildStep(
-                        `pyenv install -s ${extension.pythonVersion} && pyenv global ${extension.pythonVersion}`,
-                        { cwd: path.join(publishContext.repo, extension.location ?? "."), quiet: false },
-                    );
                 }
             } catch {}
 
@@ -308,11 +309,6 @@ async function buildVersion(extension, publishContext) {
             );
             console.error(error);
             process.exitCode = 1;
-        }
-    } finally {
-        // Clean up
-        if (extension.pythonVersion) {
-            await exec(`pyenv global ${defaultPythonVersion}`);
         }
     }
 }

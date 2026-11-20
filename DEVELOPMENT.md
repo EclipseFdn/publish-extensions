@@ -3,6 +3,7 @@
 ### Prerequisites
 
 -   [Node.js](https://nodejs.org/en/) (see `engines` in `package.json`)
+-   [uv](https://docs.astral.sh/uv/), which installs the Python version an extension needs (`pythonVersion`, default 3.9)
 -   [Yarn](https://classic.yarnpkg.com/) (the build script configures it unconditionally, even for extensions that only use npm)
 -   Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they only need to build correctly there)
 

@@ -33,7 +33,7 @@
 		"--network=host"
 	],
 	"remoteUser": "node",
-	"postCreateCommand": "npm install",
+	"postCreateCommand": "npm install && pip install uv",
 	"mounts": [
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
 	]
