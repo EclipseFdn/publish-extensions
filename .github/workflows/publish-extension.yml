@@ -135,7 +135,7 @@ jobs:
   publish_extension:
     name: Publish Extension (${{ fromJson(inputs.extension).id }})
     runs-on: ubuntu-latest
-    if: ${{ inputs.skipPublish != 'true' }}
+    if: ${{ !inputs.skipPublish }}
     needs: build_extension
     permissions:
       actions: none
