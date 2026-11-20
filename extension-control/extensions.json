@@ -1814,6 +1814,14 @@
                 "displayName": "cornerman"
             },
             "additionalInfo": "clear-resume was renamed to cornerman at 0.7.0. The final clear-resume release, 0.4.2, names cornerman as its replacement."
+        },
+        "xnervwang.claude-code-extras": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "xnervwang.claude-code-plus",
+                "displayName": "Claude Code Plus"
+            },
+            "additionalInfo": "Work Plan for Claude Code has moved to Claude Code Plus (xnervwang.claude-code-plus). Update this extension to install Claude Code Plus, which will take over your settings, pinned sessions, and session colors and suggest uninstalling the old extension."
         }
     },
     "migrateToPreRelease": {
