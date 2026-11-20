@@ -1771,14 +1771,22 @@
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
         },
-		"rupeshdevasam.muse-studio": {
-			"disallowInstall": true,
-			"extension": {
-				"id": "twincrewlabs.muse-studio",
-				"displayName": "Muse Studio for VS Code"
-			},
-			"additionalInfo": "Muse Studio moved from the publisher's personal namespace (rupeshdevasam) to the company namespace TwinCrew Labs (twincrewlabs). Please install twincrewlabs.muse-studio instead. It is the same extension, and all future updates will be published there."
-		}
+        "rupeshdevasam.muse-studio": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "twincrewlabs.muse-studio",
+                "displayName": "Muse Studio for VS Code"
+            },
+            "additionalInfo": "Muse Studio moved from the publisher's personal namespace (rupeshdevasam) to the company namespace TwinCrew Labs (twincrewlabs). Please install twincrewlabs.muse-studio instead. It is the same extension, and all future updates will be published there."
+        },
+        "saffo.curbcut": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "saffo.waysill",
+                "displayName": "Waysill"
+            },
+            "additionalInfo": "Curbcut was renamed to Waysill and moved to the new id saffo.waysill. The final release of saffo.curbcut (1.1.0) only points there."
+        }
     },
     "migrateToPreRelease": {
         "julialang.language-julia-insider": {
