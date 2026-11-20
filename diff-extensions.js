@@ -8,7 +8,6 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-// @ts-check
 const fs = require("fs");
 const Octokit = require("octokit").Octokit;
 

@@ -8,12 +8,11 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-// @ts-check
 const fs = require("fs");
 const { RateLimiter } = require('limiter');
 const { getPublicGalleryAPI } = require("@vscode/vsce/out/util");
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
-const { ExtensionQueryFlags, PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
+const { ExtensionQueryFlags } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
 const semver = require("semver");
 const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
@@ -22,7 +21,7 @@ const { registryHost } = require("../lib/constants");
 
 /**
  * Checks whether the provided `version` is a prerelease or not
- * @param {Readonly<import('../types').IRawGalleryExtensionProperty[]>} version
+ * @param {Readonly<import("azure-devops-node-api/interfaces/GalleryInterfaces").ExtensionVersion["properties"]>} version
  * @returns
  */
 function isPreReleaseVersion(version) {
@@ -30,8 +29,7 @@ function isPreReleaseVersion(version) {
     return values.length > 0 && values[0].value === "true";
 }
 
-// @ts-check
-/** @param {(extension, publishContext) => void} doPublish */
+/** @param {(extension: import("../types").Extension, publishContext: import("../types").PublishContext) => Promise<void>} doPublish */
 module.exports = async (doPublish) => {
     const msGalleryApi = getPublicGalleryAPI();
     msGalleryApi.client["_allowRetries"] = true;
@@ -100,40 +98,40 @@ module.exports = async (doPublish) => {
             continue;
         }
         const extension = Object.freeze({ id, ...extensions[id] });
-        /** @type {import('../types').PublishContext} */
-        const context = {};
+        const context = /** @type {import('../types').PublishContext} */ ({});
         let timeoutDelay = Number(extension.timeout);
         if (!Number.isInteger(timeoutDelay)) {
             timeoutDelay = 5;
         }
         try {
             const extensionId = extension.msMarketplaceIdOverride ?? extension.id;
-            /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+            /** @type {[PromiseSettledResult<import("azure-devops-node-api/interfaces/GalleryInterfaces").PublishedExtension | undefined>]} */
             let [msExtension] = await Promise.allSettled([msGalleryApi.getExtension(extensionId, flags)]);
             if (msExtension.status === "fulfilled") {
-                const lastNonPrereleaseVersion = msExtension.value?.versions.find(
+                const lastNonPrereleaseVersion = msExtension.value?.versions?.find(
                     (version) => !isPreReleaseVersion(version.properties),
                 );
                 context.msVersion = lastNonPrereleaseVersion?.version;
                 context.msLastUpdated = lastNonPrereleaseVersion?.lastUpdated;
                 context.msInstalls = msExtension.value?.statistics?.find((s) => s.statisticName === "install")?.value;
-                context.msPublisher = msExtension.value?.publisher.publisherName;
-            }
+                context.msPublisher = msExtension.value?.publisher?.publisherName;
 
-            // Check if the extension is published by either Microsoft or GitHub
-            if (
-                ["https://microsoft.com", "https://github.com"].includes(msExtension?.value?.publisher.domain) &&
-                msExtension?.value.publisher.isDomainVerified
-            ) {
-                stat.msPublished[extension.id] = { msInstalls: context.msInstalls, msVersion: context.msVersion };
+                // Check if the extension is published by either Microsoft or GitHub
+                if (
+                    msExtension?.value?.publisher?.domain &&
+                    ["https://microsoft.com", "https://github.com"].includes(msExtension.value.publisher.domain) &&
+                    msExtension.value.publisher.isDomainVerified
+                ) {
+                    stat.msPublished[extension.id] = { msInstalls: context.msInstalls, msVersion: context.msVersion };
+                }
             }
 
             async function updateStat() {
-                /** @type {[PromiseSettledResult<PublishedExtension | undefined>]} */
+                /** @type {[PromiseSettledResult<import("azure-devops-node-api/interfaces/GalleryInterfaces").PublishedExtension | undefined>]} */
                 const [ovsxExtension] = await Promise.allSettled([openGalleryApi.getExtension(extension.id, flags)]);
                 if (ovsxExtension.status === "fulfilled") {
-                    context.ovsxVersion = ovsxExtension.value?.versions[0]?.version;
-                    context.ovsxLastUpdated = ovsxExtension.value?.versions[0]?.lastUpdated;
+                    context.ovsxVersion = ovsxExtension.value?.versions?.[0]?.version;
+                    context.ovsxLastUpdated = ovsxExtension.value?.versions?.[0]?.lastUpdated;
                 }
                 const daysInBetween =
                     context.ovsxLastUpdated && context.msLastUpdated
@@ -200,10 +198,10 @@ module.exports = async (doPublish) => {
 
             const resolved = await resolveExtension(
                 extension,
-                context.msVersion && {
+                context.msVersion ? {
                     version: context.msVersion,
-                    lastUpdated: context.msLastUpdated,
-                },
+                    lastUpdated: /** @type {Date} */ (context.msLastUpdated),
+                } : undefined,
             );
             stat.resolutions[extension.id] = {
                 msInstalls: context.msInstalls,

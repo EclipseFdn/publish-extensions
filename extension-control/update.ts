@@ -49,10 +49,10 @@ const existsOnOpenVSX = async (id: string) => {
 };
 
 const latestData = await fetch("https://main.vscode-cdn.net/extensions/marketplace.json");
-const latestJson = (await latestData.json()) as IStringDictionary<IRawExtensionsControlManifest>;
+const latestJson = (await latestData.json()) as IRawExtensionsControlManifest;
 
 const localFile = Bun.file(path.resolve(__dirname, "./extensions.json"));
-const localData = JSON.parse(await localFile.text()) as IStringDictionary<IRawExtensionsControlManifest>;
+const localData = JSON.parse(await localFile.text()) as IRawExtensionsControlManifest;
 const updatedData = structuredClone(localData);
 
 for (const key of Object.values(latestJson.malicious)) {
@@ -65,8 +65,8 @@ for (const key of Object.values(latestJson.malicious)) {
 }
 
 const missingDependency = [];
-for (const key of Object.keys(latestJson.deprecated)) {
-    if (key in localData.deprecated) {
+for (const key in latestJson.deprecated) {
+    if (localData.deprecated && key in localData.deprecated) {
         continue;
     }
 
@@ -79,6 +79,7 @@ for (const key of Object.keys(latestJson.deprecated)) {
     // Ensure both extensions exist on OpenVSX, if only key exists, set its entry to true instead of the original object
     const exists = await Promise.all(extensionsToCheck.map(existsOnOpenVSX));
     if (exists.every((x) => x)) {
+        updatedData.deprecated ??= {};
         updatedData.deprecated[key] = latestJson.deprecated[key];
     }
 
@@ -87,22 +88,23 @@ for (const key of Object.keys(latestJson.deprecated)) {
     }
 }
 
-for (const key of Object.keys(latestJson.migrateToPreRelease)) {
-    if (key in localData.migrateToPreRelease) {
+for (const key in latestJson.migrateToPreRelease) {
+    if (localData.migrateToPreRelease && key in localData.migrateToPreRelease) {
         continue;
     }
 
     const exists = await existsOnOpenVSX(key);
     if (exists) {
+        updatedData.migrateToPreRelease ??= {};
         updatedData.migrateToPreRelease[key] = latestJson.migrateToPreRelease[key];
     }
 }
 
-for (const value of Object.values(latestJson.search)) {
+for (const value of latestJson.search ?? []) {
     if (value.query && value.preferredResults) {
         const localValue = localData?.search?.find((x) => x.query === value.query);
         if (!localValue) {
-            const newEntry = { query: value.query, preferredResults: [] };
+            const newEntry = { query: value.query, preferredResults: [] as string[] };
             for (const entry of value.preferredResults) {
                 const exists = await existsOnOpenVSX(entry);
                 if (exists) {
@@ -111,6 +113,7 @@ for (const value of Object.values(latestJson.search)) {
             }
 
             if (newEntry.preferredResults.length > 0) {
+                updatedData.search ??= [];
                 updatedData.search.push(newEntry);
             }
             continue;
@@ -118,21 +121,22 @@ for (const value of Object.values(latestJson.search)) {
     }
 }
 
-for (const key of Object.values(latestJson.extensionsEnabledWithPreRelease)) {
-    if (!localData.extensionsEnabledWithPreRelease.includes(key)) {
+for (const key of latestJson.extensionsEnabledWithPreRelease ?? []) {
+    if (!localData.extensionsEnabledWithPreRelease?.includes(key)) {
         const exists = await existsOnOpenVSX(key);
         if (exists) {
+            updatedData.extensionsEnabledWithPreRelease ??= [];
             updatedData.extensionsEnabledWithPreRelease.push(key);
         }
     }
 }
 
-const totalNumberBefore = Object.keys(localData)
-    .map((x) => Object.keys(localData[x]).length)
+const totalNumberBefore = (Object.keys(localData) as Array<keyof typeof localData>)
+    .map((x) => Object.keys(localData[x] ?? {}).length)
     .reduce((a, b) => a + b, 0);
 
-const totalNumberAfter = Object.keys(updatedData)
-    .map((x) => Object.keys(updatedData[x]).length)
+const totalNumberAfter = (Object.keys(updatedData) as Array<keyof typeof updatedData>)
+    .map((x) => Object.keys(updatedData[x] ?? {}).length)
     .reduce((a, b) => a + b, 0);
 
 console.log(`Total number of entries before: ${totalNumberBefore}`);

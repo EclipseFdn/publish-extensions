@@ -1,7 +1,6 @@
 const { DefaultArtifactClient } = require("@actions/artifact");
 const { artifactDirectory } = require("../lib/constants");
 
-// @ts-check
 /**
  * @param {string[]} extensionFiles
  */

@@ -12,10 +12,10 @@ const { DefaultArtifactClient } = require("@actions/artifact");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 module.exports = async () => {
-    const extension = JSON.parse(process.env.EXTENSION);
+    const extension = JSON.parse(/** @type {string} */ (process.env.EXTENSION));
     console.debug(`Resolving downloads for ${extension.id}`);
 
-    const publishContext = JSON.parse(process.env.PUBLISH_CONTEXT);
+    const publishContext = JSON.parse(/** @type {string} */ (process.env.PUBLISH_CONTEXT));
     publishContext.msLastUpdated = new Date(publishContext.msLastUpdated);
     publishContext.ovsxLastUpdated = new Date(publishContext.ovsxLastUpdated);
     await resolveExtension(

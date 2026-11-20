@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
-// @ts-check
 // Regression test for a command-injection vulnerability: the `repository` field of an
 // extensions.json entry was interpolated unquoted into a `git clone` command run via
 // `child_process.exec(..., { shell: "/bin/bash" })`. Since `new URL(repository)` does not
@@ -22,6 +21,9 @@ const path = require("path");
 const crypto = require("crypto");
 
 test("resolveExtension shell-quotes the repository field so it cannot inject commands via git clone", async (t) => {
+    /**
+     * @type {string[]}
+     */
     const commands = [];
 
     // Stub out child_process.exec so lib/exec.js's `git clone` call is actually executed
@@ -29,7 +31,7 @@ test("resolveExtension shell-quotes the repository field so it cannot inject com
     // subsequent git plumbing call (git log, etc.) is short-circuited with empty output,
     // since we don't need a real clone to exercise the vulnerable code path.
     const realExec = cp.exec.bind(cp);
-    t.mock.method(cp, "exec", (command, options, callback) => {
+    t.mock.method(cp, "exec", (/** @type {string} */ command, /** @type {import("node:child_process").ExecOptions} */ options, /** @type {any} */ callback) => {
         commands.push(command);
         if (command.startsWith("git clone")) {
             return realExec(command, { ...options, timeout: 10_000 }, callback);

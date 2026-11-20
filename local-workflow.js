@@ -8,7 +8,6 @@
  * SPDX-License-Identifier: EPL-2.0
  ********************************************************************************/
 
-// @ts-check
 const publishExtensionsScript = require("./scripts/publish-extensions");
 const buildExtensionScript = require("./scripts/build-extension");
 const publishExtensionScript = require("./scripts/publish-extension");
