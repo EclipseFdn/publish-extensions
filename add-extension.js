@@ -175,10 +175,9 @@ const getRepositoryFromMarketplace = async (/** @type {string} */ id) => {
     console.info(`Trying to build ${extID} for the first time`);
 
     process.env.EXTENSIONS = extID;
-    process.env.FORCE = "true";
     process.env.SKIP_PUBLISH = "true";
 
-    const out = await exec("node publish-extensions", { quiet: true, ghtoken: true });
+    const out = await exec("npm run build", { quiet: true, ghtoken: true });
     if (out && out.stderr.includes("[FAIL] Could not process extension:")) {
         console.error(
             `There was an error while trying to build ${extID}. Reverting back to the previous state of extensions.json.`,
