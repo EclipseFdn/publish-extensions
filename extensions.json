@@ -779,6 +779,7 @@
   "ms-python.debugpy": {
     "repository": "https://github.com/microsoft/vscode-python-debugger",
     "prepublish": "python -m pip install -U pip pipx wheel && npm ci --prefer-offline && python -m pipx run nox --session install_bundled_libs",
+    "pythonVersion": "3.10",
     "target": {
       "universal": true,
       "linux-x64": {
