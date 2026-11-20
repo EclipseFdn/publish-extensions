@@ -10,6 +10,7 @@
 const path = require("path");
 const { DefaultArtifactClient } = require("@actions/artifact");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
+const { downloadDirectory } = require("../lib/constants");
 
 module.exports = async () => {
     const extension = JSON.parse(process.env.EXTENSION);
@@ -27,7 +28,12 @@ module.exports = async () => {
     );
 
     const artifact = new DefaultArtifactClient();
-    await artifact.uploadArtifact("download", Object.values(publishContext.files), "/tmp/download", {
-        retentionDays: 7,
-    });
+    await artifact.uploadArtifact(
+        "download",
+        Object.values(publishContext.files).map((file) => `${downloadDirectory}/${path.basename(file)}`),
+        downloadDirectory,
+        {
+            retentionDays: 7,
+        },
+    );
 };

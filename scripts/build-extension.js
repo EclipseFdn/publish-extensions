@@ -23,10 +23,19 @@ const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
-const { artifactDirectory, registryHost, defaultPythonVersion, pythonVenvPrefix } = require("../lib/constants");
+const {
+    artifactDirectory,
+    registryHost,
+    defaultPythonVersion,
+    pythonVenvPrefix,
+    repoPath,
+    repositoryDirectory,
+    downloadDirectory,
+} = require("../lib/constants");
+const { shell, shellName, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
-const shellEscape = new shescape.Shescape({ shell: true });
+const shellEscape = new shescape.Shescape({ shell: shellName });
 
 const vscodeBuiltinExtensionsNamespace = "vscode";
 const isBuiltIn = (id) => id.split(".")[0] === vscodeBuiltinExtensionsNamespace;
@@ -38,10 +47,13 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
     openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 const ensureBuildPrerequisites = async () => {
+    // Also for what runs in this process, such as the npm and git commands of vsce when it creates the package.
+    applyPlatformEnvironment();
+
     // Make yarn use bash. The setting only exists in Yarn Classic; Yarn Berry (2+) rejects it.
     const { stdout: yarnVersion } = await exec("yarn --version", { quiet: true });
     if (yarnVersion.trim().startsWith("1.")) {
-        await exec("yarn config set script-shell /bin/bash");
+        await exec(`yarn config set script-shell ${shellEscape.quote(shell())}`);
     }
 
     // Don't show large git advice blocks
@@ -70,6 +82,10 @@ async function buildVersion(extension, publishContext) {
     try {
         await ensureBuildPrerequisites();
         const { id } = extension;
+        // The context may come from a job on another machine, with a different temporary directory.
+        if (publishContext.repo) {
+            publishContext.repo = repoPath;
+        }
         let packagePath = publishContext.repo;
         if (packagePath && extension.location) {
             packagePath = path.join(packagePath, extension.location);
@@ -87,11 +103,12 @@ async function buildVersion(extension, publishContext) {
             pythonVenv = await fs.promises.mkdtemp(pythonVenvPrefix);
             // Downloads are enabled explicitly: some distributions ship a uv that disables them by default.
             await exec(
-                `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${pythonVenv}`,
+                `uv venv --seed --managed-python --python ${shellEscape.quote(extension.pythonVersion ?? defaultPythonVersion)} ${shellEscape.quote(pythonVenv)}`,
                 { env: { UV_PYTHON_DOWNLOADS: "automatic" } },
             );
 
-            await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
+            await removeDirectory(repositoryDirectory);
+            await removeDirectory(downloadDirectory);
             await resolveExtension(
                 extension,
                 publishContext.msVersion && {
@@ -118,7 +135,7 @@ async function buildVersion(extension, publishContext) {
                     ...options.env,
                     // Last, so that no target environment variable can drop the venv from the PATH.
                     VIRTUAL_ENV: pythonVenv,
-                    PATH: `${pythonVenv}/bin${path.delimiter}${process.env.PATH}`,
+                    PATH: `${venvBinDirectory(pythonVenv)}${path.delimiter}${process.env.PATH}`,
                 };
 
                 return exec(command, options);
@@ -130,7 +147,9 @@ async function buildVersion(extension, publishContext) {
                 const nvmFile = await findUp(".nvmrc", {
                     cwd: path.join(publishContext.repo, extension.location ?? "."),
                 });
-                if (nvmFile) {
+                if (nvmFile && process.platform === "win32") {
+                    console.warn("Skipping .nvmrc: nvm is not available on Windows, using the installed Node version");
+                } else if (nvmFile) {
                     // If the project has a preferred Node version, use it
                     await execBuildStep("source ~/.nvm/nvm.sh && nvm install", {
                         cwd: path.join(publishContext.repo, extension.location ?? "."),
@@ -317,7 +336,7 @@ async function buildVersion(extension, publishContext) {
         }
     } finally {
         if (pythonVenv) {
-            await fs.promises.rm(pythonVenv, { recursive: true, force: true });
+            await removeDirectory(pythonVenv);
         }
     }
 }

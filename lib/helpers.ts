@@ -1,5 +1,5 @@
 import { PublishStat } from "../types";
-import { registryHost } from "./constants";
+import { registryHost, statPath } from "./constants";
 
 export const lineBreak = "\r\n";
 
@@ -14,6 +14,6 @@ export const generateOpenVsxLink = (id: string) =>
 export const calculatePercentage = (value: number, total: number): string => `${((value / total) * 100).toFixed(0)}%`;
 
 export const readPublishStatistics = async (): Promise<PublishStat> => {
-    const file = Bun.file("/tmp/stat.json");
+    const file = Bun.file(statPath);
     return await file.json();
 };
