@@ -2,7 +2,8 @@
 
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/en/) (we use Node 18)
+-   [Node.js](https://nodejs.org/en/) (see `engines` in `package.json`)
+-   [Yarn](https://classic.yarnpkg.com/) (the build script configures it unconditionally, even for extensions that only use npm)
 -   Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they only need to build correctly there)
 
 To add an extension to this repo, clone the repo[^clone], install the dependencies[^deps], and use the following command:
@@ -34,12 +35,14 @@ The best way to add an extension here is to [open this repository in Gitpod](htt
 To test, run:
 
 ```
-GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true node publish-extensions.js
+npm run build albert.tabout
 ```
+
+`npm run build` takes one or more extension ids (or `EXTENSIONS=a.b,c.d`). It only builds the extensions into `out/` and never publishes. It always builds, even if the extension is already up to date on Open VSX. `npm run publish` builds them the same way and then publishes them to Open VSX; it requires `OVSX_PAT`.
 
 ### `GITHUB_TOKEN`
 
-For testing locally, we advise you to provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for release and file resolution in our scripts. Otherwise, publishing can work in our workflow but fail for you locally and vice-a-versa.
+Optional. If you provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), the scripts also look for prebuilt `.vsix` files attached to the extension's GitHub releases, as our workflow does. Without it, that lookup is skipped and the extension is built from source, so the result can differ from the workflow's.
 
 You can create one in your [GitHub Token Settings](https://github.com/settings/tokens). This token does not require any special permissions.
 
