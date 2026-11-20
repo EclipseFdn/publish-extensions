@@ -1,5 +1,18 @@
 {
     "malicious": [
+		"Adaex.vscode-agents-explorer",
+        "neural-llm.power-claude",
+        "uladluch.antigravity-mobile-connector",
+        "charcoal-mint-studio.theme-charcoal-mint",
+        "aurora-them-creator.theme-aurora-nocturne",
+        "KsWpsClaude.wps-claude-vscode",
+        "workern.appblink",
+        "RoyHtml.xampp-manager",
+        "EladNahman.Super-Cool-Extension",
+        "MohamedSelim.br-coder",
+		"stazottest0.auto-run-command-stazottest0-1",
+		"gabrielgrinberg.auto-run-command-stazottest0",
+		"verner-hukov13.playwright",
 		"holiday-themes.theme-coca-cola-christmas",
 		"lohsebhipolg2s.theme-aurora-borealis",
 		"solidity-syntax.deep-focus",
@@ -987,6 +1000,14 @@
         }
     ],
     "deprecated": {
+		"devsense-team.devsense": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "sysradar.sysradar",
+                "displayName": "SysRadar — VS Code System Monitor & Performance Dashboard"
+            },
+            "additionalInfo": "The extension was re-branded to sysradar.sysradar in order to prevent confusion with other extensions published to the devsense namespace."
+        },
         "nguyentruong354.live-serve": {
             "disallowInstall": true,
             "extension": {
@@ -1749,6 +1770,14 @@
                 "displayName": "Devkit for Grand MA2+MA3"
             },
             "additionalInfo": "MA3dev for VScode was renamed and extended to grandMA2 as Devkit for Grand MA2+MA3. Uninstall this extension and install the new one."
+        },
+        "rupeshdevasam.muse-studio": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "twincrewlabs.muse-studio",
+                "displayName": "Muse Studio for VS Code"
+            },
+            "additionalInfo": "Muse Studio moved from the publisher's personal namespace (rupeshdevasam) to the company namespace TwinCrew Labs (twincrewlabs). Please install twincrewlabs.muse-studio instead. It is the same extension, and all future updates will be published there."
         },
         "saffo.curbcut": {
             "disallowInstall": false,
