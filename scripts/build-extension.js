@@ -38,8 +38,11 @@ openGalleryApi.post = (url, data, additionalHeaders) =>
     openGalleryApi.client.post(`${openGalleryApi.baseUrl}${url}`, data, additionalHeaders);
 
 const ensureBuildPrerequisites = async () => {
-    // Make yarn use bash
-    await exec("yarn config set script-shell /bin/bash");
+    // Make yarn use bash. The setting only exists in Yarn Classic; Yarn Berry (2+) rejects it.
+    const { stdout: yarnVersion } = await exec("yarn --version", { quiet: true });
+    if (yarnVersion.trim().startsWith("1.")) {
+        await exec("yarn config set script-shell /bin/bash");
+    }
 
     // Don't show large git advice blocks
     await exec("git config --global advice.detachedHead false");
