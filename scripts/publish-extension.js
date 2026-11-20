@@ -14,6 +14,7 @@ const yauzl = require("yauzl-promise");
 const xml2js = require("xml2js");
 
 const { registryHost } = require("../lib/constants");
+const { duplicateTargets } = require("../lib/targets");
 
 /**
  *
@@ -93,6 +94,25 @@ module.exports = async (extensionId, extensionFiles) => {
 
     const errors = [];
     const registryUrl = `https://${registryHost}`;
+
+    // Nothing is published if two files are for the same target, for example because none of them says which
+    // platform it is for: Open VSX would take the first as the universal version and skip the rest as duplicates.
+    const targets = [];
+    for (const extensionFile of extensionFiles) {
+        const xmlManifest = await readXmlManifest(extensionFile).catch(() => undefined);
+        targets.push({
+            file: extensionFile,
+            target: xmlManifest?.PackageManifest?.Metadata[0]?.Identity[0]["$"]?.TargetPlatform,
+        });
+    }
+    const duplicates = duplicateTargets(targets);
+    if (duplicates.size > 0) {
+        throw new Error(
+            [...duplicates]
+                .map(([target, files]) => `Several files are for the target ${target}: ${files.join(", ")}`)
+                .join("\n"),
+        );
+    }
     for (const extensionFile of extensionFiles) {
         let xmlManifest = undefined;
 
@@ -127,7 +147,7 @@ module.exports = async (extensionId, extensionFiles) => {
         const options = { extensionFile, registryUrl, skipDuplicate: true };
         try {
             await ovsx.publish(options);
-            console.log(`Published ${options.extensionFile} to ${options.registryUrl}/extension/${namespace}/${extension}`);
+            console.log(`Processed ${options.extensionFile} for ${options.registryUrl}/extension/${namespace}/${extension} (published, or skipped as a duplicate as reported above)`);
         } catch (error) {
             console.log(`Publishing extension with id '${extensionId}' failed: ${error}`);
         }

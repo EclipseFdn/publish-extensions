@@ -14,7 +14,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { buildLegs, isSelected } = require("../lib/targets");
+const { buildLegs, isSelected, duplicateTargets } = require("../lib/targets");
 
 /** @returns {any} */
 const publishContext = (/** @type {object} */ extra = {}) => ({ target: "", ...extra });
@@ -57,4 +57,23 @@ test("isSelected builds every target unless one is selected", () => {
     assert.equal(isSelected("linux-x64", ""), true);
     assert.equal(isSelected("linux-x64", "linux-x64"), true);
     assert.equal(isSelected("win32-x64", "linux-x64"), false);
+});
+
+test("duplicateTargets finds several files for the same target, universal being the one without a target", () => {
+    assert.deepEqual(
+        duplicateTargets([
+            { file: "a@linux-x64.vsix", target: "linux-x64" },
+            { file: "a@win32-x64.vsix", target: "win32-x64" },
+        ]),
+        new Map(),
+    );
+
+    assert.deepEqual(
+        duplicateTargets([
+            { file: "a@linux-x64.vsix" },
+            { file: "a@win32-x64.vsix", target: "" },
+            { file: "a@darwin-x64.vsix", target: "darwin-x64" },
+        ]),
+        new Map([["universal", ["a@linux-x64.vsix", "a@win32-x64.vsix"]]]),
+    );
 });
