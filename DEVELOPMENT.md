@@ -35,14 +35,14 @@ The best way to add an extension here is to [open this repository in Gitpod](htt
 To test, run:
 
 ```
-GITHUB_TOKEN=your_pat EXTENSIONS=albert.tabout FORCE=true npm run build
+EXTENSIONS=albert.tabout FORCE=true npm run build
 ```
 
 `npm run build` only builds the extensions into `out/` and never publishes. `npm run publish` builds them the same way and then publishes them to Open VSX; it requires `OVSX_PAT`.
 
 ### `GITHUB_TOKEN`
 
-For testing locally, we advise you to provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for release and file resolution in our scripts. Otherwise, publishing can work in our workflow but fail for you locally and vice-a-versa.
+Optional. If you provide a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), the scripts also look for prebuilt `.vsix` files attached to the extension's GitHub releases, as our workflow does. Without it, that lookup is skipped and the extension is built from source, so the result can differ from the workflow's.
 
 You can create one in your [GitHub Token Settings](https://github.com/settings/tokens). This token does not require any special permissions.
 
