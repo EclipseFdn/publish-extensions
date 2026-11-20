@@ -15,9 +15,11 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const os = require("node:os");
 
+const cp = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
 const {
+    quote,
     tempDirectory,
     tempPath,
     shell,
@@ -144,4 +146,23 @@ test("removeDirectory removes a directory tree and ignores a missing one", async
     await removeDirectory(directory);
     assert.equal(fs.existsSync(directory), false);
     await removeDirectory(directory);
+});
+
+test("quote passes any value to bash as a single, unexpanded argument", () => {
+    for (const value of [
+        "simple",
+        "with space",
+        "it's",
+        "'; touch /tmp/pwned #",
+        "$(echo expanded)",
+        "`echo expanded`",
+        "${HOME}",
+        "a\nb",
+        '"double"',
+        "back\\slash",
+        "",
+    ]) {
+        const result = cp.spawnSync("bash", ["-c", `printf %s ${quote(value)}`], { encoding: "utf8" });
+        assert.equal(result.stdout, value);
+    }
 });
