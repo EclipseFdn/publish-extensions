@@ -17,8 +17,7 @@ const { ExtensionQueryFlags, PublishedExtension } = require("azure-devops-node-a
 const semver = require("semver");
 const Ajv = require("ajv/dist/2020").default;
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
-const exec = require("../lib/exec");
-const { registryHost } = require("../lib/constants");
+const { registryHost, repositoryDirectory, downloadDirectory } = require("../lib/constants");
 
 /**
  * Checks whether the provided `version` is a prerelease or not
@@ -196,7 +195,8 @@ module.exports = async (doPublish) => {
             }
 
             await updateStat();
-            await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
+            await fs.promises.rm(repositoryDirectory, { recursive: true, force: true });
+            await fs.promises.rm(downloadDirectory, { recursive: true, force: true });
 
             const resolved = await resolveExtension(
                 extension,

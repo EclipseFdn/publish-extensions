@@ -23,7 +23,15 @@ const { cannotPublish } = require("../lib/reportStat");
 
 const { PublicGalleryAPI } = require("@vscode/vsce/out/publicgalleryapi");
 const { PublishedExtension } = require("azure-devops-node-api/interfaces/GalleryInterfaces");
-const { artifactDirectory, registryHost, defaultPythonVersion, pythonVenvPrefix } = require("../lib/constants");
+const {
+    artifactDirectory,
+    registryHost,
+    defaultPythonVersion,
+    pythonVenvPrefix,
+    repositoryDirectory,
+    downloadDirectory,
+} = require("../lib/constants");
+const { shell, venvBinDirectory } = require("../lib/platform");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: true });
@@ -41,11 +49,17 @@ const ensureBuildPrerequisites = async () => {
     // Make yarn use bash. The setting only exists in Yarn Classic; Yarn Berry (2+) rejects it.
     const { stdout: yarnVersion } = await exec("yarn --version", { quiet: true });
     if (yarnVersion.trim().startsWith("1.")) {
-        await exec("yarn config set script-shell /bin/bash");
+        await exec(`yarn config set script-shell ${shell()}`);
     }
 
     // Don't show large git advice blocks
     await exec("git config --global advice.detachedHead false");
+
+    if (process.platform === "win32") {
+        // Git for Windows converts line endings and limits path lengths by default, which breaks checked out sources.
+        await exec("git config --global core.autocrlf false");
+        await exec("git config --global core.longpaths true");
+    }
 
     // Create directory for storing built extensions
     if (fs.existsSync(artifactDirectory)) {
@@ -91,7 +105,8 @@ async function buildVersion(extension, publishContext) {
                 { env: { UV_PYTHON_DOWNLOADS: "automatic" } },
             );
 
-            await exec("rm -rf /tmp/repository /tmp/download", { quiet: true });
+            await fs.promises.rm(repositoryDirectory, { recursive: true, force: true });
+            await fs.promises.rm(downloadDirectory, { recursive: true, force: true });
             await resolveExtension(
                 extension,
                 publishContext.msVersion && {
@@ -118,7 +133,7 @@ async function buildVersion(extension, publishContext) {
                     ...options.env,
                     // Last, so that no target environment variable can drop the venv from the PATH.
                     VIRTUAL_ENV: pythonVenv,
-                    PATH: `${pythonVenv}/bin${path.delimiter}${process.env.PATH}`,
+                    PATH: `${venvBinDirectory(pythonVenv)}${path.delimiter}${process.env.PATH}`,
                 };
 
                 return exec(command, options);
@@ -130,7 +145,9 @@ async function buildVersion(extension, publishContext) {
                 const nvmFile = await findUp(".nvmrc", {
                     cwd: path.join(publishContext.repo, extension.location ?? "."),
                 });
-                if (nvmFile) {
+                if (nvmFile && process.platform === "win32") {
+                    console.warn("Skipping .nvmrc: nvm is not available on Windows, using the installed Node version");
+                } else if (nvmFile) {
                     // If the project has a preferred Node version, use it
                     await execBuildStep("source ~/.nvm/nvm.sh && nvm install", {
                         cwd: path.join(publishContext.repo, extension.location ?? "."),
