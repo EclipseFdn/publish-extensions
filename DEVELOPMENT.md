@@ -2,7 +2,8 @@
 
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/en/) (we use Node 18)
+-   [Node.js](https://nodejs.org/en/) (see `engines` in `package.json`)
+-   [Yarn](https://classic.yarnpkg.com/) (the build script configures it unconditionally, even for extensions that only use npm)
 -   Ubuntu Linux (Windows and macOS work fine for adding extensions, but extensions are always tested on Ubuntu, so they only need to build correctly there)
 
 To add an extension to this repo, clone the repo[^clone], install the dependencies[^deps], and use the following command:
@@ -34,8 +35,10 @@ The best way to add an extension here is to [open this repository in Gitpod](htt
 To test, run:
 
 ```
-GITHUB_TOKEN=your_pat EXTENSIONS=rebornix.ruby SKIP_PUBLISH=true FORCE=true npm run build
+GITHUB_TOKEN=your_pat EXTENSIONS=albert.tabout SKIP_PUBLISH=true FORCE=true npm run build
 ```
+
+`npm run build` only builds the extensions into `out/` and never publishes. `npm run publish` builds them the same way and then publishes them to Open VSX; it requires `OVSX_PAT`.
 
 ### `GITHUB_TOKEN`
 

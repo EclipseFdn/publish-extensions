@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "node bin/build-extensions",
+    "publish": "node bin/publish-extensions",
     "format": "prettier --write .",
     "test": "node --test"
   },

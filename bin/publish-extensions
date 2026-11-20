@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+/********************************************************************************
+ * Copyright (c) 2026 TypeFox and others
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v. 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ ********************************************************************************/
+
+// Builds the extensions selected by EXTENSIONS into ./out and publishes them to Open VSX (needs OVSX_PAT).
+const { join } = require("node:path");
+
+// Must be set before build-extension is first required, which reads it at load time.
+require("../lib/constants").artifactDirectory = join(__dirname, "..", "out");
+
+(async () => {
+    await require("../scripts/publish-extensions")(async (extension, context) => {
+        const files = await require("../scripts/build-extension")(extension, context);
+        await require("../scripts/publish-extension")(extension.id, files);
+    });
+})();
