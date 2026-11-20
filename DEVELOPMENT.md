@@ -55,6 +55,22 @@ You can create one in your [GitHub Token Settings](https://github.com/settings/t
     },
 ```
 
+### Platform-specific extensions
+
+An extension that ships native binaries is built once per platform, with `target`:
+
+```jsonc
+"target": {
+    "linux-x64": { "env": { "CARGO_TARGET": "x86_64-unknown-linux-musl" } },
+    "linux-arm64": { "env": { "CARGO_TARGET": "aarch64-unknown-linux-musl" }, "runsOn": "ubuntu-24.04-arm" },
+    "win32-x64": { "env": { "CARGO_TARGET": "x86_64-pc-windows-msvc" }, "runsOn": "windows-latest" }
+}
+```
+
+Each target is built in its own job of the [publish workflow](./.github/workflows/publish-extension.yml), on the runner given by `runsOn` (`ubuntu-latest` if omitted; `ubuntu-24.04-arm`, `macos-latest`, `windows-latest` and `windows-11-arm` are allowed), and `env` is passed to its build commands. All jobs run to the end, but nothing is published unless every target built.
+
+The build commands run in Git Bash on Windows, so they must work there too. `.nvmrc` is not honoured on Windows. To build a single target locally, set `BUILD_TARGET`, for example `BUILD_TARGET=linux-x64 npm run build publisher.name`.
+
 ## How do extensions get updated?
 
 The publishing job auto infers the latest version published to the MS Marketplace[^ms] using [`vsce`](https://www.npmjs.com/package/vsce) and then tries to resolve a `vsix` file using a [GitHub Release asset](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases) or, when one doesn't exist, it tries to find a commit to a build associated with the version using tags and commits around the last MS Marketplace[^ms] updated date.

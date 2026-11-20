@@ -92,7 +92,8 @@ export interface Extension {
         [key: string]:
             | true
             | {
-                  env: { [key: string]: string };
+                  env?: { [key: string]: string };
+                  runsOn?: string;
               };
     };
     msMarketplaceIdOverride?: string;
