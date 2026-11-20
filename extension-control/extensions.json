@@ -1806,6 +1806,14 @@
         "HuaweiCloud-Developer.developerspace": {
             "disallowInstall": true,
             "additionalInfo": "This extension is no longer maintained."
+        },
+        "macdara.clear-resume": {
+            "disallowInstall": false,
+            "extension": {
+                "id": "macdara.cornerman",
+                "displayName": "cornerman"
+            },
+            "additionalInfo": "clear-resume was renamed to cornerman at 0.7.0. The final clear-resume release, 0.4.2, names cornerman as its replacement."
         }
     },
     "migrateToPreRelease": {
