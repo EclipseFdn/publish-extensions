@@ -102,6 +102,7 @@ Following environment variables are available:
 -   `EXTENSION_ID`: the extension ID, e.g. `rebornix.ruby`
 -   `EXTENSION_PUBLISHER`: the extension publisher, e.g. `rebornix`
 -   `EXTENSION_NAME`: the extension name, e.g. `ruby`
+-   `EXTENSION_TARGET`: the platform the extension is built for, e.g. `linux-x64` (only for extensions with a `target`)
 -   `VERSION`: the version of the extension to publish, e.g. `0.1.0`
 -   `MS_VERSION`: the latest version of the extension on the MS Marketplace[^ms], e.g. `0.1.0`
 -   `OVSX_VERSION`: the latest version of the extension on Open VSX, e.g. `0.1.0`

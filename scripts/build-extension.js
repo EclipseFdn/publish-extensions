@@ -34,6 +34,7 @@ const {
 } = require("../lib/constants");
 const { shell, shellName, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
 const { isSelected } = require("../lib/targets");
+const { buildStepEnvironment } = require("../lib/buildEnvironment");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
 const shellEscape = new shescape.Shescape({ shell: shellName });
@@ -118,21 +119,13 @@ async function buildVersion(extension, publishContext) {
                 },
             );
 
-            const [publisher, name] = extension.id.split(".");
-
             /**
              * @type {typeof exec}
              */
             const execBuildStep = (command, options) => {
                 options ??= {};
                 options.env = {
-                    ...publishContext.environmentVariables,
-                    EXTENSION_ID: extension.id,
-                    EXTENSION_PUBLISHER: publisher,
-                    EXTENSION_NAME: name,
-                    VERSION: publishContext.version,
-                    MS_VERSION: publishContext.msVersion,
-                    OVSX_VERSION: publishContext.ovsxVersion,
+                    ...buildStepEnvironment(extension, publishContext),
                     ...options.env,
                     // Last, so that no target environment variable can drop the venv from the PATH.
                     VIRTUAL_ENV: pythonVenv,
