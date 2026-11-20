@@ -32,7 +32,7 @@ const {
     downloadDirectory,
 } = require("../lib/constants");
 const { shell, quote, venvBinDirectory, removeDirectory, applyPlatformEnvironment } = require("../lib/platform");
-const { isSelected } = require("../lib/targets");
+const { isSelected, platformOf } = require("../lib/targets");
 const { buildStepEnvironment } = require("../lib/buildEnvironment");
 const resolveExtension = require("../lib/resolveExtension").resolveExtension;
 
@@ -363,7 +363,7 @@ module.exports = async (extension, publishContext) => {
                 console.log(`${extension.id}: skipping, since target ${target} is not built by this job`);
                 continue;
             }
-            publishContext.target = target;
+            publishContext.target = platformOf(target);
             publishContext.environmentVariables = targetData === true ? undefined : targetData.env;
             const options = await buildVersion(extension, publishContext);
             if (options) {

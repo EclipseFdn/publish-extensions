@@ -14,7 +14,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { buildLegs, isSelected, duplicateTargets } = require("../lib/targets");
+const { buildLegs, isSelected, duplicateTargets, platformOf, universalTarget } = require("../lib/targets");
 
 /** @returns {any} */
 const publishContext = (/** @type {object} */ extra = {}) => ({ target: "", ...extra });
@@ -76,4 +76,18 @@ test("duplicateTargets finds several files for the same target, universal being 
         ]),
         new Map([["universal", ["a@linux-x64.vsix", "a@win32-x64.vsix"]]]),
     );
+});
+
+test("the universal target is built without a platform, next to the platform-specific ones", () => {
+    assert.equal(universalTarget, "universal");
+    assert.equal(platformOf("universal"), undefined);
+    assert.equal(platformOf("linux-x64"), "linux-x64");
+
+    const extension = /** @type {any} */ ({ id: "a.b", target: { universal: true, "linux-x64": { env: { A: "1" } } } });
+    assert.deepEqual(buildLegs(extension, publishContext()), [
+        { name: "universal", target: "universal", runsOn: "ubuntu-latest" },
+        { name: "linux-x64", target: "linux-x64", runsOn: "ubuntu-latest" },
+    ]);
+    assert.equal(isSelected("universal", "universal"), true);
+    assert.equal(isSelected("linux-x64", "universal"), false);
 });
