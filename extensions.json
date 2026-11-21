@@ -161,6 +161,9 @@
   "ccls-project.ccls": {
     "repository": "https://github.com/MaskRay/vscode-ccls"
   },
+  "checkmarx.checkmarx-one": {
+    "repository": "https://github.com/Checkmarx/ast-vscode-extension"
+  },
   "chenglou92.rescript-vscode": {
     "repository": "https://github.com/rescript-lang/rescript-vscode"
   },
