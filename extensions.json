@@ -1542,6 +1542,9 @@
       "VSCE_TESTS=1 vsce package -o extension.vsix"
     ]
   },
+  "vscjava.vscode-lombok": {
+    "repository": "https://github.com/microsoft/vscode-lombok"
+  },
   "vscjava.vscode-maven": {
     "prepublish": "npm run build-plugin",
     "repository": "https://github.com/microsoft/vscode-maven"
