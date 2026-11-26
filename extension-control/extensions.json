@@ -1827,6 +1827,14 @@
                 "displayName": "Sema4.ai SDK"
             },
             "additionalInfo": "Robocorp Code is no longer maintained and has been superseded by the Sema4.ai SDK extension."
+        },
+        "oliviercado.deep-diff-links": {
+            "disallowInstall": true,
+            "extension": {
+                "id": "netismic.difflinks",
+                "displayName": "Deep Diff Links"
+            },
+            "additionalInfo": "Deep Diff Links moved from oliviercado.deep-diff-links to netismic.difflinks. Uninstall the old extension and install netismic.difflinks."
         }
     },
     "migrateToPreRelease": {
